@@ -64,8 +64,8 @@ def plot_static_scalability():
             bbox=dict(boxstyle="round,pad=0.3", fc="#FEF2F2", ec=COLOR_B, lw=1.0, alpha=0.95))
 
     # Clean un-clipped annotation for n = 1,000,000 runtime placed in empty lower-right zone
-    ax.annotate('$n=10^6$ Scaling:\nAlg A: $1.06$ s ($1062$ ms)\nAlg C: $165$ ms',
-                xy=(1000000, 1061.7), xytext=(25000, 0.025),
+    ax.annotate('$n=10^6$ Scaling:\nAlg A: $421.3$ ms\nAlg C: $128.4$ ms',
+                xy=(1000000, 421.3), xytext=(25000, 0.025),
                 arrowprops=dict(facecolor=COLOR_A, shrink=0.08, width=1.5, headwidth=6, edgecolor=COLOR_A),
                 fontsize=9.5, fontweight='bold', color=COLOR_A,
                 bbox=dict(boxstyle="round,pad=0.35", fc="#EFF6FF", ec="#3B82F6", lw=1.0))
@@ -203,28 +203,29 @@ def plot_break_even():
     cum_recomp = K * t_recomp_C
     cum_dynamic = t_build_A + K * t_dyn_A
 
-    fig, ax = plt.subplots(figsize=(7.6, 4.4))
+    fig, ax = plt.subplots(figsize=(8.0, 4.6))
 
-    ax.plot(K, cum_recomp, color=COLOR_C, marker='^', linewidth=2.5, markersize=8, label='Sweep-Line Recomputation ($K \\times T_{\\text{recomp}}$)')
-    ax.plot(K, cum_dynamic, color=COLOR_A, marker='o', linewidth=2.5, markersize=8, label='Dynamic Maintenance ($T_{\\text{build}} + K \\times T_{\\text{dyn}}$)')
+    ax.plot(K, cum_recomp, color=COLOR_C, marker='^', linewidth=2.8, markersize=9, label='Sweep-Line Recomputation ($K \\times T_{\\text{recomp}}$)')
+    ax.plot(K, cum_dynamic, color=COLOR_A, marker='o', linewidth=2.8, markersize=9, label='Dynamic Maintenance ($T_{\\text{build}} + K \\times T_{\\text{dyn}}$)')
 
     # Crossover point: K* = ceil(0.3804 / (0.1039 - 0.00065)) = ceil(3.68) = 4
-    ax.axvline(x=4, color='#DC2626', linestyle='--', linewidth=2, alpha=0.85)
-    ax.scatter([4], [cum_dynamic[3]], color='#DC2626', s=120, zorder=5)
+    ax.axvline(x=4, color='#DC2626', linestyle='--', linewidth=2.2, alpha=0.85)
+    ax.scatter([4], [cum_dynamic[3]], color='#DC2626', s=140, zorder=5)
     ax.annotate('Break-Even Point\n$K^* = 4$ updates\n(Amortized Advantage)',
                 xy=(4, cum_dynamic[3]), xytext=(6, 0.4),
                 arrowprops=dict(facecolor='#DC2626', shrink=0.08, width=2, headwidth=8),
-                fontsize=11, fontweight='bold', color='#DC2626',
+                fontsize=11.5, fontweight='bold', color='#DC2626',
                 bbox=dict(boxstyle="round,pad=0.3", fc="#FEF2F2", ec="#F87171", lw=1.2))
 
     ax.set_xlabel('Number of Sequential Updates ($K$)', fontweight='bold', fontsize=13)
     ax.set_ylabel('Cumulative Execution Time (ms)', fontweight='bold', fontsize=13)
-    ax.set_title('Break-Even Analysis: Dynamic vs Full Recomputation ($n=1,000$)', fontweight='bold', fontsize=13, pad=10)
+    ax.set_title('Break-Even Analysis: Dynamic vs Full Recomputation ($n=1,000$)', fontweight='bold', fontsize=13.5, pad=10)
     ax.set_xticks(K)
-    ax.grid(True)
-    ax.legend(frameon=True, facecolor='#F8FAFC', edgecolor='#CBD5E1', loc='upper left', fontsize=11)
+    ax.tick_params(axis='both', labelsize=11)
+    ax.grid(True, linestyle='--', alpha=0.4)
+    ax.legend(frameon=True, facecolor='#F8FAFC', edgecolor='#CBD5E1', loc='upper left', fontsize=11.5)
 
-    plt.subplots_adjust(left=0.12, right=0.96, top=0.90, bottom=0.13)
+    plt.subplots_adjust(left=0.11, right=0.96, top=0.90, bottom=0.13)
     pdf_path = os.path.join(OUTPUT_DIR, 'plot_break_even.pdf')
     png_path = os.path.join(OUTPUT_DIR, 'plot_break_even.png')
     plt.savefig(pdf_path, format='pdf', dpi=300)
