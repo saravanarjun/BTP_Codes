@@ -63,9 +63,9 @@ def plot_static_scalability():
             color=COLOR_B, fontsize=10.5, fontweight='bold', va='top',
             bbox=dict(boxstyle="round,pad=0.3", fc="#FEF2F2", ec=COLOR_B, lw=1.0, alpha=0.95))
 
-    # Clean un-clipped annotation for n = 1,000,000 runtime
+    # Clean un-clipped annotation for n = 1,000,000 runtime placed in empty lower-right zone
     ax.annotate('$n=10^6$ Scaling:\nAlg A: $1.06$ s ($1062$ ms)\nAlg C: $165$ ms',
-                xy=(1000000, 1061.7), xytext=(120000, 4.5),
+                xy=(1000000, 1061.7), xytext=(25000, 0.025),
                 arrowprops=dict(facecolor=COLOR_A, shrink=0.08, width=1.5, headwidth=6, edgecolor=COLOR_A),
                 fontsize=9.5, fontweight='bold', color=COLOR_A,
                 bbox=dict(boxstyle="round,pad=0.35", fc="#EFF6FF", ec="#3B82F6", lw=1.0))
@@ -148,41 +148,42 @@ def plot_dynamic_speedup():
 
     fig, ax1 = plt.subplots(figsize=(7.6, 4.4))
 
-    color_bar = '#3B82F6'
+    color_bar = '#2563EB'
     color_line = '#DC2626'
 
     x = np.arange(len(sizes))
-    width = 0.4
+    width = 0.45
 
-    bars = ax1.bar(x, latencies_us, width, color=color_bar, alpha=0.85, edgecolor='#1E40AF', label='Dynamic Update Latency ($\\mu$s)')
-    ax1.set_xlabel('Graph Size ($n$)', fontweight='bold')
-    ax1.set_ylabel('Dynamic Update Latency ($\\mu$s)', color='#1E40AF', fontweight='bold')
+    bars = ax1.bar(x, latencies_us, width, color=color_bar, alpha=0.9, edgecolor='#1E3A8A', linewidth=1.5, label='Dynamic Update Latency')
+    ax1.set_xlabel('Graph Size ($n$)', fontweight='bold', fontsize=13)
+    ax1.set_ylabel('Dynamic Update Latency ($\\mu$s)', color='#1E3A8A', fontweight='bold', fontsize=13)
     ax1.set_xticks(x)
-    ax1.set_xticklabels([f"$n={s}$" for s in sizes])
-    ax1.set_ylim(0, 2.0)
-    ax1.tick_params(axis='y', labelcolor='#1E40AF')
-    ax1.grid(True, axis='y')
+    ax1.set_xticklabels([f"$n={s}$" for s in sizes], fontsize=12, fontweight='bold')
+    ax1.set_ylim(0, 2.3)
+    ax1.tick_params(axis='y', labelcolor='#1E3A8A', labelsize=11)
+    ax1.grid(True, axis='y', linestyle='--', alpha=0.3)
 
-    # Add latency annotations cleanly
-    for bar in bars:
-        height = bar.get_height()
-        ax1.text(bar.get_x() + bar.get_width()/2., height + 0.06, f'{height:.2f} $\\mu$s', ha='center', va='bottom', fontsize=11, fontweight='bold', color='#1E40AF')
+    # Place latency time labels INSIDE the bars in crisp white bold text to completely eliminate overlap with the red line
+    for bar, lat in zip(bars, latencies_us):
+        h = bar.get_height()
+        ax1.text(bar.get_x() + bar.get_width()/2., h / 2.0, f'{lat:.2f} $\\mu$s',
+                 ha='center', va='center', fontsize=12, fontweight='bold', color='white')
 
-    # Twin axis for Speedup with ample margin
+    # Twin axis for Speedup with complete vertical separation
     ax2 = ax1.twinx()
     ax2.spines['top'].set_visible(False)
-    line = ax2.plot(x, speedups, color=color_line, marker='o', linewidth=3, markersize=10, label='Speedup vs Recompute ($\\times$)')
-    ax2.set_ylabel('Speedup Factor vs Recomputation ($\\times$)', color=color_line, fontweight='bold', labelpad=12)
-    ax2.tick_params(axis='y', labelcolor=color_line)
-    ax2.set_ylim(200, 1150)
+    line = ax2.plot(x, speedups, color=color_line, marker='o', linewidth=3.2, markersize=10, label='Speedup vs Recompute ($\\times$)')
+    ax2.set_ylabel('Speedup Factor vs Recomputation ($\\times$)', color=color_line, fontweight='bold', fontsize=13, labelpad=12)
+    ax2.tick_params(axis='y', labelcolor=color_line, labelsize=11)
+    ax2.set_ylim(100, 1300)
 
-    # Add speedup annotations with distinct box to prevent any collision
+    # Add speedup annotations well above the line markers with clear badges
     for i, sp in enumerate(speedups):
-        ax2.text(x[i], sp + 45, f'{sp}$\\times$', ha='center', va='bottom', fontsize=11.5, fontweight='bold', color=color_line,
-                 bbox=dict(boxstyle="round,pad=0.2", fc="#FEF2F2", ec=color_line, lw=0.9))
+        ax2.text(x[i], sp + 65, f'{sp}$\\times$', ha='center', va='bottom', fontsize=12, fontweight='bold', color=color_line,
+                 bbox=dict(boxstyle="round,pad=0.25", fc="#FEF2F2", ec=color_line, lw=1.2))
 
-    plt.title('Dynamic Maintenance: Latency & Speedup', fontweight='bold', pad=10)
-    plt.subplots_adjust(left=0.12, right=0.85, top=0.90, bottom=0.12)
+    plt.title('Dynamic Maintenance: Latency & Speedup', fontweight='bold', fontsize=14, pad=12)
+    plt.subplots_adjust(left=0.12, right=0.85, top=0.88, bottom=0.14)
     pdf_path = os.path.join(OUTPUT_DIR, 'plot_dynamic_speedup.pdf')
     png_path = os.path.join(OUTPUT_DIR, 'plot_dynamic_speedup.png')
     plt.savefig(pdf_path, format='pdf', dpi=300)
@@ -216,14 +217,14 @@ def plot_break_even():
                 fontsize=11, fontweight='bold', color='#DC2626',
                 bbox=dict(boxstyle="round,pad=0.3", fc="#FEF2F2", ec="#F87171", lw=1.2))
 
-    ax.set_xlabel('Number of Sequential Updates ($K$)', fontweight='bold')
-    ax.set_ylabel('Cumulative Execution Time (ms)', fontweight='bold')
+    ax.set_xlabel('Number of Sequential Updates ($K$)', fontweight='bold', fontsize=13)
+    ax.set_ylabel('Cumulative Execution Time (ms)', fontweight='bold', fontsize=13)
     ax.set_title('Break-Even Analysis: Dynamic vs Full Recomputation ($n=1,000$)', fontweight='bold', fontsize=13, pad=10)
     ax.set_xticks(K)
     ax.grid(True)
-    ax.legend(frameon=True, facecolor='#F8FAFC', edgecolor='#CBD5E1', loc='upper left')
+    ax.legend(frameon=True, facecolor='#F8FAFC', edgecolor='#CBD5E1', loc='upper left', fontsize=11)
 
-    plt.subplots_adjust(left=0.12, right=0.96, top=0.90, bottom=0.12)
+    plt.subplots_adjust(left=0.12, right=0.96, top=0.90, bottom=0.13)
     pdf_path = os.path.join(OUTPUT_DIR, 'plot_break_even.pdf')
     png_path = os.path.join(OUTPUT_DIR, 'plot_break_even.png')
     plt.savefig(pdf_path, format='pdf', dpi=300)

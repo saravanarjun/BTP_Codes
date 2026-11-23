@@ -436,12 +436,12 @@
         \vspace{1.5pt}
         \begin{minipage}[t]{0.485\linewidth}
             \centering
-            \includegraphics[width=\linewidth, height=3.8cm, keepaspectratio]{poster/figures/plot_static_scalability.pdf}
+            \includegraphics[width=\linewidth, height=4.4cm, keepaspectratio]{poster/figures/plot_static_scalability.pdf}
         \end{minipage}
         \hfill
         \begin{minipage}[t]{0.485\linewidth}
             \centering
-            \includegraphics[width=\linewidth, height=3.8cm, keepaspectratio]{poster/figures/plot_dynamic_speedup.pdf}
+            \includegraphics[width=\linewidth, height=4.4cm, keepaspectratio]{poster/figures/plot_dynamic_speedup.pdf}
         \end{minipage}
 
         \vspace{1pt}
@@ -465,14 +465,14 @@
 
     % Box 7: Break-Even Analysis
     \begin{posterbox}{7. Amortized Break-Even Analysis}
-        \begin{minipage}[c]{0.47\linewidth}
+        \begin{minipage}[c]{0.55\linewidth}
             \centering
-            \includegraphics[width=\linewidth, height=3.8cm, keepaspectratio]{poster/figures/plot_break_even.pdf}
-            \vspace{0.5pt}
-            {\fontsize{7.5}{9}\selectfont \color{textMuted} \textbf{Figure 6:} Amortized crossover showing dynamic distance tree becoming faster than recomputation at $K^* = 4$.}
+            \includegraphics[width=\linewidth, height=9.2cm, keepaspectratio]{poster/figures/plot_break_even.pdf}
+            \vspace{2pt}
+            {\fontsize{8}{10}\selectfont \color{textMuted} \textbf{Figure 6:} Amortized crossover showing dynamic distance tree becoming faster than recomputation at $K^* = 4$.}
         \end{minipage}
         \hfill
-        \begin{minipage}[c]{0.51\linewidth}
+        \begin{minipage}[c]{0.435\linewidth}
             \begin{highlightbox}
                 \textbf{Amortized Break-Even Model:}
                 \begin{equation*}
@@ -480,8 +480,8 @@
                 \end{equation*}
                 Across all benchmarked graph sizes ($n \in \{50, 1000, 5000\}$), the initial distance tree construction is amortized after only \textbf{$K^* = 4$ update operations}!
             \end{highlightbox}
-            \vspace{1pt}
-            {\fontsize{8.2}{10.2}\selectfont
+            \vspace{2pt}
+            {\fontsize{8.5}{10.8}\selectfont
             $\bullet$ \textbf{Batch Updates:} In interactive systems with streaming graph updates, dynamic maintenance outperforms the fastest sweep-line recomputation after just 4 mutations.\\
             $\bullet$ \textbf{Scale Invariance:} The ratio $T_{\text{build}} / T_{\text{recomp}}$ remains virtually constant ($\approx 3.3 - 3.8$), guaranteeing predictable amortized performance across all graph scales.
             }

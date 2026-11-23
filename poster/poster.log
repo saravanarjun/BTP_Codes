@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.11.9)  23 NOV 2026 17:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.11.9)  23 NOV 2026 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1479,13 +1479,13 @@ File: poster/figures/plot_static_scalability.pdf Graphic file (type pdf)
 <use poster/figures/plot_static_scalability.pdf>
 Package pdftex.def Info: poster/figures/plot_static_scalability.pdf  used on in
 put line 518.
-(pdftex.def)             Requested size: 186.75159pt x 108.11932pt.
+(pdftex.def)             Requested size: 216.2356pt x 125.18901pt.
 <poster/figures/plot_dynamic_speedup.pdf, id=54, 549.25201pt x 317.98799pt>
 File: poster/figures/plot_dynamic_speedup.pdf Graphic file (type pdf)
 <use poster/figures/plot_dynamic_speedup.pdf>
 Package pdftex.def Info: poster/figures/plot_dynamic_speedup.pdf  used on input
  line 518.
-(pdftex.def)             Requested size: 186.75159pt x 108.11932pt.
+(pdftex.def)             Requested size: 216.2356pt x 125.18901pt.
 
 Underfull \hbox (badness 10000) in alignment at lines 518--518
 [][][][][] 
@@ -1496,16 +1496,7 @@ File: poster/figures/plot_break_even.pdf Graphic file (type pdf)
 <use poster/figures/plot_break_even.pdf>
 Package pdftex.def Info: poster/figures/plot_break_even.pdf  used on input line
  518.
-(pdftex.def)             Requested size: 186.75159pt x 108.11932pt.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7.5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 518.
-
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5.24997> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 518.
-
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <3.75> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 518.
-
+(pdftex.def)             Requested size: 452.15793pt x 261.77562pt.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <24.88> not available
 (Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 518.
 
@@ -1515,20 +1506,13 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <20.74> not available
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <17.28> not available
 (Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 518.
 
-
-Underfull \hbox (badness 1033) in paragraph at lines 518--518
-\OT1/cmss/m/n/24.88 (+20) Across all bench-marked graph sizes ($\OT1/mathkerncm
-ss/m/sl/24.88 n \OMS/cmsy/m/n/24.88 2
- []
-
-LaTeX Font Info:    Calculating math sizes for size <8.2> on input line 518.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8.2> not available
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8.5> not available
 (Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 518.
 
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5.73996> not available
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5.94997> not available
 (Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 518.
 
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <4.09999> not available
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <4.25> not available
 (Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 518.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
@@ -1569,11 +1553,11 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 36738 strings out of 467871
- 752318 string characters out of 5418376
- 1537173 words of memory out of 5000000
- 64644 multiletter control sequences out of 15000+600000
- 723301 words of font info for 503 fonts, out of 8000000 for 9000
+ 36661 strings out of 467871
+ 750866 string characters out of 5418376
+ 1537074 words of memory out of 5000000
+ 64591 multiletter control sequences out of 15000+600000
+ 715876 words of font info for 467 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,1012b,1879s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
@@ -1612,18 +1596,19 @@ fb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 sfonts/cm/cmssi9.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/sarav/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarav/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarav/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/sarav/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:
-/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/
-msam7.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/symbols/msbm10.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/symbols/msbm7.pfb>
+KTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/sarav/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarav/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarav/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users
+/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10
+.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+symbols/msam7.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/symbols/msbm7.pfb>
 Output written on C:\Users\sarav\OneDrive\Desktop\BTP_Codes\poster\poster.pdf (
-1 page, 669815 bytes).
+1 page, 677556 bytes).
 PDF statistics:
- 817 PDF objects out of 1000 (max. 8388607)
+ 821 PDF objects out of 1000 (max. 8388607)
  3 named destinations out of 1000 (max. 500000)
- 179934 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 166110 words of extra memory for PDF output out of 184870 (max. 10000000)
 
