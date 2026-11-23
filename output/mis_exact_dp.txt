@@ -1,0 +1,17 @@
+========================================================================
+ Section 3.10.1 & Theorem 3.13: Exact Maximum Independent Set via DP
+ Recurrence: DP[i][v] = 1 + max(BEST[i-2], PREFIX[i-1][k-1])
+ Total Running Time: O(n) | Auxiliary Space: O(n)
+========================================================================
+
+Maximum Independent Set Size alpha(G) = BEST[h] = 2
+Reconstructed Set Independence Verified:          PASS
+
+Reconstructed Maximum Independent Set (Size 2):
+{2, 5}
+
+--- Dynamic Programming Table ---
+Level 1 (Depth 0, BEST = 1): [v1:1]
+Level 2 (Depth 1, BEST = 1): [v2:1, v3:1, v4:1]
+Level 3 (Depth 2, BEST = 2): [v5:2, v6:2]
+Level 4 (Depth 3, BEST = 2): [v7:2, v8:2]

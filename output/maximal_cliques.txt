@@ -1,0 +1,22 @@
+========================================================================
+ Maximal Cliques Report (Lemma 3.8)
+ Total Distance Tree Nodes Evaluated: 8
+ Total Unique Maximal Cliques:        4
+========================================================================
+
+--- Unique Maximal Cliques (Canonical Order) ---
+Clique 1 (Size 4): {1, 2, 3, 4}
+Clique 2 (Size 3): {3, 4, 5}
+Clique 3 (Size 3): {4, 5, 6}
+Clique 4 (Size 4): {5, 6, 7, 8}
+
+--- Evaluation of Lemma 3.8 for Every Node u in T(G) ---
+Node_u	Is_Leaf	Is_Clique	Is_Maximal	Size	Members	Status / Non-Maximal Details
+1	NO	PASS		PASS		4	{1,2,3,4}	MAXIMAL CLIQUE
+2	YES	PASS		SUBSET		3	{2,3,4}	Non-maximal: extendable with {1}
+3	NO	PASS		PASS		3	{3,4,5}	MAXIMAL CLIQUE
+4	NO	PASS		PASS		3	{4,5,6}	MAXIMAL CLIQUE
+5	NO	PASS		PASS		4	{5,6,7,8}	MAXIMAL CLIQUE
+6	YES	PASS		SUBSET		3	{6,7,8}	Non-maximal: extendable with {5}
+7	YES	PASS		SUBSET		2	{7,8}	Non-maximal: extendable with {5,6}
+8	YES	PASS		SUBSET		1	{8}	Non-maximal: extendable with {5,6,7}

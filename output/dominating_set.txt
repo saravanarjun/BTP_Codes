@@ -1,0 +1,21 @@
+================================================================================
+ DOMINATING SET CONSTRUCTION REPORT (Theorem 3.17)
+================================================================================
+
+Graph Parameters:
+  Total Vertices (|V|)          : 8
+  Distance Tree Levels (h)      : 4
+  Distance Tree Max Depth       : 3
+  Formula Bound ceil((h - 1)/2) : 2
+  Applicable Theoretical Bound  : 2
+
+Construction Summary:
+  Theorem 3.17 Construction (h = 4): Selected rightmost vertex of Level 2: ID 4 (dominates Levels 1, 2, and 3). Selected rightmost vertex of Level 4: ID 8 (dominates Level 4). 
+  Number of Selected Vertices   : 2
+  Bound Satisfied (|D| <= Bound): YES
+
+Selected Vertices in Dominating Set D:
+Vertex_ID   Level     Depth     Left_Endpoint  Right_Endpoint Role_in_Construction
+--------------------------------------------------------------------------------
+4           2         1         4              8              Rightmost of Level 2 (dominates L1..L3)
+8           4         3         10             13             Rightmost of Level 4 (dominates L4)

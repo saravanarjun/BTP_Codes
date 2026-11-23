@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\benchmarks\maximal_cliques\test_f5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\benchmarks\maximal_cliques\graph_generator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\benchmarks\maximal_cliques\standard_interval_cliques.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\benchmarks\maximal_cliques\bron_kerbosch_adapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\benchmarks\maximal_cliques\theorem_cliques_adapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\benchmarks\maximal_cliques\dynamic_clique_structure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\benchmarks\maximal_cliques\dynamic_workload_generator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\benchmarks\maximal_cliques\clique_verifier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\benchmarks\maximal_cliques\benchmark_runner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\src\IntervalGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\src\DistanceTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\src\DistanceVerification.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\src\StructuralAnalysis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\src\MaximalCliques.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\src\IndependentSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\src\DominatingSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\src\IncrementalIndependentSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\src\DecrementalDistanceTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\sarav\OneDrive\Desktop\BTP_Codes\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F111D7F9-4C2B-30C0-81F0-D54084EC0D87}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

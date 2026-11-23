@@ -1,0 +1,47 @@
+========================================================================
+ Structural Analysis & Lemma Verification Report (Chapter 3)
+ Ground Truth Adjacency: Interval Intersections in G
+========================================================================
+
+Rule:       Lemma 3.1: Parent-Children Clique
+Reference:  Chapter 3, Section 3.10, Lemma 3.1 (Page 24)
+Status:     PASS
+Evaluated:  11 cases/pairs
+------------------------------------------------------------------------
+Rule:       Depth Locality of Non-Level Edges
+Reference:  Chapter 3, Section 3.10, Observation (Page 26)
+Status:     PASS
+Evaluated:  15 cases/pairs
+------------------------------------------------------------------------
+Rule:       Lemma 3.2: Child Cannot Be Adjacent to Parent's Left Sibling
+Reference:  Chapter 3, Section 3.10, Lemma 3.2 (Page 26)
+Status:     PASS
+Evaluated:  3 cases/pairs
+------------------------------------------------------------------------
+Rule:       Lemma 3.3: Adjacency with Parent's Right Siblings
+Reference:  Chapter 3, Section 3.10, Lemma 3.3 (Page 27)
+Status:     PASS
+Evaluated:  3 cases/pairs
+------------------------------------------------------------------------
+Rule:       Lemma 3.4: Node, Children, and Right Siblings Form a Clique
+Reference:  Chapter 3, Section 3.10, Lemma 3.4 (Page 28)
+Status:     PASS
+Evaluated:  17 cases/pairs
+------------------------------------------------------------------------
+Rule:       Lemma 3.5: Mutual Adjacency of Siblings' Children
+Reference:  Chapter 3, Section 3.10, Lemma 3.5 (Page 28)
+Status:     PASS
+Evaluated:  1 cases/pairs
+------------------------------------------------------------------------
+Rule:       Lemma 3.6: Propagation of Adjacency to Children
+Reference:  Chapter 3, Section 3.10, Lemma 3.6 (Page 29)
+Status:     PASS
+Evaluated:  1 cases/pairs
+------------------------------------------------------------------------
+Rule:       Theorem 3.7: Each Depth Level Induces a Clique
+Reference:  Chapter 3, Section 3.10, Theorem 3.7 (Page 30)
+Status:     PASS
+Evaluated:  5 cases/pairs
+------------------------------------------------------------------------
+
+Global Structural Verification: ALL PROPERTIES PASSED SUCCESSFULLY

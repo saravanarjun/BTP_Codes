@@ -1,0 +1,118 @@
+algorithm,graph_family,n,average_degree,status,preprocessing_ms,core_ms,materialization_ms,postprocessing_total_ms,direct_end_to_end_ms
+"Algorithm A (Theorem-Based)",sparse-overlap,10,1.8000,SUCCESS,0.0018,0.0006,0.0003,0.0009,0.0025
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,10,1.8000,SUCCESS,0.0000,0.0050,0.0000,0.0050,0.0050
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,10,1.8000,SUCCESS,0.0002,0.0007,0.0002,0.0009,0.0011
+"Algorithm A (Theorem-Based)",sparse-overlap,20,1.9000,SUCCESS,0.0029,0.0008,0.0005,0.0013,0.0045
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,20,1.9000,SUCCESS,0.0000,0.0117,0.0000,0.0117,0.0117
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,20,1.9000,SUCCESS,0.0004,0.0013,0.0005,0.0018,0.0023
+"Algorithm A (Theorem-Based)",sparse-overlap,50,1.9600,SUCCESS,0.0065,0.0016,0.0010,0.0026,0.0097
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,50,1.9600,SUCCESS,0.0000,0.0509,0.0000,0.0509,0.0509
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,50,1.9600,SUCCESS,0.0012,0.0029,0.0013,0.0042,0.0053
+"Algorithm A (Theorem-Based)",sparse-overlap,100,1.9800,SUCCESS,0.0167,0.0049,0.0029,0.0078,0.0263
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,100,1.9800,SUCCESS,0.0000,0.1516,0.0000,0.1516,0.1516
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,100,1.9800,SUCCESS,0.0023,0.0044,0.0027,0.0071,0.0088
+"Algorithm A (Theorem-Based)",sparse-overlap,200,1.9900,SUCCESS,0.0375,0.0095,0.0050,0.0145,0.0544
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,200,1.9900,SUCCESS,0.0000,0.5121,0.0000,0.5121,0.5121
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,200,1.9900,SUCCESS,0.0052,0.0115,0.0046,0.0161,0.0225
+"Algorithm A (Theorem-Based)",sparse-overlap,500,1.9960,SUCCESS,0.0904,0.0218,0.0105,0.0323,0.1198
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,500,1.9960,SUCCESS,0.0000,3.4887,0.0000,3.4887,3.4887
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,500,1.9960,SUCCESS,0.0193,0.0334,0.0123,0.0457,0.0572
+"Algorithm A (Theorem-Based)",sparse-overlap,1000,1.9980,SUCCESS,0.1789,0.0361,0.0228,0.0589,0.2326
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,1000,1.9980,SUCCESS,0.0000,14.5292,0.0000,14.5292,14.5292
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,1000,1.9980,SUCCESS,0.0380,0.0608,0.0240,0.0848,0.1113
+"Algorithm A (Theorem-Based)",sparse-overlap,2000,1.9990,SUCCESS,0.2986,0.0761,0.0496,0.1257,0.4868
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,2000,1.9990,SUCCESS,0.0000,66.5019,0.0000,66.5019,66.5019
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,2000,1.9990,SUCCESS,0.0775,0.1279,0.0467,0.1746,0.2208
+"Algorithm A (Theorem-Based)",sparse-overlap,5000,1.9996,SUCCESS,0.8533,0.1970,0.1189,0.3159,1.2215
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,5000,1.9996,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,5000,1.9996,SUCCESS,0.1750,0.3311,0.1188,0.4499,0.6309
+"Algorithm A (Theorem-Based)",sparse-overlap,10000,1.9998,SUCCESS,1.8859,0.4464,0.2283,0.6747,2.5462
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,10000,1.9998,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,10000,1.9998,SUCCESS,0.3854,0.6300,0.2547,0.8847,1.2426
+"Algorithm A (Theorem-Based)",sparse-overlap,20000,1.9999,SUCCESS,4.4497,1.2157,0.6533,1.8690,6.5296
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,20000,1.9999,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,20000,1.9999,SUCCESS,0.8545,1.2715,0.5548,1.8263,2.3512
+"Algorithm A (Theorem-Based)",sparse-overlap,50000,2.0000,SUCCESS,10.7133,2.5461,1.4210,3.9671,13.6168
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,50000,2.0000,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,50000,2.0000,SUCCESS,2.6772,3.3864,1.5105,4.8969,7.4390
+"Algorithm A (Theorem-Based)",sparse-overlap,100000,2.0000,SUCCESS,24.0016,7.7718,3.1430,10.9148,34.4371
+"Algorithm B (Bron-Kerbosch)",sparse-overlap,100000,2.0000,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse-overlap,100000,2.0000,SUCCESS,6.2302,6.4032,2.8396,9.2428,14.3996
+"Algorithm A (Theorem-Based)",medium-overlap,10,8.8000,SUCCESS,0.0018,0.0001,0.0001,0.0002,0.0024
+"Algorithm B (Bron-Kerbosch)",medium-overlap,10,8.8000,SUCCESS,0.0000,0.0066,0.0000,0.0066,0.0066
+"Algorithm C (Standard Sweep-Line)",medium-overlap,10,8.8000,SUCCESS,0.0003,0.0005,0.0001,0.0006,0.0008
+"Algorithm A (Theorem-Based)",medium-overlap,20,12.4000,SUCCESS,0.0039,0.0006,0.0004,0.0010,0.0048
+"Algorithm B (Bron-Kerbosch)",medium-overlap,20,12.4000,SUCCESS,0.0000,0.0455,0.0000,0.0455,0.0455
+"Algorithm C (Standard Sweep-Line)",medium-overlap,20,12.4000,SUCCESS,0.0006,0.0012,0.0004,0.0016,0.0022
+"Algorithm A (Theorem-Based)",medium-overlap,50,14.5600,SUCCESS,0.0072,0.0014,0.0017,0.0031,0.0097
+"Algorithm B (Bron-Kerbosch)",medium-overlap,50,14.5600,SUCCESS,0.0000,0.3344,0.0000,0.3344,0.3344
+"Algorithm C (Standard Sweep-Line)",medium-overlap,50,14.5600,SUCCESS,0.0016,0.0028,0.0016,0.0044,0.0058
+"Algorithm A (Theorem-Based)",medium-overlap,100,15.2800,SUCCESS,0.0156,0.0034,0.0037,0.0071,0.0270
+"Algorithm B (Bron-Kerbosch)",medium-overlap,100,15.2800,SUCCESS,0.0000,0.8806,0.0000,0.8806,0.8806
+"Algorithm C (Standard Sweep-Line)",medium-overlap,100,15.2800,SUCCESS,0.0033,0.0052,0.0035,0.0087,0.0120
+"Algorithm A (Theorem-Based)",medium-overlap,200,15.6400,SUCCESS,0.0354,0.0115,0.0083,0.0198,0.0532
+"Algorithm B (Bron-Kerbosch)",medium-overlap,200,15.6400,SUCCESS,0.0000,1.7374,0.0000,1.7374,1.7374
+"Algorithm C (Standard Sweep-Line)",medium-overlap,200,15.6400,SUCCESS,0.0067,0.0091,0.0058,0.0149,0.0219
+"Algorithm A (Theorem-Based)",medium-overlap,500,15.8560,SUCCESS,0.0849,0.0323,0.0160,0.0483,0.1295
+"Algorithm B (Bron-Kerbosch)",medium-overlap,500,15.8560,SUCCESS,0.0000,9.4031,0.0000,9.4031,9.4031
+"Algorithm C (Standard Sweep-Line)",medium-overlap,500,15.8560,SUCCESS,0.0337,0.0481,0.0197,0.0678,0.0837
+"Algorithm A (Theorem-Based)",medium-overlap,1000,15.9280,SUCCESS,0.1959,0.0549,0.0371,0.0920,0.2899
+"Algorithm B (Bron-Kerbosch)",medium-overlap,1000,15.9280,SUCCESS,0.0000,23.1317,0.0000,23.1317,23.1317
+"Algorithm C (Standard Sweep-Line)",medium-overlap,1000,15.9280,SUCCESS,0.0506,0.0636,0.0340,0.0976,0.1364
+"Algorithm A (Theorem-Based)",medium-overlap,2000,15.9640,SUCCESS,0.3579,0.1105,0.0770,0.1875,0.5197
+"Algorithm B (Bron-Kerbosch)",medium-overlap,2000,15.9640,SUCCESS,0.0000,95.1110,0.0000,95.1110,95.1110
+"Algorithm C (Standard Sweep-Line)",medium-overlap,2000,15.9640,SUCCESS,0.0973,0.1281,0.0688,0.1969,0.2513
+"Algorithm A (Theorem-Based)",medium-overlap,5000,15.9856,SUCCESS,0.8559,0.2693,0.2212,0.4905,1.3935
+"Algorithm B (Bron-Kerbosch)",medium-overlap,5000,15.9856,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium-overlap,5000,15.9856,SUCCESS,0.2696,0.3381,0.1954,0.5335,0.7078
+"Algorithm A (Theorem-Based)",medium-overlap,10000,15.9928,SUCCESS,2.0307,0.6375,0.4165,1.0540,3.2832
+"Algorithm B (Bron-Kerbosch)",medium-overlap,10000,15.9928,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium-overlap,10000,15.9928,SUCCESS,0.4868,0.6905,0.3019,0.9924,1.5824
+"Algorithm A (Theorem-Based)",medium-overlap,20000,15.9964,SUCCESS,3.9708,1.0729,0.9541,2.0270,5.7802
+"Algorithm B (Bron-Kerbosch)",medium-overlap,20000,15.9964,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium-overlap,20000,15.9964,SUCCESS,0.9555,1.4244,0.7134,2.1378,2.6329
+"Algorithm A (Theorem-Based)",medium-overlap,50000,15.9986,SUCCESS,10.2910,2.7508,1.7702,4.5210,16.2307
+"Algorithm B (Bron-Kerbosch)",medium-overlap,50000,15.9986,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium-overlap,50000,15.9986,SUCCESS,3.3216,3.0827,1.9347,5.0174,8.4921
+"Algorithm A (Theorem-Based)",medium-overlap,100000,15.9993,SUCCESS,24.2916,7.2108,4.2379,11.4487,35.2471
+"Algorithm B (Bron-Kerbosch)",medium-overlap,100000,15.9993,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium-overlap,100000,15.9993,SUCCESS,6.0882,6.0805,3.6778,9.7583,15.0185
+"Algorithm A (Theorem-Based)",dense-overlap,10,9.0000,SUCCESS,0.0020,0.0001,0.0001,0.0002,0.0023
+"Algorithm B (Bron-Kerbosch)",dense-overlap,10,9.0000,SUCCESS,0.0000,0.0064,0.0000,0.0064,0.0064
+"Algorithm C (Standard Sweep-Line)",dense-overlap,10,9.0000,SUCCESS,0.0003,0.0004,0.0001,0.0005,0.0007
+"Algorithm A (Theorem-Based)",dense-overlap,20,19.0000,SUCCESS,0.0025,0.0001,0.0001,0.0002,0.0026
+"Algorithm B (Bron-Kerbosch)",dense-overlap,20,19.0000,SUCCESS,0.0000,0.0307,0.0000,0.0307,0.0307
+"Algorithm C (Standard Sweep-Line)",dense-overlap,20,19.0000,SUCCESS,0.0006,0.0008,0.0001,0.0009,0.0014
+"Algorithm A (Theorem-Based)",dense-overlap,50,37.0000,SUCCESS,0.0060,0.0009,0.0012,0.0021,0.0081
+"Algorithm B (Bron-Kerbosch)",dense-overlap,50,37.0000,SUCCESS,0.0000,0.5628,0.0000,0.5628,0.5628
+"Algorithm C (Standard Sweep-Line)",dense-overlap,50,37.0000,SUCCESS,0.0016,0.0022,0.0011,0.0033,0.0050
+"Algorithm A (Theorem-Based)",dense-overlap,100,43.5000,SUCCESS,0.0115,0.0021,0.0036,0.0057,0.0169
+"Algorithm B (Bron-Kerbosch)",dense-overlap,100,43.5000,SUCCESS,0.0000,9.5800,0.0000,9.5800,9.5800
+"Algorithm C (Standard Sweep-Line)",dense-overlap,100,43.5000,SUCCESS,0.0041,0.0052,0.0044,0.0096,0.0137
+"Algorithm A (Theorem-Based)",dense-overlap,200,46.7500,SUCCESS,0.0258,0.0048,0.0095,0.0143,0.0406
+"Algorithm B (Bron-Kerbosch)",dense-overlap,200,46.7500,SUCCESS,0.0000,21.0113,0.0000,21.0113,21.0113
+"Algorithm C (Standard Sweep-Line)",dense-overlap,200,46.7500,SUCCESS,0.0096,0.0099,0.0103,0.0202,0.0293
+"Algorithm A (Theorem-Based)",dense-overlap,500,48.7000,SUCCESS,0.0639,0.0106,0.0244,0.0350,0.1003
+"Algorithm B (Bron-Kerbosch)",dense-overlap,500,48.7000,SUCCESS,0.0000,59.7504,0.0000,59.7504,59.7504
+"Algorithm C (Standard Sweep-Line)",dense-overlap,500,48.7000,SUCCESS,0.0255,0.0210,0.0253,0.0463,0.0687
+"Algorithm A (Theorem-Based)",dense-overlap,1000,49.3500,SUCCESS,0.1294,0.0169,0.0447,0.0616,0.1787
+"Algorithm B (Bron-Kerbosch)",dense-overlap,1000,49.3500,SUCCESS,0.0000,125.3628,0.0000,125.3628,125.3628
+"Algorithm C (Standard Sweep-Line)",dense-overlap,1000,49.3500,SUCCESS,0.0458,0.0362,0.0439,0.0801,0.1327
+"Algorithm A (Theorem-Based)",dense-overlap,2000,49.6750,SUCCESS,0.2525,0.0470,0.0827,0.1297,0.3907
+"Algorithm B (Bron-Kerbosch)",dense-overlap,2000,49.6750,SUCCESS,0.0000,350.1254,0.0000,350.1254,350.1254
+"Algorithm C (Standard Sweep-Line)",dense-overlap,2000,49.6750,SUCCESS,0.1403,0.0855,0.0992,0.1847,0.3696
+"Algorithm A (Theorem-Based)",dense-overlap,5000,49.8700,SUCCESS,0.8674,0.2569,0.2757,0.5326,1.5396
+"Algorithm B (Bron-Kerbosch)",dense-overlap,5000,49.8700,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense-overlap,5000,49.8700,SUCCESS,0.3612,0.2045,0.2773,0.4818,0.8022
+"Algorithm A (Theorem-Based)",dense-overlap,10000,49.9350,SUCCESS,1.5875,0.3036,0.4718,0.7754,2.6172
+"Algorithm B (Bron-Kerbosch)",dense-overlap,10000,49.9350,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense-overlap,10000,49.9350,SUCCESS,0.8509,0.4328,0.5667,0.9995,1.8319
+"Algorithm A (Theorem-Based)",dense-overlap,20000,49.9675,SUCCESS,3.2747,0.6851,1.2292,1.9143,6.6920
+"Algorithm B (Bron-Kerbosch)",dense-overlap,20000,49.9675,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense-overlap,20000,49.9675,SUCCESS,1.6329,0.8222,1.1592,1.9814,3.6243
+"Algorithm A (Theorem-Based)",dense-overlap,50000,49.9870,SUCCESS,10.6299,2.3082,3.6096,5.9178,16.9561
+"Algorithm B (Bron-Kerbosch)",dense-overlap,50000,49.9870,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense-overlap,50000,49.9870,SUCCESS,4.3246,2.5235,2.7809,5.3044,10.5963
+"Algorithm A (Theorem-Based)",dense-overlap,100000,49.9935,SUCCESS,23.0867,6.2615,6.6769,12.9384,39.3817
+"Algorithm B (Bron-Kerbosch)",dense-overlap,100000,49.9935,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense-overlap,100000,49.9935,SUCCESS,7.8908,5.7963,5.8193,11.6156,21.3288

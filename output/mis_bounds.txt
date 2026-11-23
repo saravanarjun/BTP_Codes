@@ -1,0 +1,13 @@
+========================================================================
+ Lemma 3.11: Bounds on Maximum Independent Set Size alpha(G)
+========================================================================
+
+Distance Tree Number of Levels h: 4
+Actual Maximum Independent Set alpha(G): 2
+Theoretical Lower Bound floor(h / 2):     2
+Theoretical Upper Bound (h - 1):          3
+Bounds Status:                            PASS
+
+Diagnostic Details:
+  Thesis Lemma 3.11 bounds: floor(4/2) = 2 <= alpha(G) = 2 <= h - 1 = 3. Result: PASS
+ 

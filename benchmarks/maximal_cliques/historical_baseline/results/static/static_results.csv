@@ -1,0 +1,613 @@
+algorithm,variant,graph_family,n,m,average_degree,max_degree,q,total_memberships,average_clique_size,max_clique_size,status,preprocessing_ms,core_ms,materialization_ms,postprocessing_total_ms,end_to_end_sum_ms,direct_end_to_end_ms,min_direct_e2e_ms,max_direct_e2e_ms,repetitions,estimated_descriptor_bytes,estimated_explicit_bytes
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",10,9,1.8000,0,9,18,2.0000,2,SUCCESS,0.0031,0.0004,0.0002,0.0006,0.0037,0.0037,0.0036,0.0061,20,72,72
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",10,9,1.8000,0,9,18,2.0000,2,SUCCESS,0.0000,0.0048,0.0000,0.0048,0.0048,0.0048,0.0047,0.0064,20,72,72
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",10,9,1.8000,0,9,18,2.0000,2,SUCCESS,0.0002,0.0006,0.0003,0.0009,0.0011,0.0011,0.0011,0.0041,20,72,72
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",10,44,8.8000,0,2,18,9.0000,9,SUCCESS,0.0029,0.0001,0.0001,0.0002,0.0031,0.0031,0.0031,0.0033,20,16,72
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",10,44,8.8000,0,2,18,9.0000,9,SUCCESS,0.0000,0.0057,0.0000,0.0057,0.0057,0.0057,0.0056,0.0065,20,16,72
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",10,44,8.8000,0,2,18,9.0000,9,SUCCESS,0.0002,0.0004,0.0001,0.0005,0.0007,0.0007,0.0006,0.0008,20,16,72
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",10,45,9.0000,0,1,10,10.0000,10,SUCCESS,0.0028,0.0001,0.0001,0.0002,0.0030,0.0029,0.0028,0.0032,20,8,40
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",10,45,9.0000,0,1,10,10.0000,10,SUCCESS,0.0000,0.0054,0.0000,0.0054,0.0054,0.0054,0.0053,0.0058,20,8,40
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",10,45,9.0000,0,1,10,10.0000,10,SUCCESS,0.0002,0.0004,0.0000,0.0004,0.0006,0.0006,0.0006,0.0007,20,8,40
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",10,37,7.4000,0,4,26,6.5000,7,SUCCESS,0.0032,0.0002,0.0001,0.0003,0.0035,0.0035,0.0034,0.0039,20,32,104
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",10,37,7.4000,0,4,26,6.5000,7,SUCCESS,0.0000,0.0059,0.0000,0.0059,0.0059,0.0059,0.0057,0.0634,20,32,104
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",10,37,7.4000,0,4,26,6.5000,7,SUCCESS,0.0002,0.0005,0.0002,0.0007,0.0009,0.0009,0.0008,0.0012,20,32,104
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",10,42,8.4000,0,2,16,8.0000,9,SUCCESS,0.0035,0.0002,0.0001,0.0003,0.0038,0.0037,0.0031,0.0046,20,16,64
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",10,42,8.4000,0,2,16,8.0000,9,SUCCESS,0.0000,0.0053,0.0000,0.0053,0.0053,0.0053,0.0051,0.0060,20,16,64
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",10,42,8.4000,0,2,16,8.0000,9,SUCCESS,0.0002,0.0004,0.0001,0.0005,0.0007,0.0006,0.0006,0.0009,20,16,64
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",10,41,8.2000,0,2,16,8.0000,8,SUCCESS,0.0029,0.0001,0.0001,0.0002,0.0031,0.0032,0.0031,0.0034,20,16,64
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",10,41,8.2000,0,2,16,8.0000,8,SUCCESS,0.0000,0.0057,0.0000,0.0057,0.0057,0.0057,0.0055,0.0061,20,16,64
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",10,41,8.2000,0,2,16,8.0000,8,SUCCESS,0.0002,0.0004,0.0001,0.0005,0.0007,0.0006,0.0006,0.0008,20,16,64
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",10,9,1.8000,0,9,18,2.0000,2,SUCCESS,0.0032,0.0004,0.0002,0.0006,0.0038,0.0038,0.0037,0.0043,20,72,72
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",10,9,1.8000,0,9,18,2.0000,2,SUCCESS,0.0000,0.0042,0.0000,0.0042,0.0042,0.0042,0.0040,0.0053,20,72,72
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",10,9,1.8000,0,9,18,2.0000,2,SUCCESS,0.0002,0.0006,0.0002,0.0008,0.0010,0.0010,0.0009,0.0014,20,72,72
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",10,9,1.8000,0,9,18,2.0000,2,SUCCESS,0.0033,0.0003,0.0003,0.0006,0.0040,0.0040,0.0039,0.0043,20,72,72
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",10,9,1.8000,0,9,18,2.0000,2,SUCCESS,0.0000,0.0042,0.0000,0.0042,0.0042,0.0042,0.0040,0.0044,20,72,72
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",10,9,1.8000,0,9,18,2.0000,2,SUCCESS,0.0002,0.0006,0.0002,0.0008,0.0010,0.0010,0.0010,0.0011,20,72,72
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",10,45,9.0000,0,1,10,10.0000,10,SUCCESS,0.0029,0.0001,0.0001,0.0002,0.0031,0.0030,0.0029,0.0041,20,8,40
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",10,45,9.0000,0,1,10,10.0000,10,SUCCESS,0.0000,0.0058,0.0000,0.0058,0.0058,0.0058,0.0056,0.0070,20,8,40
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",10,45,9.0000,0,1,10,10.0000,10,SUCCESS,0.0002,0.0004,0.0001,0.0005,0.0007,0.0007,0.0006,0.0010,20,8,40
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",10,19,3.8000,0,5,17,3.4000,4,SUCCESS,0.0037,0.0003,0.0001,0.0004,0.0041,0.0037,0.0036,0.0043,20,40,68
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",10,19,3.8000,0,5,17,3.4000,4,SUCCESS,0.0000,0.0056,0.0000,0.0056,0.0056,0.0056,0.0049,0.0205,20,40,68
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",10,19,3.8000,0,5,17,3.4000,4,SUCCESS,0.0002,0.0005,0.0002,0.0007,0.0009,0.0008,0.0008,0.0014,20,40,68
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",10,33,6.6000,0,4,23,5.7500,6,SUCCESS,0.0035,0.0002,0.0002,0.0004,0.0039,0.0037,0.0037,0.0039,20,32,92
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",10,33,6.6000,0,4,23,5.7500,6,SUCCESS,0.0000,0.0059,0.0000,0.0059,0.0059,0.0059,0.0057,0.0072,20,32,92
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",10,33,6.6000,0,4,23,5.7500,6,SUCCESS,0.0002,0.0005,0.0001,0.0006,0.0008,0.0007,0.0007,0.0008,20,32,92
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",10,17,3.4000,0,8,24,3.0000,3,SUCCESS,0.0036,0.0004,0.0002,0.0006,0.0042,0.0037,0.0036,0.0041,20,64,96
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",10,17,3.4000,0,8,24,3.0000,3,SUCCESS,0.0000,0.0061,0.0000,0.0061,0.0061,0.0061,0.0059,0.0467,20,64,96
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",10,17,3.4000,0,8,24,3.0000,3,SUCCESS,0.0002,0.0006,0.0002,0.0008,0.0010,0.0010,0.0010,0.0013,20,64,96
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",10,35,7.0000,0,5,30,6.0000,6,SUCCESS,0.0034,0.0003,0.0001,0.0004,0.0038,0.0037,0.0035,0.0042,20,40,120
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",10,35,7.0000,0,5,30,6.0000,6,SUCCESS,0.0000,0.0061,0.0000,0.0061,0.0061,0.0061,0.0058,0.0074,20,40,120
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",10,35,7.0000,0,5,30,6.0000,6,SUCCESS,0.0002,0.0005,0.0001,0.0006,0.0008,0.0008,0.0007,0.0009,20,40,120
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",10,37,7.4000,0,4,26,6.5000,7,SUCCESS,0.0031,0.0002,0.0002,0.0004,0.0034,0.0034,0.0033,0.0089,20,32,104
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",10,37,7.4000,0,4,26,6.5000,7,SUCCESS,0.0000,0.0057,0.0000,0.0057,0.0057,0.0057,0.0056,0.0067,20,32,104
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",10,37,7.4000,0,4,26,6.5000,7,SUCCESS,0.0002,0.0004,0.0001,0.0006,0.0008,0.0007,0.0007,0.0009,20,32,104
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",10,33,6.6000,0,3,18,6.0000,6,SUCCESS,0.0031,0.0002,0.0001,0.0003,0.0033,0.0033,0.0032,0.0035,20,24,72
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",10,33,6.6000,0,3,18,6.0000,6,SUCCESS,0.0000,0.0060,0.0000,0.0060,0.0060,0.0060,0.0057,0.0383,20,24,72
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",10,33,6.6000,0,3,18,6.0000,6,SUCCESS,0.0002,0.0004,0.0001,0.0005,0.0007,0.0007,0.0006,0.0008,20,24,72
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",10,24,4.8000,0,7,28,4.0000,4,SUCCESS,0.0036,0.0003,0.0002,0.0005,0.0041,0.0037,0.0036,0.0041,20,56,112
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",10,24,4.8000,0,7,28,4.0000,4,SUCCESS,0.0000,0.0059,0.0000,0.0059,0.0059,0.0059,0.0057,0.0072,20,56,112
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",10,24,4.8000,0,7,28,4.0000,4,SUCCESS,0.0002,0.0005,0.0002,0.0007,0.0009,0.0010,0.0009,0.0082,20,56,112
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",20,19,1.9000,0,19,38,2.0000,2,SUCCESS,0.0058,0.0006,0.0007,0.0013,0.0071,0.0068,0.0065,0.0099,20,152,152
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",20,19,1.9000,0,19,38,2.0000,2,SUCCESS,0.0000,0.0115,0.0000,0.0115,0.0115,0.0115,0.0112,0.0136,20,152,152
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",20,19,1.9000,0,19,38,2.0000,2,SUCCESS,0.0004,0.0011,0.0005,0.0016,0.0020,0.0019,0.0018,0.0034,20,152,152
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",20,124,12.4000,0,12,108,9.0000,9,SUCCESS,0.0060,0.0005,0.0005,0.0010,0.0070,0.0077,0.0073,0.0155,20,96,432
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",20,124,12.4000,0,12,108,9.0000,9,SUCCESS,0.0000,0.0360,0.0000,0.0360,0.0360,0.0360,0.0353,0.0435,20,96,432
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",20,124,12.4000,0,12,108,9.0000,9,SUCCESS,0.0005,0.0010,0.0003,0.0013,0.0018,0.0018,0.0017,0.0050,20,96,432
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",20,190,19.0000,0,1,20,20.0000,20,SUCCESS,0.0043,0.0001,0.0002,0.0003,0.0046,0.0044,0.0043,0.0049,20,8,80
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",20,190,19.0000,0,1,20,20.0000,20,SUCCESS,0.0000,0.0255,0.0000,0.0255,0.0255,0.0255,0.0254,0.0331,20,8,80
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",20,190,19.0000,0,1,20,20.0000,20,SUCCESS,0.0005,0.0007,0.0001,0.0008,0.0013,0.0011,0.0011,0.0016,20,8,80
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",20,87,8.7000,0,13,79,6.0769,8,SUCCESS,0.0058,0.0005,0.0003,0.0008,0.0066,0.0070,0.0068,0.0141,20,104,316
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",20,87,8.7000,0,13,79,6.0769,8,SUCCESS,0.0000,0.0240,0.0000,0.0240,0.0240,0.0240,0.0228,0.0459,20,104,316
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",20,87,8.7000,0,13,79,6.0769,8,SUCCESS,0.0004,0.0011,0.0004,0.0015,0.0019,0.0019,0.0018,0.0222,20,104,316
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",20,94,9.4000,0,6,42,7.0000,10,SUCCESS,0.0095,0.0005,0.0003,0.0008,0.0103,0.0103,0.0099,0.0456,20,48,168
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",20,94,9.4000,0,6,42,7.0000,10,SUCCESS,0.0000,0.0395,0.0000,0.0395,0.0395,0.0395,0.0389,0.0439,20,48,168
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",20,94,9.4000,0,6,42,7.0000,10,SUCCESS,0.0007,0.0012,0.0003,0.0015,0.0022,0.0022,0.0021,0.0033,20,48,168
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",20,106,10.6000,0,7,56,8.0000,8,SUCCESS,0.0092,0.0006,0.0003,0.0009,0.0100,0.0097,0.0094,0.0102,20,56,224
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",20,106,10.6000,0,7,56,8.0000,8,SUCCESS,0.0000,0.0332,0.0000,0.0332,0.0332,0.0332,0.0329,0.0578,20,56,224
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",20,106,10.6000,0,7,56,8.0000,8,SUCCESS,0.0005,0.0008,0.0002,0.0010,0.0015,0.0015,0.0014,0.0019,20,56,224
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",20,19,1.9000,0,19,38,2.0000,2,SUCCESS,0.0056,0.0006,0.0006,0.0012,0.0068,0.0067,0.0065,0.0077,20,152,152
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",20,19,1.9000,0,19,38,2.0000,2,SUCCESS,0.0000,0.0113,0.0000,0.0113,0.0113,0.0113,0.0111,0.0173,20,152,152
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",20,19,1.9000,0,19,38,2.0000,2,SUCCESS,0.0003,0.0011,0.0005,0.0016,0.0020,0.0019,0.0018,0.0031,20,152,152
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",20,19,1.9000,0,19,38,2.0000,2,SUCCESS,0.0056,0.0007,0.0006,0.0013,0.0069,0.0066,0.0065,0.0072,20,152,152
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",20,19,1.9000,0,19,38,2.0000,2,SUCCESS,0.0000,0.0114,0.0000,0.0114,0.0114,0.0114,0.0112,0.0123,20,152,152
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",20,19,1.9000,0,19,38,2.0000,2,SUCCESS,0.0004,0.0011,0.0005,0.0016,0.0020,0.0019,0.0018,0.0026,20,152,152
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",20,180,18.0000,0,5,80,16.0000,16,SUCCESS,0.0051,0.0003,0.0002,0.0005,0.0056,0.0054,0.0052,0.0058,20,40,320
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",20,180,18.0000,0,5,80,16.0000,16,SUCCESS,0.0000,0.0281,0.0000,0.0281,0.0281,0.0281,0.0279,0.0303,20,40,320
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",20,180,18.0000,0,5,80,16.0000,16,SUCCESS,0.0005,0.0008,0.0003,0.0011,0.0016,0.0015,0.0014,0.0023,20,40,320
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",20,44,4.4000,0,10,37,3.7000,4,SUCCESS,0.0061,0.0005,0.0003,0.0008,0.0069,0.0071,0.0065,0.0079,20,80,148
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",20,44,4.4000,0,10,37,3.7000,4,SUCCESS,0.0000,0.0166,0.0000,0.0166,0.0166,0.0166,0.0163,0.0192,20,80,148
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",20,44,4.4000,0,10,37,3.7000,4,SUCCESS,0.0004,0.0009,0.0003,0.0012,0.0016,0.0016,0.0015,0.0022,20,80,148
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",20,68,6.8000,0,11,56,5.0909,6,SUCCESS,0.0063,0.0005,0.0003,0.0008,0.0072,0.0068,0.0064,0.0071,20,88,224
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",20,68,6.8000,0,11,56,5.0909,6,SUCCESS,0.0000,0.0251,0.0000,0.0251,0.0251,0.0251,0.0242,0.1289,20,88,224
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",20,68,6.8000,0,11,56,5.0909,6,SUCCESS,0.0005,0.0010,0.0003,0.0013,0.0018,0.0018,0.0017,0.0031,20,88,224
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",20,37,3.7000,0,18,54,3.0000,3,SUCCESS,0.0065,0.0007,0.0005,0.0012,0.0077,0.0079,0.0074,0.0137,20,144,216
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",20,37,3.7000,0,18,54,3.0000,3,SUCCESS,0.0000,0.0166,0.0000,0.0166,0.0166,0.0166,0.0163,0.0202,20,144,216
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",20,37,3.7000,0,18,54,3.0000,3,SUCCESS,0.0004,0.0011,0.0004,0.0015,0.0019,0.0018,0.0018,0.0027,20,144,216
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",20,124,12.4000,0,12,108,9.0000,9,SUCCESS,0.0059,0.0006,0.0005,0.0011,0.0070,0.0077,0.0075,0.0085,20,96,432
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",20,124,12.4000,0,12,108,9.0000,9,SUCCESS,0.0000,0.0358,0.0000,0.0358,0.0358,0.0358,0.0354,0.0403,20,96,432
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",20,124,12.4000,0,12,108,9.0000,9,SUCCESS,0.0004,0.0010,0.0005,0.0015,0.0019,0.0019,0.0018,0.0024,20,96,432
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",20,104,10.4000,0,13,96,7.3846,8,SUCCESS,0.0057,0.0005,0.0004,0.0009,0.0066,0.0068,0.0067,0.0077,20,104,384
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",20,104,10.4000,0,13,96,7.3846,8,SUCCESS,0.0000,0.0339,0.0000,0.0339,0.0339,0.0339,0.0332,0.0379,20,104,384
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",20,104,10.4000,0,13,96,7.3846,8,SUCCESS,0.0004,0.0010,0.0004,0.0014,0.0018,0.0018,0.0017,0.0027,20,104,384
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",20,78,7.8000,0,8,48,6.0000,6,SUCCESS,0.0062,0.0004,0.0002,0.0006,0.0068,0.0067,0.0065,0.0073,20,64,192
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",20,78,7.8000,0,8,48,6.0000,6,SUCCESS,0.0000,0.0268,0.0000,0.0268,0.0268,0.0268,0.0263,0.0300,20,64,192
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",20,78,7.8000,0,8,48,6.0000,6,SUCCESS,0.0004,0.0009,0.0002,0.0011,0.0015,0.0015,0.0015,0.0057,20,64,192
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",20,54,5.4000,0,17,68,4.0000,4,SUCCESS,0.0059,0.0006,0.0005,0.0011,0.0070,0.0069,0.0067,0.0081,20,136,272
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",20,54,5.4000,0,17,68,4.0000,4,SUCCESS,0.0000,0.0212,0.0000,0.0212,0.0212,0.0212,0.0210,0.0251,20,136,272
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",20,54,5.4000,0,17,68,4.0000,4,SUCCESS,0.0004,0.0010,0.0004,0.0014,0.0018,0.0018,0.0017,0.0026,20,136,272
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",50,49,1.9600,0,49,98,2.0000,2,SUCCESS,0.0147,0.0016,0.0014,0.0030,0.0177,0.0168,0.0162,0.0191,20,392,392
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",50,49,1.9600,0,49,98,2.0000,2,SUCCESS,0.0000,0.0495,0.0000,0.0495,0.0495,0.0495,0.0452,0.0703,20,392,392
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",50,49,1.9600,0,49,98,2.0000,2,SUCCESS,0.0011,0.0023,0.0012,0.0035,0.0046,0.0047,0.0046,0.0070,20,392,392
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",50,364,14.5600,0,42,378,9.0000,9,SUCCESS,0.0128,0.0012,0.0013,0.0025,0.0153,0.0155,0.0149,0.0190,20,336,1512
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",50,364,14.5600,0,42,378,9.0000,9,SUCCESS,0.0000,0.2709,0.0000,0.2709,0.2709,0.2709,0.2679,0.2973,20,336,1512
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",50,364,14.5600,0,42,378,9.0000,9,SUCCESS,0.0014,0.0023,0.0012,0.0034,0.0048,0.0050,0.0047,0.0078,20,336,1512
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",50,925,37.0000,0,25,650,26.0000,26,SUCCESS,0.0109,0.0009,0.0012,0.0021,0.0130,0.0124,0.0121,0.0145,20,200,2600
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",50,925,37.0000,0,25,650,26.0000,26,SUCCESS,0.0000,0.4437,0.0000,0.4437,0.4437,0.4437,0.4406,0.6593,20,200,2600
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",50,925,37.0000,0,25,650,26.0000,26,SUCCESS,0.0017,0.0023,0.0012,0.0035,0.0053,0.0052,0.0044,0.0085,20,200,2600
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",50,214,8.5600,0,35,199,5.6857,8,SUCCESS,0.0146,0.0011,0.0011,0.0022,0.0168,0.0165,0.0162,0.0223,20,280,796
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",50,214,8.5600,0,35,199,5.6857,8,SUCCESS,0.0000,0.1192,0.0000,0.1192,0.1192,0.1192,0.1124,0.1251,20,280,796
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",50,214,8.5600,0,35,199,5.6857,8,SUCCESS,0.0012,0.0022,0.0011,0.0032,0.0044,0.0043,0.0042,0.0074,20,280,796
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",50,285,11.4000,0,22,167,7.5909,10,SUCCESS,0.0137,0.0008,0.0007,0.0015,0.0152,0.0158,0.0154,0.0183,20,176,668
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",50,285,11.4000,0,22,167,7.5909,10,SUCCESS,0.0000,0.1469,0.0000,0.1469,0.1469,0.1469,0.1457,0.1561,20,176,668
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",50,285,11.4000,0,22,167,7.5909,10,SUCCESS,0.0015,0.0025,0.0008,0.0033,0.0048,0.0046,0.0045,0.0066,20,176,668
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",50,301,12.0400,0,22,176,8.0000,8,SUCCESS,0.0135,0.0009,0.0006,0.0015,0.0150,0.0148,0.0144,0.0156,20,176,704
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",50,301,12.0400,0,22,176,8.0000,8,SUCCESS,0.0000,0.1803,0.0000,0.1803,0.1803,0.1803,0.1711,0.2870,20,176,704
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",50,301,12.0400,0,22,176,8.0000,8,SUCCESS,0.0014,0.0021,0.0008,0.0029,0.0043,0.0043,0.0040,0.0103,20,176,704
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",50,49,1.9600,0,49,98,2.0000,2,SUCCESS,0.0145,0.0016,0.0014,0.0030,0.0175,0.0170,0.0162,0.0198,20,392,392
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",50,49,1.9600,0,49,98,2.0000,2,SUCCESS,0.0000,0.0447,0.0000,0.0447,0.0447,0.0447,0.0443,0.0564,20,392,392
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",50,49,1.9600,0,49,98,2.0000,2,SUCCESS,0.0011,0.0023,0.0012,0.0035,0.0046,0.0047,0.0045,0.0058,20,392,392
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",50,49,1.9600,0,49,98,2.0000,2,SUCCESS,0.0145,0.0015,0.0014,0.0029,0.0174,0.0168,0.0164,0.0191,20,392,392
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",50,49,1.9600,0,49,98,2.0000,2,SUCCESS,0.0000,0.0502,0.0000,0.0502,0.0502,0.0502,0.0477,0.1452,20,392,392
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",50,49,1.9600,0,49,98,2.0000,2,SUCCESS,0.0013,0.0029,0.0015,0.0043,0.0057,0.0060,0.0049,0.0083,20,392,392
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",50,630,25.2000,0,35,560,16.0000,16,SUCCESS,0.0124,0.0011,0.0013,0.0024,0.0148,0.0143,0.0141,0.0185,20,280,2240
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",50,630,25.2000,0,35,560,16.0000,16,SUCCESS,0.0000,0.5444,0.0000,0.5444,0.5444,0.5444,0.5357,0.9706,20,280,2240
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",50,630,25.2000,0,35,560,16.0000,16,SUCCESS,0.0016,0.0025,0.0014,0.0039,0.0055,0.0058,0.0047,0.0098,20,280,2240
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",50,119,4.7600,0,25,97,3.8800,4,SUCCESS,0.0153,0.0009,0.0006,0.0015,0.0168,0.0159,0.0151,0.0195,20,200,388
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",50,119,4.7600,0,25,97,3.8800,4,SUCCESS,0.0000,0.0643,0.0000,0.0643,0.0643,0.0643,0.0638,0.0682,20,200,388
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",50,119,4.7600,0,25,97,3.8800,4,SUCCESS,0.0011,0.0019,0.0006,0.0025,0.0036,0.0036,0.0035,0.0047,20,200,388
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",50,170,6.8000,0,35,164,4.6857,6,SUCCESS,0.0151,0.0010,0.0011,0.0021,0.0171,0.0160,0.0157,0.0181,20,280,656
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",50,170,6.8000,0,35,164,4.6857,6,SUCCESS,0.0000,0.0889,0.0000,0.0889,0.0889,0.0889,0.0882,0.0967,20,280,656
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",50,170,6.8000,0,35,164,4.6857,6,SUCCESS,0.0011,0.0020,0.0009,0.0029,0.0040,0.0041,0.0040,0.0057,20,280,656
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",50,97,3.8800,0,48,144,3.0000,3,SUCCESS,0.0145,0.0014,0.0013,0.0027,0.0172,0.0168,0.0163,0.0183,20,384,576
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",50,97,3.8800,0,48,144,3.0000,3,SUCCESS,0.0000,0.0629,0.0000,0.0629,0.0629,0.0629,0.0581,0.0681,20,384,576
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",50,97,3.8800,0,48,144,3.0000,3,SUCCESS,0.0011,0.0023,0.0012,0.0035,0.0046,0.0046,0.0043,0.0058,20,384,576
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",50,790,31.6000,0,30,630,21.0000,21,SUCCESS,0.0112,0.0011,0.0014,0.0026,0.0137,0.0136,0.0130,0.0179,20,240,2520
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",50,790,31.6000,0,30,630,21.0000,21,SUCCESS,0.0000,0.5645,0.0000,0.5645,0.5645,0.5645,0.5582,0.8439,20,240,2520
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",50,790,31.6000,0,30,630,21.0000,21,SUCCESS,0.0018,0.0023,0.0012,0.0034,0.0052,0.0054,0.0049,0.0086,20,240,2520
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",50,239,9.5600,0,42,257,6.1190,8,SUCCESS,0.0141,0.0011,0.0012,0.0023,0.0164,0.0163,0.0156,0.0316,20,336,1028
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",50,239,9.5600,0,42,257,6.1190,8,SUCCESS,0.0000,0.1279,0.0000,0.1279,0.1279,0.1279,0.1257,0.1389,20,336,1028
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",50,239,9.5600,0,42,257,6.1190,8,SUCCESS,0.0014,0.0024,0.0013,0.0037,0.0051,0.0051,0.0042,0.0074,20,336,1028
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",50,213,8.5200,0,23,138,6.0000,6,SUCCESS,0.0140,0.0009,0.0007,0.0016,0.0155,0.0156,0.0153,0.0176,20,184,552
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",50,213,8.5200,0,23,138,6.0000,6,SUCCESS,0.0000,0.1187,0.0000,0.1187,0.1187,0.1187,0.1114,0.1790,20,184,552
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",50,213,8.5200,0,23,138,6.0000,6,SUCCESS,0.0015,0.0023,0.0006,0.0029,0.0044,0.0044,0.0043,0.0062,20,184,552
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",50,144,5.7600,0,47,188,4.0000,4,SUCCESS,0.0145,0.0012,0.0014,0.0026,0.0171,0.0165,0.0161,0.0179,20,376,752
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",50,144,5.7600,0,47,188,4.0000,4,SUCCESS,0.0000,0.0767,0.0000,0.0767,0.0767,0.0767,0.0764,0.0829,20,376,752
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",50,144,5.7600,0,47,188,4.0000,4,SUCCESS,0.0012,0.0022,0.0011,0.0033,0.0045,0.0045,0.0043,0.0056,20,376,752
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",100,99,1.9800,0,99,198,2.0000,2,SUCCESS,0.0281,0.0023,0.0024,0.0046,0.0328,0.0337,0.0324,0.0360,20,792,792
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",100,99,1.9800,0,99,198,2.0000,2,SUCCESS,0.0000,0.1472,0.0000,0.1472,0.1472,0.1472,0.1434,0.3473,20,792,792
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",100,99,1.9800,0,99,198,2.0000,2,SUCCESS,0.0026,0.0050,0.0024,0.0074,0.0100,0.0102,0.0089,0.0134,20,792,792
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",100,764,15.2800,0,92,828,9.0000,9,SUCCESS,0.0253,0.0022,0.0027,0.0049,0.0302,0.0300,0.0295,0.0316,20,736,3312
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",100,764,15.2800,0,92,828,9.0000,9,SUCCESS,0.0000,0.6574,0.0000,0.6574,0.6574,0.6574,0.6413,0.8857,20,736,3312
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",100,764,15.2800,0,92,828,9.0000,9,SUCCESS,0.0028,0.0042,0.0026,0.0068,0.0096,0.0098,0.0094,0.0183,20,736,3312
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",100,2175,43.5000,0,75,1950,26.0000,26,SUCCESS,0.0238,0.0023,0.0034,0.0057,0.0294,0.0295,0.0262,0.0768,20,600,7800
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",100,2175,43.5000,0,75,1950,26.0000,26,SUCCESS,0.0000,7.1384,0.0000,7.1384,7.1384,7.1384,7.0689,7.9780,20,600,7800
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",100,2175,43.5000,0,75,1950,26.0000,26,SUCCESS,0.0034,0.0040,0.0030,0.0070,0.0105,0.0104,0.0101,0.0171,20,600,7800
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",100,457,9.1400,0,73,429,5.8767,8,SUCCESS,0.0281,0.0019,0.0020,0.0039,0.0320,0.0319,0.0311,0.0432,20,584,1716
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",100,457,9.1400,0,73,429,5.8767,8,SUCCESS,0.0000,0.3357,0.0000,0.3357,0.3357,0.3357,0.3293,0.4991,20,584,1716
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",100,457,9.1400,0,73,429,5.8767,8,SUCCESS,0.0026,0.0040,0.0019,0.0059,0.0085,0.0087,0.0083,0.0141,20,584,1716
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",100,659,13.1800,0,45,380,8.4444,12,SUCCESS,0.0266,0.0016,0.0014,0.0030,0.0295,0.0290,0.0284,0.0437,20,360,1520
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",100,659,13.1800,0,45,380,8.4444,12,SUCCESS,0.0000,0.4941,0.0000,0.4941,0.4941,0.4941,0.4882,0.5224,20,360,1520
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",100,659,13.1800,0,45,380,8.4444,12,SUCCESS,0.0027,0.0036,0.0013,0.0049,0.0076,0.0078,0.0075,0.0207,20,360,1520
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",100,626,12.5200,0,47,376,8.0000,8,SUCCESS,0.0257,0.0016,0.0014,0.0030,0.0287,0.0289,0.0283,0.0329,20,376,1504
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",100,626,12.5200,0,47,376,8.0000,8,SUCCESS,0.0000,0.4517,0.0000,0.4517,0.4517,0.4517,0.4484,0.6214,20,376,1504
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",100,626,12.5200,0,47,376,8.0000,8,SUCCESS,0.0027,0.0040,0.0014,0.0054,0.0081,0.0083,0.0077,0.0137,20,376,1504
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",100,99,1.9800,0,99,198,2.0000,2,SUCCESS,0.0296,0.0026,0.0021,0.0047,0.0343,0.0351,0.0337,0.0565,20,792,792
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",100,99,1.9800,0,99,198,2.0000,2,SUCCESS,0.0000,0.1459,0.0000,0.1459,0.1459,0.1459,0.1428,0.1511,20,792,792
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",100,99,1.9800,0,99,198,2.0000,2,SUCCESS,0.0024,0.0044,0.0022,0.0066,0.0090,0.0093,0.0089,0.0131,20,792,792
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",100,99,1.9800,0,99,198,2.0000,2,SUCCESS,0.0297,0.0029,0.0023,0.0052,0.0349,0.0373,0.0337,0.1273,20,792,792
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",100,99,1.9800,0,99,198,2.0000,2,SUCCESS,0.0000,0.1442,0.0000,0.1442,0.1442,0.1442,0.1432,0.2182,20,792,792
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",100,99,1.9800,0,99,198,2.0000,2,SUCCESS,0.0024,0.0042,0.0023,0.0065,0.0089,0.0090,0.0088,0.0130,20,792,792
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",100,1380,27.6000,0,85,1360,16.0000,16,SUCCESS,0.0236,0.0021,0.0029,0.0050,0.0286,0.0285,0.0279,0.0331,20,680,5440
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",100,1380,27.6000,0,85,1360,16.0000,16,SUCCESS,0.0000,2.1774,0.0000,2.1774,2.1774,2.1774,2.1478,2.4476,20,680,5440
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",100,1380,27.6000,0,85,1360,16.0000,16,SUCCESS,0.0032,0.0040,0.0029,0.0069,0.0101,0.0101,0.0098,0.0166,20,680,5440
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",100,244,4.8800,0,50,197,3.9400,4,SUCCESS,0.0275,0.0017,0.0011,0.0028,0.0303,0.0310,0.0303,0.1562,20,400,788
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",100,244,4.8800,0,50,197,3.9400,4,SUCCESS,0.0000,0.1888,0.0000,0.1888,0.1888,0.1888,0.1865,0.2076,20,400,788
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",100,244,4.8800,0,50,197,3.9400,4,SUCCESS,0.0028,0.0043,0.0012,0.0055,0.0083,0.0084,0.0070,0.0112,20,400,788
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",100,356,7.1200,0,72,344,4.7778,6,SUCCESS,0.0292,0.0019,0.0019,0.0038,0.0330,0.0321,0.0309,0.0357,20,576,1376
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",100,356,7.1200,0,72,344,4.7778,6,SUCCESS,0.0000,0.2567,0.0000,0.2567,0.2567,0.2567,0.2523,0.3077,20,576,1376
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",100,356,7.1200,0,72,344,4.7778,6,SUCCESS,0.0026,0.0040,0.0019,0.0059,0.0084,0.0084,0.0082,0.0135,20,576,1376
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",100,197,3.9400,0,98,294,3.0000,3,SUCCESS,0.0287,0.0024,0.0021,0.0046,0.0333,0.0329,0.0319,0.0717,20,784,1176
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",100,197,3.9400,0,98,294,3.0000,3,SUCCESS,0.0000,0.1775,0.0000,0.1775,0.1775,0.1775,0.1740,0.2872,20,784,1176
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",100,197,3.9400,0,98,294,3.0000,3,SUCCESS,0.0026,0.0042,0.0021,0.0063,0.0089,0.0090,0.0087,0.0132,20,784,1176
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",100,3180,63.6000,0,60,2460,41.0000,41,SUCCESS,0.0219,0.0016,0.0048,0.0064,0.0283,0.0269,0.0253,0.0293,20,480,9840
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",100,3180,63.6000,0,60,2460,41.0000,41,SUCCESS,0.0000,6.2741,0.0000,6.2741,6.2741,6.2741,6.1380,13.1270,20,480,9840
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",100,3180,63.6000,0,60,2460,41.0000,41,SUCCESS,0.0050,0.0071,0.0058,0.0129,0.0180,0.0182,0.0179,0.0228,20,480,9840
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",100,489,9.7800,0,88,535,6.0795,8,SUCCESS,0.0546,0.0041,0.0048,0.0089,0.0635,0.0633,0.0620,0.0841,20,704,2140
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",100,489,9.7800,0,88,535,6.0795,8,SUCCESS,0.0000,0.4136,0.0000,0.4136,0.4136,0.4136,0.3852,0.8477,20,704,2140
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",100,489,9.7800,0,88,535,6.0795,8,SUCCESS,0.0033,0.0049,0.0027,0.0076,0.0110,0.0113,0.0110,0.2645,20,704,2140
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",100,438,8.7600,0,48,288,6.0000,6,SUCCESS,0.0333,0.0019,0.0014,0.0033,0.0366,0.0368,0.0346,0.0447,20,384,1152
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",100,438,8.7600,0,48,288,6.0000,6,SUCCESS,0.0000,0.3513,0.0000,0.3513,0.3513,0.3513,0.3423,0.9453,20,384,1152
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",100,438,8.7600,0,48,288,6.0000,6,SUCCESS,0.0031,0.0041,0.0013,0.0054,0.0085,0.0086,0.0085,0.0142,20,384,1152
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",100,294,5.8800,0,97,388,4.0000,4,SUCCESS,0.0341,0.0027,0.0025,0.0052,0.0393,0.0375,0.0363,0.0959,20,776,1552
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",100,294,5.8800,0,97,388,4.0000,4,SUCCESS,0.0000,0.2402,0.0000,0.2402,0.2402,0.2402,0.2293,0.2594,20,776,1552
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",100,294,5.8800,0,97,388,4.0000,4,SUCCESS,0.0028,0.0046,0.0023,0.0069,0.0097,0.0097,0.0093,0.0142,20,776,1552
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",200,199,1.9900,0,199,398,2.0000,2,SUCCESS,0.0578,0.0040,0.0046,0.0086,0.0664,0.0680,0.0655,0.0827,10,1592,1592
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",200,199,1.9900,0,199,398,2.0000,2,SUCCESS,0.0000,0.5081,0.0000,0.5081,0.5081,0.5081,0.5055,0.5563,10,1592,1592
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",200,199,1.9900,0,199,398,2.0000,2,SUCCESS,0.0051,0.0076,0.0049,0.0125,0.0176,0.0175,0.0170,0.0226,10,1592,1592
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",200,1564,15.6400,0,192,1728,9.0000,9,SUCCESS,0.0528,0.0054,0.0054,0.0109,0.0636,0.0630,0.0590,0.0711,10,1536,6912
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",200,1564,15.6400,0,192,1728,9.0000,9,SUCCESS,0.0000,1.5486,0.0000,1.5486,1.5486,1.5486,1.5422,1.5921,10,1536,6912
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",200,1564,15.6400,0,192,1728,9.0000,9,SUCCESS,0.0064,0.0080,0.0054,0.0135,0.0198,0.0207,0.0197,0.0263,10,1536,6912
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",200,4675,46.7500,0,175,4550,26.0000,26,SUCCESS,0.0476,0.0065,0.0097,0.0163,0.0639,0.0645,0.0611,0.0692,10,1400,18200
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",200,4675,46.7500,0,175,4550,26.0000,26,SUCCESS,0.0000,17.0857,0.0000,17.0857,17.0857,17.0857,16.4253,19.4743,10,1400,18200
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",200,4675,46.7500,0,175,4550,26.0000,26,SUCCESS,0.0077,0.0080,0.0071,0.0151,0.0228,0.0226,0.0221,0.0326,10,1400,18200
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",200,898,8.9800,0,148,845,5.7095,8,SUCCESS,0.0576,0.0057,0.0043,0.0100,0.0677,0.0715,0.0626,0.0772,10,1184,3380
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",200,898,8.9800,0,148,845,5.7095,8,SUCCESS,0.0000,0.9363,0.0000,0.9363,0.9363,0.9363,0.9016,1.0015,10,1184,3380
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",200,898,8.9800,0,148,845,5.7095,8,SUCCESS,0.0060,0.0079,0.0042,0.0121,0.0181,0.0179,0.0176,0.0215,10,1184,3380
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",200,1323,13.2300,0,92,764,8.3043,12,SUCCESS,0.0568,0.0029,0.0031,0.0060,0.0628,0.0609,0.0602,0.0705,10,736,3056
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",200,1323,13.2300,0,92,764,8.3043,12,SUCCESS,0.0000,1.3935,0.0000,1.3935,1.3935,1.3935,1.3059,1.4359,10,736,3056
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",200,1323,13.2300,0,92,764,8.3043,12,SUCCESS,0.0060,0.0068,0.0028,0.0096,0.0156,0.0163,0.0156,0.0255,10,736,3056
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",200,1276,12.7600,0,97,776,8.0000,8,SUCCESS,0.0600,0.0040,0.0037,0.0077,0.0677,0.0643,0.0597,0.0746,10,776,3104
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",200,1276,12.7600,0,97,776,8.0000,8,SUCCESS,0.0000,1.2419,0.0000,1.2419,1.2419,1.2419,1.1798,1.3527,10,776,3104
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",200,1276,12.7600,0,97,776,8.0000,8,SUCCESS,0.0079,0.0084,0.0032,0.0117,0.0196,0.0193,0.0169,0.0262,10,776,3104
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",200,199,1.9900,0,199,398,2.0000,2,SUCCESS,0.0606,0.0043,0.0044,0.0088,0.0694,0.0720,0.0683,0.0742,10,1592,1592
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",200,199,1.9900,0,199,398,2.0000,2,SUCCESS,0.0000,0.5165,0.0000,0.5165,0.5165,0.5165,0.5060,0.6423,10,1592,1592
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",200,199,1.9900,0,199,398,2.0000,2,SUCCESS,0.0054,0.0083,0.0052,0.0135,0.0189,0.0196,0.0179,0.0338,10,1592,1592
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",200,199,1.9900,0,199,398,2.0000,2,SUCCESS,0.0565,0.0039,0.0043,0.0082,0.0646,0.0667,0.0651,0.0694,10,1592,1592
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",200,199,1.9900,0,199,398,2.0000,2,SUCCESS,0.0000,0.5190,0.0000,0.5190,0.5190,0.5190,0.5064,0.6565,10,1592,1592
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",200,199,1.9900,0,199,398,2.0000,2,SUCCESS,0.0052,0.0079,0.0049,0.0129,0.0181,0.0180,0.0175,0.0309,10,1592,1592
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",200,2880,28.8000,0,185,2960,16.0000,16,SUCCESS,0.0640,0.0060,0.0062,0.0122,0.0762,0.0665,0.0594,0.0739,10,1480,11840
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",200,2880,28.8000,0,185,2960,16.0000,16,SUCCESS,0.0000,5.2713,0.0000,5.2713,5.2713,5.2713,5.0384,6.4995,10,1480,11840
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",200,2880,28.8000,0,185,2960,16.0000,16,SUCCESS,0.0075,0.0080,0.0062,0.0142,0.0217,0.0224,0.0215,0.0308,10,1480,11840
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",200,494,4.9400,0,100,397,3.9700,4,SUCCESS,0.0591,0.0031,0.0023,0.0054,0.0645,0.0618,0.0605,0.1340,10,800,1588
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",200,494,4.9400,0,100,397,3.9700,4,SUCCESS,0.0000,0.6169,0.0000,0.6169,0.6169,0.6169,0.5986,0.8230,10,800,1588
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",200,494,4.9400,0,100,397,3.9700,4,SUCCESS,0.0053,0.0069,0.0023,0.0092,0.0145,0.0146,0.0142,0.0202,10,800,1588
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",200,730,7.3000,0,145,701,4.8345,7,SUCCESS,0.0569,0.0037,0.0039,0.0075,0.0644,0.0661,0.0644,0.0777,10,1160,2804
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",200,730,7.3000,0,145,701,4.8345,7,SUCCESS,0.0000,0.7946,0.0000,0.7946,0.7946,0.7946,0.7591,0.9226,10,1160,2804
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",200,730,7.3000,0,145,701,4.8345,7,SUCCESS,0.0061,0.0077,0.0037,0.0114,0.0175,0.0178,0.0171,0.0211,10,1160,2804
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",200,397,3.9700,0,198,594,3.0000,3,SUCCESS,0.0647,0.0085,0.0044,0.0129,0.0776,0.0738,0.0668,0.0794,10,1584,2376
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",200,397,3.9700,0,198,594,3.0000,3,SUCCESS,0.0000,0.5787,0.0000,0.5787,0.5787,0.5787,0.5652,0.7044,10,1584,2376
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",200,397,3.9700,0,198,594,3.0000,3,SUCCESS,0.0060,0.0083,0.0046,0.0129,0.0188,0.0190,0.0172,0.0232,10,1584,2376
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",200,12760,127.6000,0,120,9720,81.0000,81,SUCCESS,0.0454,0.0049,0.0166,0.0215,0.0668,0.0623,0.0528,0.0686,10,960,38880
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",200,12760,127.6000,0,120,9720,81.0000,81,SUCCESS,0.0000,83.0977,0.0000,83.0977,83.0977,83.0977,82.4504,87.0691,10,960,38880
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",200,12760,127.6000,0,120,9720,81.0000,81,SUCCESS,0.0077,0.0074,0.0102,0.0176,0.0253,0.0257,0.0245,0.0366,10,960,38880
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",200,989,9.8900,0,180,1091,6.0611,8,SUCCESS,0.0539,0.0037,0.0047,0.0084,0.0623,0.0628,0.0605,0.0724,10,1440,4364
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",200,989,9.8900,0,180,1091,6.0611,8,SUCCESS,0.0000,1.0132,0.0000,1.0132,1.0132,1.0132,0.9589,1.3438,10,1440,4364
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",200,989,9.8900,0,180,1091,6.0611,8,SUCCESS,0.0061,0.0079,0.0047,0.0126,0.0187,0.0187,0.0181,0.0251,10,1440,4364
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",200,888,8.8800,0,98,588,6.0000,6,SUCCESS,0.0557,0.0031,0.0025,0.0056,0.0613,0.0596,0.0586,0.0786,10,784,2352
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",200,888,8.8800,0,98,588,6.0000,6,SUCCESS,0.0000,0.8405,0.0000,0.8405,0.8405,0.8405,0.8326,1.0991,10,784,2352
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",200,888,8.8800,0,98,588,6.0000,6,SUCCESS,0.0059,0.0070,0.0023,0.0093,0.0152,0.0154,0.0151,0.0178,10,784,2352
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",200,594,5.9400,0,197,788,4.0000,4,SUCCESS,0.0567,0.0040,0.0044,0.0084,0.0651,0.0655,0.0635,0.0867,10,1576,3152
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",200,594,5.9400,0,197,788,4.0000,4,SUCCESS,0.0000,0.7544,0.0000,0.7544,0.7544,0.7544,0.7383,0.9126,10,1576,3152
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",200,594,5.9400,0,197,788,4.0000,4,SUCCESS,0.0056,0.0075,0.0043,0.0118,0.0174,0.0174,0.0171,0.0239,10,1576,3152
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",500,499,1.9960,0,499,998,2.0000,2,SUCCESS,0.1466,0.0133,0.0109,0.0241,0.1708,0.1782,0.1682,0.2551,10,3992,3992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",500,499,1.9960,0,499,998,2.0000,2,SUCCESS,0.0000,3.3632,0.0000,3.3632,3.3632,3.3632,3.3131,3.5276,10,3992,3992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",500,499,1.9960,0,499,998,2.0000,2,SUCCESS,0.0145,0.0186,0.0102,0.0288,0.0432,0.0465,0.0426,0.2287,10,3992,3992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",500,3964,15.8560,0,492,4428,9.0000,9,SUCCESS,0.1372,0.0166,0.0146,0.0312,0.1685,0.1684,0.1645,0.1874,10,3936,17712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",500,3964,15.8560,0,492,4428,9.0000,9,SUCCESS,0.0000,6.4255,0.0000,6.4255,6.4255,6.4255,6.2718,6.5606,10,3936,17712
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",500,3964,15.8560,0,492,4428,9.0000,9,SUCCESS,0.0205,0.0205,0.0145,0.0350,0.0554,0.0564,0.0554,0.0668,10,3936,17712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",500,12175,48.7000,0,475,12350,26.0000,26,SUCCESS,0.1207,0.0178,0.0214,0.0393,0.1600,0.1691,0.1577,0.2265,10,3800,49400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",500,12175,48.7000,0,475,12350,26.0000,26,SUCCESS,0.0000,51.7729,0.0000,51.7729,51.7729,51.7729,50.5324,53.1647,10,3800,49400
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",500,12175,48.7000,0,475,12350,26.0000,26,SUCCESS,0.0222,0.0191,0.0182,0.0373,0.0595,0.0599,0.0574,0.1077,10,3800,49400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",500,2253,9.0120,0,378,2150,5.6878,8,SUCCESS,0.1543,0.0157,0.0105,0.0261,0.1805,0.1720,0.1624,0.1817,10,3024,8600
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",500,2253,9.0120,0,378,2150,5.6878,8,SUCCESS,0.0000,4.5399,0.0000,4.5399,4.5399,4.5399,4.3945,5.3356,10,3024,8600
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",500,2253,9.0120,0,378,2150,5.6878,8,SUCCESS,0.0159,0.0177,0.0102,0.0279,0.0439,0.0439,0.0428,0.0556,10,3024,8600
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",500,3382,13.5280,0,240,1998,8.3250,12,SUCCESS,0.1559,0.0108,0.0087,0.0195,0.1754,0.1790,0.1676,0.2112,10,1920,7992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",500,3382,13.5280,0,240,1998,8.3250,12,SUCCESS,0.0000,6.2357,0.0000,6.2357,6.2357,6.2357,6.0152,7.1877,10,1920,7992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",500,3382,13.5280,0,240,1998,8.3250,12,SUCCESS,0.0188,0.0179,0.0080,0.0260,0.0447,0.0449,0.0432,0.0581,10,1920,7992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",500,3226,12.9040,0,247,1976,8.0000,8,SUCCESS,0.1475,0.0112,0.0068,0.0181,0.1656,0.1704,0.1529,0.2238,10,1976,7904
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",500,3226,12.9040,0,247,1976,8.0000,8,SUCCESS,0.0000,5.3706,0.0000,5.3706,5.3706,5.3706,5.2289,5.6789,10,1976,7904
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",500,3226,12.9040,0,247,1976,8.0000,8,SUCCESS,0.0192,0.0182,0.0072,0.0254,0.0446,0.0451,0.0445,0.0573,10,1976,7904
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",500,499,1.9960,0,499,998,2.0000,2,SUCCESS,0.1681,0.0192,0.0127,0.0319,0.1999,0.2190,0.1884,0.3217,10,3992,3992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",500,499,1.9960,0,499,998,2.0000,2,SUCCESS,0.0000,3.3479,0.0000,3.3479,3.3479,3.3479,3.1849,3.7504,10,3992,3992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",500,499,1.9960,0,499,998,2.0000,2,SUCCESS,0.0166,0.0218,0.0131,0.0349,0.0515,0.0522,0.0518,0.1703,10,3992,3992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",500,499,1.9960,0,499,998,2.0000,2,SUCCESS,0.1810,0.0190,0.0124,0.0315,0.2124,0.2229,0.2079,0.2512,10,3992,3992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",500,499,1.9960,0,499,998,2.0000,2,SUCCESS,0.0000,3.3964,0.0000,3.3964,3.3964,3.3964,3.2413,3.6968,10,3992,3992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",500,499,1.9960,0,499,998,2.0000,2,SUCCESS,0.0144,0.0186,0.0112,0.0299,0.0442,0.0450,0.0438,0.0558,10,3992,3992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",500,7380,29.5200,0,485,7760,16.0000,16,SUCCESS,0.1389,0.0186,0.0181,0.0368,0.1757,0.1678,0.1577,0.2575,10,3880,31040
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",500,7380,29.5200,0,485,7760,16.0000,16,SUCCESS,0.0000,17.0996,0.0000,17.0996,17.0996,17.0996,16.4227,18.5585,10,3880,31040
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",500,7380,29.5200,0,485,7760,16.0000,16,SUCCESS,0.0191,0.0183,0.0149,0.0331,0.0523,0.0529,0.0521,0.0806,10,3880,31040
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",500,1244,4.9760,0,250,997,3.9880,4,SUCCESS,0.1469,0.0127,0.0061,0.0188,0.1657,0.1693,0.1639,0.2085,10,2000,3988
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",500,1244,4.9760,0,250,997,3.9880,4,SUCCESS,0.0000,3.7563,0.0000,3.7563,3.7563,3.7563,3.6069,3.9778,10,2000,3988
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",500,1244,4.9760,0,250,997,3.9880,4,SUCCESS,0.0140,0.0160,0.0053,0.0213,0.0353,0.0350,0.0348,0.0447,10,2000,3988
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",500,1763,7.0520,0,370,1718,4.6432,8,SUCCESS,0.1530,0.0174,0.0097,0.0272,0.1801,0.1820,0.1687,0.2612,10,2960,6872
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",500,1763,7.0520,0,370,1718,4.6432,8,SUCCESS,0.0000,4.2224,0.0000,4.2224,4.2224,4.2224,4.0326,4.6145,10,2960,6872
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",500,1763,7.0520,0,370,1718,4.6432,8,SUCCESS,0.0155,0.0176,0.0093,0.0269,0.0425,0.0424,0.0413,0.0580,10,2960,6872
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",500,997,3.9880,0,498,1494,3.0000,3,SUCCESS,0.1502,0.0177,0.0102,0.0279,0.1781,0.1738,0.1633,0.3109,10,3984,5976
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",500,997,3.9880,0,498,1494,3.0000,3,SUCCESS,0.0000,3.7548,0.0000,3.7548,3.7548,3.7548,3.4099,4.1264,10,3984,5976
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",500,997,3.9880,0,498,1494,3.0000,3,SUCCESS,0.0156,0.0188,0.0106,0.0294,0.0450,0.0450,0.0447,0.0731,10,3984,5976
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",500,79900,319.6000,0,300,60300,201.0000,201,SUCCESS,0.1010,0.0095,0.1123,0.1218,0.2228,0.2218,0.2096,0.2424,10,2400,241200
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",500,79900,319.6000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,10,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",500,79900,319.6000,0,300,60300,201.0000,201,SUCCESS,0.0295,0.0236,0.0968,0.1203,0.1499,0.1405,0.1338,0.1660,10,2400,241200
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",500,2489,9.9560,0,456,2759,6.0504,8,SUCCESS,0.1779,0.0195,0.0151,0.0345,0.2125,0.2177,0.1991,0.2237,10,3648,11036
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",500,2489,9.9560,0,456,2759,6.0504,8,SUCCESS,0.0000,6.1046,0.0000,6.1046,6.1046,6.1046,5.6915,6.2794,10,3648,11036
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",500,2489,9.9560,0,456,2759,6.0504,8,SUCCESS,0.0194,0.0203,0.0135,0.0338,0.0532,0.0545,0.0509,0.2532,10,3648,11036
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",500,2238,8.9520,0,248,1488,6.0000,6,SUCCESS,0.1527,0.0092,0.0061,0.0153,0.1680,0.2102,0.1915,0.2256,10,1984,5952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",500,2238,8.9520,0,248,1488,6.0000,6,SUCCESS,0.0000,4.3374,0.0000,4.3374,4.3374,4.3374,4.1555,4.4919,10,1984,5952
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",500,2238,8.9520,0,248,1488,6.0000,6,SUCCESS,0.0169,0.0161,0.0056,0.0217,0.0386,0.0388,0.0383,0.0498,10,1984,5952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",500,1494,5.9760,0,497,1988,4.0000,4,SUCCESS,0.1547,0.0158,0.0113,0.0270,0.1818,0.1912,0.1647,0.2217,10,3976,7952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",500,1494,5.9760,0,497,1988,4.0000,4,SUCCESS,0.0000,5.2570,0.0000,5.2570,5.2570,5.2570,4.6458,5.9389,10,3976,7952
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",500,1494,5.9760,0,497,1988,4.0000,4,SUCCESS,0.0169,0.0205,0.0114,0.0319,0.0488,0.0500,0.0478,0.0743,10,3976,7952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",1000,999,1.9980,0,999,1998,2.0000,2,SUCCESS,0.3802,0.0449,0.0283,0.0732,0.4534,0.4509,0.3553,0.6950,10,7992,7992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",1000,999,1.9980,0,999,1998,2.0000,2,SUCCESS,0.0000,14.4993,0.0000,14.4993,14.4993,14.4993,13.7065,17.8762,10,7992,7992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",1000,999,1.9980,0,999,1998,2.0000,2,SUCCESS,0.0285,0.0355,0.0207,0.0562,0.0847,0.0857,0.0847,0.1491,10,7992,7992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",1000,7964,15.9280,0,992,8928,9.0000,9,SUCCESS,0.3126,0.0443,0.0308,0.0751,0.3877,0.3860,0.3104,0.4404,10,7936,35712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",1000,7964,15.9280,0,992,8928,9.0000,9,SUCCESS,0.0000,24.2489,0.0000,24.2489,24.2489,24.2489,20.2430,26.1057,10,7936,35712
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",1000,7964,15.9280,0,992,8928,9.0000,9,SUCCESS,0.0408,0.0393,0.0277,0.0669,0.1078,0.1118,0.1064,0.1284,10,7936,35712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",1000,24675,49.3500,0,975,25350,26.0000,26,SUCCESS,0.2992,0.0471,0.0556,0.1028,0.4020,0.4032,0.3185,0.4654,10,7800,101400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",1000,24675,49.3500,0,975,25350,26.0000,26,SUCCESS,0.0000,127.0586,0.0000,127.0586,127.0586,127.0586,120.0037,143.9548,10,7800,101400
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",1000,24675,49.3500,0,975,25350,26.0000,26,SUCCESS,0.0624,0.0471,0.0499,0.0970,0.1594,0.1623,0.1495,0.1979,10,7800,101400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",1000,4508,9.0160,0,758,4305,5.6794,8,SUCCESS,0.3701,0.0209,0.0244,0.0454,0.4155,0.4223,0.4004,0.5248,10,6064,17220
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",1000,4508,9.0160,0,758,4305,5.6794,8,SUCCESS,0.0000,19.7350,0.0000,19.7350,19.7350,19.7350,18.1591,21.0634,10,6064,17220
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",1000,4508,9.0160,0,758,4305,5.6794,8,SUCCESS,0.0376,0.0353,0.0195,0.0548,0.0924,0.0930,0.0891,0.1032,10,6064,17220
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",1000,6932,13.8640,0,484,4115,8.5021,12,SUCCESS,0.3216,0.0190,0.0196,0.0386,0.3603,0.4322,0.3550,0.4502,10,3872,16460
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",1000,6932,13.8640,0,484,4115,8.5021,12,SUCCESS,0.0000,22.8383,0.0000,22.8383,22.8383,22.8383,21.5142,24.9481,10,3872,16460
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",1000,6932,13.8640,0,484,4115,8.5021,12,SUCCESS,0.0465,0.0418,0.0195,0.0613,0.1078,0.1094,0.1057,0.1219,10,3872,16460
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",1000,6476,12.9520,0,497,3976,8.0000,8,SUCCESS,0.3361,0.0155,0.0159,0.0314,0.3675,0.3581,0.3412,0.3789,10,3976,15904
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",1000,6476,12.9520,0,497,3976,8.0000,8,SUCCESS,0.0000,20.6445,0.0000,20.6445,20.6445,20.6445,19.0272,22.5096,10,3976,15904
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",1000,6476,12.9520,0,497,3976,8.0000,8,SUCCESS,0.0398,0.0359,0.0141,0.0501,0.0899,0.0912,0.0896,0.0965,10,3976,15904
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",1000,999,1.9980,0,999,1998,2.0000,2,SUCCESS,0.3387,0.0306,0.0253,0.0559,0.3947,0.3740,0.3648,0.4774,10,7992,7992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",1000,999,1.9980,0,999,1998,2.0000,2,SUCCESS,0.0000,16.6726,0.0000,16.6726,16.6726,16.6726,15.8571,18.2088,10,7992,7992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",1000,999,1.9980,0,999,1998,2.0000,2,SUCCESS,0.0350,0.0442,0.0258,0.0700,0.1050,0.1064,0.1046,0.1202,10,7992,7992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",1000,999,1.9980,0,999,1998,2.0000,2,SUCCESS,0.3452,0.0193,0.0255,0.0449,0.3901,0.3864,0.3579,0.4808,10,7992,7992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",1000,999,1.9980,0,999,1998,2.0000,2,SUCCESS,0.0000,15.3531,0.0000,15.3531,15.3531,15.3531,14.0372,22.2363,10,7992,7992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",1000,999,1.9980,0,999,1998,2.0000,2,SUCCESS,0.0340,0.0422,0.0246,0.0668,0.1007,0.1012,0.1001,0.1124,10,7992,7992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",1000,14880,29.7600,0,985,15760,16.0000,16,SUCCESS,0.3015,0.0199,0.0363,0.0562,0.3577,0.3595,0.3535,0.4109,10,7880,63040
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",1000,14880,29.7600,0,985,15760,16.0000,16,SUCCESS,0.0000,45.8986,0.0000,45.8986,45.8986,45.8986,43.1325,50.8552,10,7880,63040
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",1000,14880,29.7600,0,985,15760,16.0000,16,SUCCESS,0.0464,0.0377,0.0303,0.0680,0.1144,0.1142,0.1113,0.1569,10,7880,63040
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",1000,2494,4.9880,0,500,1997,3.9940,4,SUCCESS,0.3261,0.0151,0.0129,0.0279,0.3540,0.3877,0.3490,0.4840,10,4000,7988
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",1000,2494,4.9880,0,500,1997,3.9940,4,SUCCESS,0.0000,15.7526,0.0000,15.7526,15.7526,15.7526,15.1266,16.8653,10,4000,7988
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",1000,2494,4.9880,0,500,1997,3.9940,4,SUCCESS,0.0352,0.0330,0.0115,0.0444,0.0796,0.0859,0.0774,0.8540,10,4000,7988
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",1000,3587,7.1740,0,734,3470,4.7275,8,SUCCESS,0.3319,0.0210,0.0205,0.0415,0.3735,0.3922,0.3289,0.5095,10,5872,13880
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",1000,3587,7.1740,0,734,3470,4.7275,8,SUCCESS,0.0000,17.7505,0.0000,17.7505,17.7505,17.7505,16.5222,18.8706,10,5872,13880
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",1000,3587,7.1740,0,734,3470,4.7275,8,SUCCESS,0.0383,0.0387,0.0212,0.0599,0.0982,0.0978,0.0934,0.1149,10,5872,13880
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",1000,1997,3.9940,0,998,2994,3.0000,3,SUCCESS,0.3469,0.0379,0.0244,0.0623,0.4092,0.4582,0.3566,1.0383,10,7984,11976
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",1000,1997,3.9940,0,998,2994,3.0000,3,SUCCESS,0.0000,15.7896,0.0000,15.7896,15.7896,15.7896,14.5864,17.7292,10,7984,11976
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",1000,1997,3.9940,0,998,2994,3.0000,3,SUCCESS,0.0306,0.0366,0.0214,0.0580,0.0885,0.0910,0.0859,0.1517,10,7984,11976
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",1000,319800,639.6000,0,600,240600,401.0000,401,SUCCESS,0.2012,0.0204,0.2543,0.2746,0.4758,0.4225,0.3893,0.5959,10,4800,962400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",1000,319800,639.6000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,10,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",1000,319800,639.6000,0,600,240600,401.0000,401,SUCCESS,0.0622,0.0373,0.2838,0.3211,0.3833,0.3354,0.2899,0.6178,10,4800,962400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",1000,4989,9.9780,0,916,5539,6.0469,8,SUCCESS,0.3154,0.0251,0.0247,0.0498,0.3652,0.3457,0.3330,0.4899,10,7328,22156
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",1000,4989,9.9780,0,916,5539,6.0469,8,SUCCESS,0.0000,17.3441,0.0000,17.3441,17.3441,17.3441,16.8760,17.9215,10,7328,22156
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",1000,4989,9.9780,0,916,5539,6.0469,8,SUCCESS,0.0385,0.0358,0.0233,0.0591,0.0977,0.1007,0.0979,0.1206,10,7328,22156
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",1000,4488,8.9760,0,498,2988,6.0000,6,SUCCESS,0.3216,0.0252,0.0122,0.0374,0.3589,0.3426,0.3167,0.3960,10,3984,11952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",1000,4488,8.9760,0,498,2988,6.0000,6,SUCCESS,0.0000,16.7802,0.0000,16.7802,16.7802,16.7802,15.9362,17.4313,10,3984,11952
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",1000,4488,8.9760,0,498,2988,6.0000,6,SUCCESS,0.0401,0.0361,0.0131,0.0493,0.0893,0.0902,0.0886,0.0994,10,3984,11952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",1000,2994,5.9880,0,997,3988,4.0000,4,SUCCESS,0.3619,0.0296,0.0270,0.0566,0.4184,0.6166,0.3959,0.8661,10,7976,15952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",1000,2994,5.9880,0,997,3988,4.0000,4,SUCCESS,0.0000,20.3301,0.0000,20.3301,20.3301,20.3301,19.5393,22.0774,10,7976,15952
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",1000,2994,5.9880,0,997,3988,4.0000,4,SUCCESS,0.0351,0.0394,0.0234,0.0628,0.0979,0.0971,0.0967,0.1015,10,7976,15952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",2000,1999,1.9990,0,1999,3998,2.0000,2,SUCCESS,0.6996,0.0893,0.0506,0.1399,0.8395,0.8477,0.7108,0.9088,5,15992,15992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",2000,1999,1.9990,0,1999,3998,2.0000,2,SUCCESS,0.0000,74.2465,0.0000,74.2465,74.2465,74.2465,69.6331,79.5610,5,15992,15992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",2000,1999,1.9990,0,1999,3998,2.0000,2,SUCCESS,0.0784,0.0891,0.0524,0.1415,0.2199,0.2317,0.2195,0.2896,5,15992,15992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",2000,15964,15.9640,0,1992,17928,9.0000,9,SUCCESS,0.7029,0.0505,0.0622,0.1127,0.8156,0.7720,0.6890,0.8988,5,15936,71712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",2000,15964,15.9640,0,1992,17928,9.0000,9,SUCCESS,0.0000,88.0678,0.0000,88.0678,88.0678,88.0678,84.1705,91.5918,5,15936,71712
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",2000,15964,15.9640,0,1992,17928,9.0000,9,SUCCESS,0.0899,0.0788,0.0584,0.1372,0.2271,0.2277,0.2097,0.3419,5,15936,71712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",2000,49675,49.6750,0,1975,51350,26.0000,26,SUCCESS,0.5691,0.0545,0.0867,0.1412,0.7103,0.6783,0.6458,0.9734,5,15800,205400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",2000,49675,49.6750,0,1975,51350,26.0000,26,SUCCESS,0.0000,314.0360,0.0000,314.0360,314.0360,314.0360,305.3410,332.0374,5,15800,205400
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",2000,49675,49.6750,0,1975,51350,26.0000,26,SUCCESS,0.1041,0.0750,0.0730,0.1480,0.2521,0.2588,0.2469,0.3294,5,15800,205400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",2000,8994,8.9940,0,1519,8598,5.6603,8,SUCCESS,0.6177,0.0458,0.0453,0.0911,0.7088,0.6921,0.6723,0.8440,5,12152,34392
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",2000,8994,8.9940,0,1519,8598,5.6603,8,SUCCESS,0.0000,83.6264,0.0000,83.6264,83.6264,83.6264,79.5965,88.9463,5,12152,34392
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",2000,8994,8.9940,0,1519,8598,5.6603,8,SUCCESS,0.0932,0.0839,0.0460,0.1299,0.2231,0.2306,0.2187,0.2976,5,12152,34392
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",2000,13982,13.9820,0,971,8296,8.5438,13,SUCCESS,0.7602,0.0577,0.0436,0.1013,0.8615,0.8553,0.8184,1.0148,5,7768,33184
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",2000,13982,13.9820,0,971,8296,8.5438,13,SUCCESS,0.0000,84.4754,0.0000,84.4754,84.4754,84.4754,81.7140,91.3461,5,7768,33184
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",2000,13982,13.9820,0,971,8296,8.5438,13,SUCCESS,0.0910,0.0747,0.0375,0.1122,0.2032,0.2068,0.2009,0.2145,5,7768,33184
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",2000,12976,12.9760,0,997,7976,8.0000,8,SUCCESS,0.6902,0.0323,0.0318,0.0641,0.7543,0.9075,0.7168,1.1256,5,7976,31904
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",2000,12976,12.9760,0,997,7976,8.0000,8,SUCCESS,0.0000,79.7473,0.0000,79.7473,79.7473,79.7473,77.5670,84.9513,5,7976,31904
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",2000,12976,12.9760,0,997,7976,8.0000,8,SUCCESS,0.0732,0.0595,0.0241,0.0836,0.1568,0.1593,0.1561,0.1622,5,7976,31904
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",2000,1999,1.9990,0,1999,3998,2.0000,2,SUCCESS,0.6218,0.0494,0.0447,0.0941,0.7159,0.6823,0.6549,0.8323,5,15992,15992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",2000,1999,1.9990,0,1999,3998,2.0000,2,SUCCESS,0.0000,77.2843,0.0000,77.2843,77.2843,77.2843,67.7340,91.0322,5,15992,15992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",2000,1999,1.9990,0,1999,3998,2.0000,2,SUCCESS,0.0644,0.0694,0.0428,0.1122,0.1766,0.1791,0.1779,0.1844,5,15992,15992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",2000,1999,1.9990,0,1999,3998,2.0000,2,SUCCESS,0.6929,0.0485,0.0483,0.0968,0.7897,0.8357,0.7137,1.0811,5,15992,15992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",2000,1999,1.9990,0,1999,3998,2.0000,2,SUCCESS,0.0000,73.5189,0.0000,73.5189,73.5189,73.5189,66.4732,74.9409,5,15992,15992
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",2000,1999,1.9990,0,1999,3998,2.0000,2,SUCCESS,0.0605,0.0707,0.0421,0.1128,0.1733,0.1759,0.1728,0.1806,5,15992,15992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",2000,29880,29.8800,0,1985,31760,16.0000,16,SUCCESS,0.5814,0.0536,0.0728,0.1264,0.7078,0.7186,0.6538,0.7842,5,15880,127040
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",2000,29880,29.8800,0,1985,31760,16.0000,16,SUCCESS,0.0000,138.6212,0.0000,138.6212,138.6212,138.6212,135.2885,146.7685,5,15880,127040
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",2000,29880,29.8800,0,1985,31760,16.0000,16,SUCCESS,0.1093,0.0740,0.0629,0.1369,0.2462,0.2896,0.2426,0.3962,5,15880,127040
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",2000,4994,4.9940,0,1000,3997,3.9970,4,SUCCESS,0.5510,0.0271,0.0298,0.0569,0.6079,0.6168,0.6050,1.0004,5,8000,15988
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",2000,4994,4.9940,0,1000,3997,3.9970,4,SUCCESS,0.0000,69.3588,0.0000,69.3588,69.3588,69.3588,68.2908,76.1658,5,8000,15988
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",2000,4994,4.9940,0,1000,3997,3.9970,4,SUCCESS,0.0695,0.0616,0.0220,0.0836,0.1531,0.1524,0.1519,0.1573,5,8000,15988
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",2000,7127,7.1270,0,1463,6893,4.7116,8,SUCCESS,0.6485,0.0458,0.0418,0.0876,0.7361,0.7126,0.6991,0.7880,5,11704,27572
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",2000,7127,7.1270,0,1463,6893,4.7116,8,SUCCESS,0.0000,71.9199,0.0000,71.9199,71.9199,71.9199,70.6284,74.6639,5,11704,27572
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",2000,7127,7.1270,0,1463,6893,4.7116,8,SUCCESS,0.0898,0.0769,0.0410,0.1179,0.2077,0.2052,0.1982,0.2226,5,11704,27572
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",2000,3997,3.9970,0,1998,5994,3.0000,3,SUCCESS,0.7069,0.0392,0.0521,0.0913,0.7982,0.8011,0.7648,0.8994,5,15984,23976
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",2000,3997,3.9970,0,1998,5994,3.0000,3,SUCCESS,0.0000,72.8234,0.0000,72.8234,72.8234,72.8234,69.1585,76.4656,5,15984,23976
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",2000,3997,3.9970,0,1998,5994,3.0000,3,SUCCESS,0.0643,0.0688,0.0413,0.1101,0.1744,0.1758,0.1709,0.1802,5,15984,23976
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",2000,1279600,1279.6000,0,1200,961200,801.0000,801,SUCCESS,0.4115,0.0445,1.5188,1.5633,1.9748,1.4726,1.2627,2.0880,5,9600,3844800
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",2000,1279600,1279.6000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",2000,1279600,1279.6000,0,1200,961200,801.0000,801,SUCCESS,0.1629,0.0693,0.9054,0.9747,1.1376,0.9022,0.8752,1.0011,5,9600,3844800
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",2000,9989,9.9890,0,1836,11099,6.0452,8,SUCCESS,0.5510,0.0332,0.0476,0.0808,0.6318,0.6383,0.6267,0.6633,5,14688,44396
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",2000,9989,9.9890,0,1836,11099,6.0452,8,SUCCESS,0.0000,82.8391,0.0000,82.8391,82.8391,82.8391,74.1389,85.9597,5,14688,44396
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",2000,9989,9.9890,0,1836,11099,6.0452,8,SUCCESS,0.0935,0.0797,0.0529,0.1326,0.2261,0.2325,0.2266,0.2383,5,14688,44396
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",2000,8988,8.9880,0,998,5988,6.0000,6,SUCCESS,0.7082,0.0339,0.0282,0.0621,0.7703,0.7490,0.7411,0.7859,5,7984,23952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",2000,8988,8.9880,0,998,5988,6.0000,6,SUCCESS,0.0000,81.6714,0.0000,81.6714,81.6714,81.6714,78.9656,82.7566,5,7984,23952
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",2000,8988,8.9880,0,998,5988,6.0000,6,SUCCESS,0.0841,0.0710,0.0255,0.0965,0.1806,0.1861,0.1805,0.2325,5,7984,23952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",2000,5994,5.9940,0,1997,7988,4.0000,4,SUCCESS,0.6804,0.0549,0.0542,0.1091,0.7895,0.8651,0.7407,1.1279,5,15976,31952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",2000,5994,5.9940,0,1997,7988,4.0000,4,SUCCESS,0.0000,94.1623,0.0000,94.1623,94.1623,94.1623,90.7352,95.8350,5,15976,31952
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",2000,5994,5.9940,0,1997,7988,4.0000,4,SUCCESS,0.0691,0.0712,0.0427,0.1139,0.1830,0.1850,0.1833,0.1881,5,15976,31952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",5000,4999,1.9996,0,4999,9998,2.0000,2,SUCCESS,1.6330,0.1132,0.1147,0.2279,1.8609,2.1742,1.6680,2.3720,5,39992,39992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",5000,4999,1.9996,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",5000,4999,1.9996,0,4999,9998,2.0000,2,SUCCESS,0.1719,0.1745,0.1137,0.2882,0.4601,0.4543,0.4506,0.5007,5,39992,39992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",5000,39964,15.9856,0,4992,44928,9.0000,9,SUCCESS,1.6862,0.2249,0.1849,0.4098,2.0960,1.9650,1.9116,2.3352,5,39936,179712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",5000,39964,15.9856,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",5000,39964,15.9856,0,4992,44928,9.0000,9,SUCCESS,0.2105,0.2117,0.1432,0.3549,0.5654,0.5597,0.5391,0.8007,5,39936,179712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",5000,124675,49.8700,0,4975,129350,26.0000,26,SUCCESS,1.6600,0.1471,0.2692,0.4163,2.0763,1.7972,1.6319,2.2460,5,39800,517400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",5000,124675,49.8700,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",5000,124675,49.8700,0,4975,129350,26.0000,26,SUCCESS,0.3154,0.2049,0.2189,0.4238,0.7392,0.6804,0.6708,0.9248,5,39800,517400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",5000,22506,9.0024,0,3803,21528,5.6608,8,SUCCESS,1.7474,0.1970,0.1457,0.3427,2.0901,2.2930,2.1249,2.4642,5,30424,86112
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",5000,22506,9.0024,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",5000,22506,9.0024,0,3803,21528,5.6608,8,SUCCESS,0.2278,0.1745,0.0952,0.2697,0.4975,0.5147,0.4748,0.6145,5,30424,86112
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",5000,35271,14.1084,0,2413,20777,8.6104,13,SUCCESS,1.9542,0.1516,0.0998,0.2514,2.2056,2.3987,1.9697,2.6321,5,19304,83108
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",5000,35271,14.1084,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",5000,35271,14.1084,0,2413,20777,8.6104,13,SUCCESS,0.2887,0.2026,0.0954,0.2980,0.5867,0.5887,0.5671,0.6702,5,19304,83108
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",5000,32476,12.9904,0,2497,19976,8.0000,8,SUCCESS,1.6945,0.1117,0.0766,0.1883,1.8828,1.8934,1.8079,1.9939,5,19976,79904
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",5000,32476,12.9904,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",5000,32476,12.9904,0,2497,19976,8.0000,8,SUCCESS,0.2441,0.1719,0.0731,0.2450,0.4891,0.5113,0.4623,0.5405,5,19976,79904
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",5000,4999,1.9996,0,4999,9998,2.0000,2,SUCCESS,1.7260,0.1696,0.1085,0.2781,2.0041,1.8585,1.6969,2.0532,5,39992,39992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",5000,4999,1.9996,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",5000,4999,1.9996,0,4999,9998,2.0000,2,SUCCESS,0.1672,0.1728,0.1020,0.2748,0.4420,0.4405,0.4368,0.5293,5,39992,39992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",5000,4999,1.9996,0,4999,9998,2.0000,2,SUCCESS,1.6235,0.1179,0.1100,0.2279,1.8514,2.0049,1.6831,2.2302,5,39992,39992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",5000,4999,1.9996,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",5000,4999,1.9996,0,4999,9998,2.0000,2,SUCCESS,0.1827,0.1946,0.1184,0.3130,0.4957,0.4914,0.4526,0.5166,5,39992,39992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",5000,74880,29.9520,0,4985,79760,16.0000,16,SUCCESS,1.8106,0.1871,0.2185,0.4056,2.2162,1.9063,1.7849,2.3717,5,39880,319040
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",5000,74880,29.9520,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",5000,74880,29.9520,0,4985,79760,16.0000,16,SUCCESS,0.2827,0.1907,0.1641,0.3548,0.6375,0.6719,0.5976,0.9079,5,39880,319040
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",5000,12494,4.9976,0,2500,9997,3.9988,4,SUCCESS,1.6289,0.0823,0.0602,0.1425,1.7714,1.5478,1.5218,1.7713,5,20000,39988
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",5000,12494,4.9976,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",5000,12494,4.9976,0,2500,9997,3.9988,4,SUCCESS,0.1793,0.1497,0.0529,0.2026,0.3819,0.3832,0.3728,0.6847,5,20000,39988
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",5000,17879,7.1516,0,3652,17266,4.7278,9,SUCCESS,2.2084,0.1932,0.1473,0.3405,2.5489,2.5222,2.0817,2.7764,5,29216,69064
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",5000,17879,7.1516,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",5000,17879,7.1516,0,3652,17266,4.7278,9,SUCCESS,0.2324,0.1789,0.1012,0.2801,0.5125,0.5127,0.4858,0.5540,5,29216,69064
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",5000,9997,3.9988,0,4998,14994,3.0000,3,SUCCESS,1.8138,0.1705,0.1233,0.2938,2.1076,2.0653,1.8622,2.5803,5,39984,59976
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",5000,9997,3.9988,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",5000,9997,3.9988,0,4998,14994,3.0000,3,SUCCESS,0.1849,0.1782,0.1158,0.2940,0.4789,0.4797,0.4620,0.7112,5,39984,59976
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",5000,7999000,3199.6000,0,3000,6003000,2001.0000,2001,SUCCESS,1.2246,0.1945,12.5125,12.7070,13.9316,13.3876,11.2464,14.2368,5,24000,24012000
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",5000,7999000,3199.6000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",5000,7999000,3199.6000,0,3000,6003000,2001.0000,2001,SUCCESS,0.4667,0.2048,12.4706,12.6754,13.1421,8.2486,7.6352,12.2100,5,24000,24012000
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",5000,24989,9.9956,0,4596,27779,6.0442,8,SUCCESS,1.7186,0.1607,0.1434,0.3041,2.0227,2.1875,1.9322,2.4348,5,36768,111116
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",5000,24989,9.9956,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",5000,24989,9.9956,0,4596,27779,6.0442,8,SUCCESS,0.2526,0.1967,0.1333,0.3300,0.5826,0.6101,0.5713,0.7648,5,36768,111116
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",5000,22488,8.9952,0,2498,14988,6.0000,6,SUCCESS,1.5411,0.0757,0.0586,0.1343,1.6754,1.6665,1.5390,1.7433,5,19984,59952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",5000,22488,8.9952,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",5000,22488,8.9952,0,2498,14988,6.0000,6,SUCCESS,0.1941,0.1483,0.0548,0.2031,0.3972,0.3923,0.3891,0.6140,5,19984,59952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",5000,14994,5.9976,0,4997,19988,4.0000,4,SUCCESS,1.5856,0.1196,0.1234,0.2430,1.8286,1.8361,1.6828,2.0246,5,39976,79952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",5000,14994,5.9976,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",5000,14994,5.9976,0,4997,19988,4.0000,4,SUCCESS,0.1827,0.1721,0.1098,0.2819,0.4646,0.4579,0.4504,0.5241,5,39976,79952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",10000,9999,1.9998,0,9999,19998,2.0000,2,SUCCESS,3.8668,0.2580,0.2625,0.5205,4.3873,4.4809,3.9840,4.5499,5,79992,79992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",10000,9999,1.9998,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",10000,9999,1.9998,0,9999,19998,2.0000,2,SUCCESS,0.4317,0.4105,0.2666,0.6771,1.1088,1.1211,1.0737,1.5136,5,79992,79992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",10000,79964,15.9928,0,9992,89928,9.0000,9,SUCCESS,3.6189,0.3552,0.3129,0.6681,4.2870,4.2038,3.9820,4.4497,5,79936,359712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",10000,79964,15.9928,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",10000,79964,15.9928,0,9992,89928,9.0000,9,SUCCESS,0.4609,0.3671,0.2817,0.6488,1.1097,1.1367,1.0647,1.2035,5,79936,359712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",10000,249675,49.9350,0,9975,259350,26.0000,26,SUCCESS,3.4544,0.2671,0.5348,0.8019,4.2563,4.2035,4.0837,4.2943,5,79800,1037400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",10000,249675,49.9350,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",10000,249675,49.9350,0,9975,259350,26.0000,26,SUCCESS,0.6994,0.3978,0.5116,0.9094,1.6088,1.6082,1.5627,1.7117,5,79800,1037400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",10000,44991,8.9982,0,7609,43045,5.6571,8,SUCCESS,3.5840,0.3012,0.2225,0.5237,4.1077,4.1656,3.6565,4.3102,5,60872,172180
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",10000,44991,8.9982,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",10000,44991,8.9982,0,7609,43045,5.6571,8,SUCCESS,0.5053,0.3671,0.2168,0.5839,1.0892,1.0855,1.0661,1.1145,5,60872,172180
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",10000,70832,14.1664,0,4818,41603,8.6349,13,SUCCESS,4.3699,0.2953,0.2095,0.5048,4.8747,4.9299,4.7350,5.0516,5,38544,166412
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",10000,70832,14.1664,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",10000,70832,14.1664,0,4818,41603,8.6349,13,SUCCESS,0.6181,0.4070,0.1968,0.6038,1.2219,1.2452,1.2073,1.2848,5,38544,166412
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",10000,64976,12.9952,0,4997,39976,8.0000,8,SUCCESS,3.5407,0.1747,0.1651,0.3398,3.8805,3.7881,3.7108,3.8998,5,39976,159904
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",10000,64976,12.9952,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",10000,64976,12.9952,0,4997,39976,8.0000,8,SUCCESS,0.4576,0.3213,0.1379,0.4592,0.9168,0.9659,0.9087,1.0013,5,39976,159904
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",10000,9999,1.9998,0,9999,19998,2.0000,2,SUCCESS,3.8665,0.2636,0.2617,0.5253,4.3918,4.5035,4.2297,4.7484,5,79992,79992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",10000,9999,1.9998,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",10000,9999,1.9998,0,9999,19998,2.0000,2,SUCCESS,0.4439,0.4115,0.2610,0.6725,1.1164,1.1859,1.1302,1.3666,5,79992,79992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",10000,9999,1.9998,0,9999,19998,2.0000,2,SUCCESS,3.9046,0.2668,0.2613,0.5281,4.4327,4.3526,3.9440,4.3907,5,79992,79992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",10000,9999,1.9998,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",10000,9999,1.9998,0,9999,19998,2.0000,2,SUCCESS,0.4288,0.4056,0.2561,0.6617,1.0905,1.1015,1.0710,1.1991,5,79992,79992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",10000,149880,29.9760,0,9985,159760,16.0000,16,SUCCESS,3.6767,0.3133,0.4051,0.7184,4.3951,4.4186,3.9472,5.1365,5,79880,639040
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",10000,149880,29.9760,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",10000,149880,29.9760,0,9985,159760,16.0000,16,SUCCESS,0.6086,0.4118,0.3888,0.8006,1.4092,1.4300,1.3736,1.4867,5,79880,639040
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",10000,24994,4.9988,0,5000,19997,3.9994,4,SUCCESS,3.7890,0.1945,0.1392,0.3337,4.1227,4.1752,3.9840,4.6732,5,40000,79988
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",10000,24994,4.9988,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",10000,24994,4.9988,0,5000,19997,3.9994,4,SUCCESS,0.4286,0.3268,0.1221,0.4489,0.8775,0.9050,0.8771,1.0110,5,40000,79988
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",10000,35793,7.1586,0,7322,34643,4.7314,9,SUCCESS,4.2937,0.3539,0.2256,0.5795,4.8732,4.8253,4.3113,5.4596,5,58576,138572
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",10000,35793,7.1586,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",10000,35793,7.1586,0,7322,34643,4.7314,9,SUCCESS,0.4839,0.3615,0.2034,0.5649,1.0488,1.0924,1.0147,1.2694,5,58576,138572
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",10000,19997,3.9994,0,9998,29994,3.0000,3,SUCCESS,3.7745,0.2874,0.2895,0.5769,4.3514,4.3619,4.2573,5.4204,5,79984,119976
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",10000,19997,3.9994,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",10000,19997,3.9994,0,9998,29994,3.0000,3,SUCCESS,0.4154,0.3834,0.2374,0.6208,1.0362,1.0667,0.9960,1.2157,5,79984,119976
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",10000,31998000,6399.6000,0,6000,24006000,4001.0000,4001,SUCCESS,2.4088,0.4661,46.0607,46.5268,48.9356,49.9493,49.0918,52.1945,5,48000,96024000
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",10000,31998000,6399.6000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",10000,31998000,6399.6000,0,6000,24006000,4001.0000,4001,SUCCESS,1.1212,0.5343,49.7652,50.2995,51.4207,46.4574,41.6803,76.6567,5,48000,96024000
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",10000,49989,9.9978,0,9196,55579,6.0438,8,SUCCESS,3.9449,0.3643,0.3158,0.6801,4.6250,4.3877,4.0249,4.6886,5,73568,222316
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",10000,49989,9.9978,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",10000,49989,9.9978,0,9196,55579,6.0438,8,SUCCESS,0.5418,0.4083,0.2696,0.6779,1.2197,1.2584,1.2251,1.3417,5,73568,222316
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",10000,44988,8.9976,0,4998,29988,6.0000,6,SUCCESS,3.4922,0.1772,0.1418,0.3190,3.8112,3.7070,3.4154,4.0106,5,39984,119952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",10000,44988,8.9976,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",10000,44988,8.9976,0,4998,29988,6.0000,6,SUCCESS,0.4262,0.3160,0.1174,0.4334,0.8596,0.8791,0.8604,0.9405,5,39984,119952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",10000,29994,5.9988,0,9997,39988,4.0000,4,SUCCESS,3.4589,0.2822,0.2515,0.5337,3.9926,3.9253,3.8524,4.3185,5,79976,159952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",10000,29994,5.9988,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,5,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",10000,29994,5.9988,0,9997,39988,4.0000,4,SUCCESS,0.4054,0.3525,0.2319,0.5844,0.9898,1.0009,0.9964,1.2557,5,79976,159952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",20000,19999,1.9999,0,19999,39998,2.0000,2,SUCCESS,7.6634,0.6353,0.4748,1.1101,8.7735,8.9724,8.5762,9.2967,3,159992,159992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",20000,19999,1.9999,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",20000,19999,1.9999,0,19999,39998,2.0000,2,SUCCESS,0.9008,0.8172,0.5169,1.3341,2.2349,2.2630,2.0007,2.3441,3,159992,159992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",20000,159964,15.9964,0,19992,179928,9.0000,9,SUCCESS,8.3733,0.6157,0.6342,1.2499,9.6232,10.0413,9.6586,10.1449,3,159936,719712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",20000,159964,15.9964,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",20000,159964,15.9964,0,19992,179928,9.0000,9,SUCCESS,0.9887,0.7891,0.5896,1.3787,2.3674,2.3792,2.3468,2.4406,3,159936,719712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",20000,499675,49.9675,0,19975,519350,26.0000,26,SUCCESS,7.5730,0.5865,1.1875,1.7740,9.3470,8.9465,8.8901,9.1460,3,159800,2077400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",20000,499675,49.9675,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",20000,499675,49.9675,0,19975,519350,26.0000,26,SUCCESS,1.4435,1.0298,0.9769,2.0067,3.4502,3.0586,2.9695,3.1798,3,159800,2077400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",20000,90000,9.0000,0,15223,86122,5.6574,8,SUCCESS,7.6148,0.4159,0.4195,0.8354,8.4502,8.1668,8.1087,8.4669,3,121784,344488
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",20000,90000,9.0000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",20000,90000,9.0000,0,15223,86122,5.6574,8,SUCCESS,1.0599,0.6933,0.3772,1.0705,2.1304,2.2445,2.1315,2.3613,3,121784,344488
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",20000,141355,14.1355,0,9602,82837,8.6271,13,SUCCESS,8.7618,0.4601,0.4025,0.8626,9.6244,10.1368,8.6864,10.6616,3,76816,331348
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",20000,141355,14.1355,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",20000,141355,14.1355,0,9602,82837,8.6271,13,SUCCESS,1.1963,0.7051,0.4054,1.1105,2.3068,2.2925,2.0817,2.3031,3,76816,331348
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",20000,129976,12.9976,0,9997,79976,8.0000,8,SUCCESS,7.4622,0.3153,0.2889,0.6042,8.0664,7.7877,7.5546,8.5657,3,79976,319904
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",20000,129976,12.9976,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",20000,129976,12.9976,0,9997,79976,8.0000,8,SUCCESS,0.9212,0.6522,0.2710,0.9232,1.8444,1.9179,1.7299,2.0239,3,79976,319904
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",20000,19999,1.9999,0,19999,39998,2.0000,2,SUCCESS,7.2882,0.5588,0.4575,1.0163,8.3045,8.3924,7.6755,8.8354,3,159992,159992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",20000,19999,1.9999,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",20000,19999,1.9999,0,19999,39998,2.0000,2,SUCCESS,0.8287,0.7972,0.4738,1.2710,2.0997,2.1271,2.0728,2.1991,3,159992,159992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",20000,19999,1.9999,0,19999,39998,2.0000,2,SUCCESS,7.2425,0.6788,0.5168,1.1956,8.4381,9.5297,8.5325,9.5845,3,159992,159992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",20000,19999,1.9999,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",20000,19999,1.9999,0,19999,39998,2.0000,2,SUCCESS,0.7760,0.7474,0.4414,1.1888,1.9648,1.9277,1.9056,2.1417,3,159992,159992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",20000,299880,29.9880,0,19985,319760,16.0000,16,SUCCESS,7.9026,0.8390,0.8406,1.6796,9.5822,9.2119,8.7086,9.4217,3,159880,1279040
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",20000,299880,29.9880,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",20000,299880,29.9880,0,19985,319760,16.0000,16,SUCCESS,1.2461,0.8901,0.7508,1.6409,2.8870,2.8678,2.8516,2.9233,3,159880,1279040
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",20000,49994,4.9994,0,10000,39997,3.9997,4,SUCCESS,7.9322,0.4551,0.2895,0.7446,8.6768,8.9090,8.4084,9.3636,3,80000,159988
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",20000,49994,4.9994,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",20000,49994,4.9994,0,10000,39997,3.9997,4,SUCCESS,1.0216,0.7914,0.2963,1.0877,2.1093,2.0920,2.0887,2.1018,3,80000,159988
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",20000,71872,7.1872,0,14617,69366,4.7456,10,SUCCESS,9.3789,0.6032,0.5412,1.1444,10.5233,10.6857,10.5893,10.8097,3,116936,277464
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",20000,71872,7.1872,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",20000,71872,7.1872,0,14617,69366,4.7456,10,SUCCESS,1.1964,0.8426,0.4788,1.3214,2.5178,2.5064,2.4613,2.5592,3,116936,277464
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",20000,39997,3.9997,0,19998,59994,3.0000,3,SUCCESS,7.2003,0.6005,0.4840,1.0845,8.2848,8.2625,8.2056,9.5239,3,159984,239976
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",20000,39997,3.9997,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",20000,39997,3.9997,0,19998,59994,3.0000,3,SUCCESS,0.8072,0.7256,0.4493,1.1749,1.9821,1.9683,1.9478,2.0080,3,159984,239976
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",20000,127996000,12799.6000,0,12000,96012000,8001.0000,8001,SUCCESS,4.9049,0.6684,179.6621,180.3305,185.2354,191.1926,183.3856,196.1277,3,96000,384048000
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",20000,127996000,12799.6000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",20000,127996000,12799.6000,0,12000,96012000,8001.0000,8001,SUCCESS,2.0735,0.9110,186.2436,187.1546,189.2281,203.7824,196.7636,207.9206,3,96000,384048000
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",20000,99989,9.9989,0,18396,111179,6.0437,8,SUCCESS,9.2802,0.9930,0.6489,1.6419,10.9221,11.0268,10.2306,11.2348,3,147168,444716
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",20000,99989,9.9989,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",20000,99989,9.9989,0,18396,111179,6.0437,8,SUCCESS,1.2674,1.0252,0.6747,1.6999,2.9673,2.8815,2.8753,2.8970,3,147168,444716
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",20000,89988,8.9988,0,9998,59988,6.0000,6,SUCCESS,8.7200,0.5693,0.3529,0.9222,9.6422,9.3903,9.2996,9.8755,3,79984,239952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",20000,89988,8.9988,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",20000,89988,8.9988,0,9998,59988,6.0000,6,SUCCESS,1.1358,0.8690,0.3487,1.2177,2.3535,2.3513,2.1210,2.4243,3,79984,239952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",20000,59994,5.9994,0,19997,79988,4.0000,4,SUCCESS,10.1310,0.9047,0.6227,1.5274,11.6584,11.5263,9.4891,13.7595,3,159976,319952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",20000,59994,5.9994,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",20000,59994,5.9994,0,19997,79988,4.0000,4,SUCCESS,1.0099,0.9148,0.5574,1.4722,2.4821,2.5490,2.4850,2.6214,3,159976,319952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",50000,49999,2.0000,0,49999,99998,2.0000,2,SUCCESS,20.4384,2.3986,1.3818,3.7804,24.2188,24.4840,24.3322,25.0855,3,399992,399992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",50000,49999,2.0000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",50000,49999,2.0000,0,49999,99998,2.0000,2,SUCCESS,2.4499,2.7458,1.5094,4.2552,6.7051,6.7103,6.6909,6.7461,3,399992,399992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",50000,399964,15.9986,0,49992,449928,9.0000,9,SUCCESS,19.2906,2.2023,1.6888,3.8911,23.1817,23.3501,22.2445,24.1955,3,399936,1799712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",50000,399964,15.9986,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",50000,399964,15.9986,0,49992,449928,9.0000,9,SUCCESS,2.8591,2.5031,1.4698,3.9729,6.8320,7.0687,6.8177,7.1791,3,399936,1799712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",50000,1249675,49.9870,0,49975,1299350,26.0000,26,SUCCESS,23.1725,2.7113,3.0040,5.7153,28.8878,27.6125,25.7383,30.3812,3,399800,5197400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",50000,1249675,49.9870,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",50000,1249675,49.9870,0,49975,1299350,26.0000,26,SUCCESS,3.9772,2.9709,2.4768,5.4477,9.4249,9.1787,8.9166,9.6229,3,399800,5197400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","unequal-lengths",50000,224988,8.9995,0,38060,215298,5.6568,8,SUCCESS,20.9480,2.4139,1.3311,3.7450,24.6930,24.2500,23.8739,25.6722,3,304480,861192
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","unequal-lengths",50000,224988,8.9995,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","unequal-lengths",50000,224988,8.9995,0,38060,215298,5.6568,8,SUCCESS,3.3769,2.1476,1.0645,3.2121,6.5890,6.6288,6.4571,6.7677,3,304480,861192
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","random-proper",50000,352563,14.1025,0,24121,207519,8.6033,14,SUCCESS,23.6323,1.8635,1.0121,2.8756,26.5079,28.5484,26.7387,29.4655,3,192968,830076
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","random-proper",50000,352563,14.1025,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","random-proper",50000,352563,14.1025,0,24121,207519,8.6033,14,SUCCESS,3.5758,2.1410,1.0299,3.1709,6.7467,7.1531,6.9860,7.4515,3,192968,830076
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","identical-clusters",50000,324976,12.9990,0,24997,199976,8.0000,8,SUCCESS,18.3374,1.4440,0.7429,2.1869,20.5243,21.3607,20.5062,21.5903,3,199976,799904
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","identical-clusters",50000,324976,12.9990,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","identical-clusters",50000,324976,12.9990,0,24997,199976,8.0000,8,SUCCESS,2.8795,1.6682,0.7304,2.3986,5.2781,5.2798,5.0156,5.5019,3,199976,799904
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","endpoint-touching",50000,49999,2.0000,0,49999,99998,2.0000,2,SUCCESS,20.2518,3.0568,1.5275,4.5843,24.8361,24.8815,24.8521,24.8939,3,399992,399992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","endpoint-touching",50000,49999,2.0000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","endpoint-touching",50000,49999,2.0000,0,49999,99998,2.0000,2,SUCCESS,2.6889,2.6732,1.3103,3.9835,6.6724,6.5529,6.4126,6.6673,3,399992,399992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","long-chain",50000,49999,2.0000,0,49999,99998,2.0000,2,SUCCESS,21.9230,2.9261,1.6378,4.5639,26.4869,26.0262,23.9466,26.8391,3,399992,399992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","long-chain",50000,49999,2.0000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","long-chain",50000,49999,2.0000,0,49999,99998,2.0000,2,SUCCESS,2.9395,2.8753,1.5183,4.3936,7.3331,7.4755,7.4275,7.8535,3,399992,399992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","high-overlap",50000,749880,29.9952,0,49985,799760,16.0000,16,SUCCESS,19.8616,2.2818,2.0097,4.2915,24.1531,26.7265,25.7925,28.1779,3,399880,3199040
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","high-overlap",50000,749880,29.9952,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","high-overlap",50000,749880,29.9952,0,49985,799760,16.0000,16,SUCCESS,3.6959,2.6581,2.0174,4.6755,8.3714,8.3291,7.7693,9.8257,3,399880,3199040
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","alternating-lengths",50000,124994,4.9998,0,25000,99997,3.9999,4,SUCCESS,20.8519,1.2923,0.6800,1.9723,22.8242,22.9280,21.5303,25.2976,3,200000,399988
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","alternating-lengths",50000,124994,4.9998,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","alternating-lengths",50000,124994,4.9998,0,25000,99997,3.9999,4,SUCCESS,2.7749,1.8384,0.6730,2.5114,5.2863,5.3509,5.2408,5.4030,3,200000,399988
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","irregular-spacing",50000,179949,7.1980,0,36570,173663,4.7488,11,SUCCESS,21.2348,1.9527,1.1112,3.0639,24.2987,24.5955,24.4096,25.8458,3,292560,694652
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","irregular-spacing",50000,179949,7.1980,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","irregular-spacing",50000,179949,7.1980,0,36570,173663,4.7488,11,SUCCESS,3.3383,2.1929,1.0769,3.2698,6.6081,6.3653,6.0069,7.3567,3,292560,694652
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","many-small-cliques",50000,99997,3.9999,0,49998,149994,3.0000,3,SUCCESS,20.7480,2.8193,1.3959,4.2152,24.9632,25.1836,25.1291,25.8268,3,399984,599976
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","many-small-cliques",50000,99997,3.9999,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","many-small-cliques",50000,99997,3.9999,0,49998,149994,3.0000,3,SUCCESS,3.2142,2.5366,1.4065,3.9431,7.1573,7.8891,6.5160,9.2858,3,399984,599976
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","few-large-cliques",50000,799990000,31999.6000,0,30000,600030000,20001.0000,20001,SUCCESS,14.5638,2.8471,1597.3807,1600.2278,1614.7916,1350.7504,1274.1153,1444.6965,3,240000,2400120000
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","few-large-cliques",50000,799990000,31999.6000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","few-large-cliques",50000,799990000,31999.6000,0,30000,600030000,20001.0000,20001,SUCCESS,7.0315,3.2402,1524.2405,1527.4807,1534.5122,1430.8088,1277.3643,1496.9352,3,240000,2400120000
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","varying-overlap",50000,249989,9.9996,0,45996,277979,6.0435,8,SUCCESS,22.7326,2.9528,1.9246,4.8774,27.6100,27.7656,26.7896,28.4612,3,367968,1111916
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","varying-overlap",50000,249989,9.9996,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","varying-overlap",50000,249989,9.9996,0,45996,277979,6.0435,8,SUCCESS,3.3929,2.9670,1.6135,4.5805,7.9734,8.8404,7.9166,8.8837,3,367968,1111916
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","adversarial-tie-breaking",50000,224988,8.9995,0,24998,149988,6.0000,6,SUCCESS,21.5960,1.8340,0.7022,2.5362,24.1322,26.8882,24.4014,27.8332,3,199984,599952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","adversarial-tie-breaking",50000,224988,8.9995,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","adversarial-tie-breaking",50000,224988,8.9995,0,24998,149988,6.0000,6,SUCCESS,3.2246,2.0337,0.7613,2.7950,6.0196,6.5888,5.8236,6.9875,3,199984,599952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","shuffled-ids",50000,149994,5.9998,0,49997,199988,4.0000,4,SUCCESS,23.2145,3.7107,1.7587,5.4694,28.6839,32.7018,27.5108,34.4172,3,399976,799952
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","shuffled-ids",50000,149994,5.9998,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,3,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","shuffled-ids",50000,149994,5.9998,0,49997,199988,4.0000,4,SUCCESS,3.0479,2.8678,1.5442,4.4120,7.4599,7.7051,7.3853,7.9927,3,399976,799952
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",100000,99999,2.0000,0,99999,199998,2.0000,2,SUCCESS,53.7664,7.4982,3.1375,10.6357,64.4021,64.8735,60.3007,69.4464,2,799992,799992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",100000,99999,2.0000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",100000,99999,2.0000,0,99999,199998,2.0000,2,SUCCESS,6.0703,6.2145,2.9432,9.1577,15.2279,17.3349,16.8196,17.8502,2,799992,799992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",100000,799964,15.9993,0,99992,899928,9.0000,9,SUCCESS,60.3418,7.2660,4.4268,11.6927,72.0345,71.8086,66.3004,77.3168,2,799936,3599712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",100000,799964,15.9993,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",100000,799964,15.9993,0,99992,899928,9.0000,9,SUCCESS,6.8316,5.9761,4.3865,10.3626,17.1942,17.5783,16.1261,19.0305,2,799936,3599712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",100000,2499675,49.9935,0,99975,2599350,26.0000,26,SUCCESS,50.5796,6.6271,6.8751,13.5022,64.0818,64.5088,60.0978,68.9199,2,799800,10397400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",100000,2499675,49.9935,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",100000,2499675,49.9935,0,99975,2599350,26.0000,26,SUCCESS,9.0312,6.1859,5.6838,11.8697,20.9009,19.7184,19.7126,19.7242,2,799800,10397400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",200000,199999,2.0000,0,199999,399998,2.0000,2,SUCCESS,112.4226,14.4192,6.5681,20.9873,133.4099,132.1749,130.4612,133.8887,2,1599992,1599992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",200000,199999,2.0000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",200000,199999,2.0000,0,199999,399998,2.0000,2,SUCCESS,13.0695,11.9915,5.7069,17.6984,30.7679,30.7208,29.4783,31.9632,2,1599992,1599992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",200000,1599964,15.9996,0,199992,1799928,9.0000,9,SUCCESS,141.6739,14.7770,8.4116,23.1886,164.8625,185.2632,168.9644,201.5620,2,1599936,7199712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",200000,1599964,15.9996,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",200000,1599964,15.9996,0,199992,1799928,9.0000,9,SUCCESS,14.9709,12.6859,8.6361,21.3220,36.2929,36.8204,36.0065,37.6343,2,1599936,7199712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",200000,4999675,49.9967,0,199975,5199350,26.0000,26,SUCCESS,147.2963,13.7940,13.9885,27.7825,175.0788,177.6218,175.9219,179.3217,2,1599800,20797400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",200000,4999675,49.9967,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",200000,4999675,49.9967,0,199975,5199350,26.0000,26,SUCCESS,18.2512,12.2189,12.9839,25.2028,43.4540,44.0848,43.2178,44.9518,2,1599800,20797400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",500000,499999,2.0000,0,499999,999998,2.0000,2,SUCCESS,313.5763,42.2518,17.7531,60.0049,373.5811,381.5942,380.7482,382.4402,2,3999992,3999992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",500000,499999,2.0000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",500000,499999,2.0000,0,499999,999998,2.0000,2,SUCCESS,31.5096,32.4920,13.8140,46.3060,77.8156,84.4109,83.0510,85.7708,2,3999992,3999992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",500000,3999964,15.9999,0,499992,4499928,9.0000,9,SUCCESS,476.8603,51.0336,24.9387,75.9723,552.8326,480.4402,475.5794,485.3010,2,3999936,17999712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",500000,3999964,15.9999,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",500000,3999964,15.9999,0,499992,4499928,9.0000,9,SUCCESS,112.6208,43.0733,27.8151,70.8884,183.5092,144.8047,99.9932,189.6162,2,3999936,17999712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",500000,12499675,49.9987,0,499975,12999350,26.0000,26,SUCCESS,507.4822,48.5515,43.5677,92.1191,599.6013,595.7763,581.8348,609.7177,2,3999800,51997400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",500000,12499675,49.9987,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",500000,12499675,49.9987,0,499975,12999350,26.0000,26,SUCCESS,55.8305,36.8536,34.2629,71.1165,126.9470,125.0968,122.4977,127.6960,2,3999800,51997400
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","sparse-overlap",1000000,999999,2.0000,0,999999,1999998,2.0000,2,SUCCESS,707.1497,100.1386,40.3648,140.5034,847.6530,809.7658,762.0097,857.5219,2,7999992,7999992
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","sparse-overlap",1000000,999999,2.0000,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","sparse-overlap",1000000,999999,2.0000,0,999999,1999998,2.0000,2,SUCCESS,64.2332,64.2307,33.4049,97.6356,161.8688,159.7149,157.3519,162.0778,2,7999992,7999992
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","medium-overlap",1000000,7999964,15.9999,0,999992,8999928,9.0000,9,SUCCESS,837.0960,81.2936,41.6225,122.9160,960.0121,989.4731,970.4388,1008.5073,2,7999936,35999712
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","medium-overlap",1000000,7999964,15.9999,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","medium-overlap",1000000,7999964,15.9999,0,999992,8999928,9.0000,9,SUCCESS,68.5787,52.3954,44.7390,97.1343,165.7130,166.1910,165.4772,166.9048,2,7999936,35999712
+"Algorithm A (Theorem-Based)","Lemma-3.15-Compact","dense-overlap",1000000,24999675,49.9993,0,999975,25999350,26.0000,26,SUCCESS,962.7711,86.1051,81.6307,167.7357,1130.5068,1162.0489,1092.5117,1231.5861,2,7999800,103997400
+"Algorithm B (Bron-Kerbosch)","Tomita-Pivoting","dense-overlap",1000000,24999675,49.9993,0,0,0,0.0000,0,TIMEOUT,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,2,0,0
+"Algorithm C (Standard Sweep-Line)","Helly-Endpoint-Sweep","dense-overlap",1000000,24999675,49.9993,0,999975,25999350,26.0000,26,SUCCESS,90.2261,54.6851,63.5975,118.2826,208.5087,192.0222,191.6493,192.3950,2,7999800,103997400

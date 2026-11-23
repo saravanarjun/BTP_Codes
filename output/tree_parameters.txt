@@ -1,0 +1,31 @@
+========================================================
+ Distance Tree Parameters (Sections 2.7, 2.8, 3.3, 3.4)
+========================================================
+
+Root Vertex ID: 1
+Maximum Depth h_depth: 3
+Total Number of Levels h: 4
+
+--- Level Sets (Left-to-Right Ordered) ---
+Level 1 (Depth 0, Size 1): [1]
+Level 2 (Depth 1, Size 3): [2, 3, 4]
+Level 3 (Depth 2, Size 2): [5, 6]
+Level 4 (Depth 3, Size 2): [7, 8]
+
+--- Positional Parameters ---
+Vertex_ID	Sorted_Index	Depth	Level	pos_level	pos_pre	pos_post
+1		0		0	1	0		0		7
+2		1		1	2	1		1		0
+3		2		1	2	2		2		4
+4		3		1	2	3		6		6
+5		4		2	3	4		3		3
+6		5		2	3	5		7		5
+7		6		3	4	6		4		1
+8		7		3	4	7		5		2
+
+--- Traversal Sequences ---
+Level-Order Traversal: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
+
+Preorder Traversal:    1 -> 2 -> 3 -> 5 -> 7 -> 8 -> 4 -> 6
+
+Postorder Traversal:   2 -> 7 -> 8 -> 5 -> 3 -> 6 -> 4 -> 1

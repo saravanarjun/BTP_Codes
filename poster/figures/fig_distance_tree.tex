@@ -1,0 +1,141 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds,calc,decorations.pathreplacing}
+
+\definecolor{navy}{HTML}{1A365D}
+\definecolor{darkblue}{HTML}{0F294A}
+\definecolor{accentblue}{HTML}{2B6CB0}
+\definecolor{softblue}{HTML}{EBF8FF}
+\definecolor{darkred}{HTML}{C53030}
+\definecolor{softred}{HTML}{FFF5F5}
+\definecolor{darkgreen}{HTML}{22543D}
+\definecolor{softgreen}{HTML}{F0FFF4}
+\definecolor{darkgold}{HTML}{975A16}
+\definecolor{softgold}{HTML}{FEFCBF}
+\definecolor{darkgray}{HTML}{2D3748}
+
+\begin{document}
+\begin{tikzpicture}[
+    scale=1.05,
+    >=Stealth,
+    font=\sffamily,
+    interval/.style={line width=2.5pt, line cap=round},
+    treeNode/.style={circle, draw=navy, fill=white, line width=1.6pt, minimum size=0.94cm, inner sep=0pt, font=\bfseries\small},
+    rootNode/.style={circle, draw=navy, fill=softblue, line width=2pt, minimum size=1.02cm, inner sep=0pt, font=\bfseries\normalsize},
+    treeEdge/.style={->, line width=1.6pt, draw=navy},
+    graphEdge/.style={-, dashed, line width=1.1pt, draw=darkgray!60}
+]
+
+    % ========================================================
+    % TOP: PROPER INTERVAL REPRESENTATION
+    % ========================================================
+    \node[anchor=west, font=\bfseries\normalsize, text=navy] at (0.2, 4.35) {\textbf{Proper Interval Representation $I(G)$ on $\mathbb{R}$}};
+    \node[anchor=west, font=\scriptsize, text=darkgray] at (0.2, 3.9) {Sorted by left endpoints: $l_1 < l_2 < \dots < l_7 \iff r_1 < r_2 < \dots < r_7$};
+
+    % Real Axis
+    \draw[->, line width=0.8pt, draw=darkgray!60] (0.5, 3.5) -- (14.2, 3.5) node[right, font=\scriptsize\bfseries] {$\mathbb{R}$};
+
+    % Intervals: clearly separated with distinct colours and labels
+    % v1: [1.0, 4.0]
+    \node[left=3pt, font=\scriptsize\bfseries, text=navy] at (1.0, 3.1) {$v_1$};
+    \draw[interval, draw=navy] (1.0, 3.1) -- (4.0, 3.1);
+    \fill[navy] (1.0, 3.1) circle (2.4pt); \fill[navy] (4.0, 3.1) circle (2.4pt);
+
+    % v2: [2.1, 5.1]
+    \node[left=3pt, font=\scriptsize\bfseries, text=accentblue] at (2.1, 2.6) {$v_2$};
+    \draw[interval, draw=accentblue] (2.1, 2.6) -- (5.1, 2.6);
+    \fill[accentblue] (2.1, 2.6) circle (2.4pt); \fill[accentblue] (5.1, 2.6) circle (2.4pt);
+
+    % v3: [3.2, 6.2]
+    \node[left=3pt, font=\scriptsize\bfseries, text=accentblue] at (3.2, 2.1) {$v_3$};
+    \draw[interval, draw=accentblue] (3.2, 2.1) -- (6.2, 2.1);
+    \fill[accentblue] (3.2, 2.1) circle (2.4pt); \fill[accentblue] (6.2, 2.1) circle (2.4pt);
+
+    % v4: [4.9, 7.9]
+    \node[left=3pt, font=\scriptsize\bfseries, text=darkgreen] at (4.9, 1.6) {$v_4$};
+    \draw[interval, draw=darkgreen] (4.9, 1.6) -- (7.9, 1.6);
+    \fill[darkgreen] (4.9, 1.6) circle (2.4pt); \fill[darkgreen] (7.9, 1.6) circle (2.4pt);
+
+    % v5: [6.0, 9.0]
+    \node[left=3pt, font=\scriptsize\bfseries, text=darkgreen] at (6.0, 1.1) {$v_5$};
+    \draw[interval, draw=darkgreen] (6.0, 1.1) -- (9.0, 1.1);
+    \fill[darkgreen] (6.0, 1.1) circle (2.4pt); \fill[darkgreen] (9.0, 1.1) circle (2.4pt);
+
+    % v6: [7.7, 10.7]
+    \node[left=3pt, font=\scriptsize\bfseries, text=darkgold] at (7.7, 0.6) {$v_6$};
+    \draw[interval, draw=darkgold] (7.7, 0.6) -- (10.7, 0.6);
+    \fill[darkgold] (7.7, 0.6) circle (2.4pt); \fill[darkgold] (10.7, 0.6) circle (2.4pt);
+
+    % v7: [8.9, 11.9]
+    \node[left=3pt, font=\scriptsize\bfseries, text=darkgold] at (8.9, 0.1) {$v_7$};
+    \draw[interval, draw=darkgold] (8.9, 0.1) -- (11.9, 0.1);
+    \fill[darkgold] (8.9, 0.1) circle (2.4pt); \fill[darkgold] (11.9, 0.1) circle (2.4pt);
+
+    % Clean Highlight Box for Maximal Clique C(v1) = [v1, v3]
+    \draw[draw=darkred, fill=softred, fill opacity=0.35, dashed, line width=1.2pt, rounded corners=4pt]
+        (0.4, 1.9) rectangle (6.4, 3.4);
+    \node[anchor=west, text=darkred, font=\bfseries\scriptsize] at (6.6, 2.65) {Maximal Clique $C(v_1) = [v_1, v_3] = \{v_1, v_2, v_3\}$};
+
+    % Separator Line
+    \draw[line width=0.6pt, draw=darkgray!20] (0.2, -0.15) -- (14.2, -0.15);
+
+    % ========================================================
+    % BOTTOM: CANONICAL DISTANCE TREE T(G)
+    % ========================================================
+    \node[anchor=west, font=\bfseries\normalsize, text=navy] at (0.2, -0.45) {\textbf{Canonical Distance Tree $T(G)$ with Level Structure}};
+
+    % Level indicators on left
+    \node[font=\bfseries\scriptsize, text=navy] at (0.6, -1.1) {$L_0$:};
+    \node[font=\bfseries\scriptsize, text=accentblue] at (0.6, -2.2) {$L_1$:};
+    \node[font=\bfseries\scriptsize, text=darkgreen] at (0.6, -3.3) {$L_2$:};
+    \node[font=\bfseries\scriptsize, text=darkgold] at (0.6, -4.4) {$L_3$:};
+
+    % Tree Nodes (arranged cleanly without crossed edges)
+    \node[rootNode] (v1) at (4.8, -1.1) {$v_1$};
+
+    \node[treeNode, draw=accentblue] (v2) at (2.8, -2.2) {$v_2$};
+    \node[treeNode, draw=accentblue] (v3) at (6.8, -2.2) {$v_3$};
+
+    \node[treeNode, draw=darkgreen] (v4) at (2.0, -3.3) {$v_4$};
+    \node[treeNode, draw=darkgreen] (v5) at (6.8, -3.3) {$v_5$};
+
+    \node[treeNode, draw=darkgold] (v6) at (5.6, -4.4) {$v_6$};
+    \node[treeNode, draw=darkgold] (v7) at (8.0, -4.4) {$v_7$};
+
+    % Intra-level clique edges (Theorem 3.7 - Every level is a clique)
+    \draw[graphEdge] (v2) -- (v3) node[midway, above=1pt, font=\tiny\bfseries, text=darkgray] {Clique};
+    \draw[graphEdge] (v4) -- (v5) node[midway, above=1pt, font=\tiny\bfseries, text=darkgray] {Clique};
+    \draw[graphEdge] (v6) -- (v7) node[midway, above=1pt, font=\tiny\bfseries, text=darkgray] {Clique};
+
+    % Tree Edges: Direct, clean, non-crossing
+    \draw[treeEdge] (v1) -- (v2) node[midway, left=2pt, font=\tiny\bfseries, text=navy] {$p(v_2)=v_1$};
+    \draw[treeEdge] (v1) -- (v3) node[midway, right=2pt, font=\tiny\bfseries, text=navy] {$p(v_3)=v_1$};
+
+    \draw[treeEdge] (v2) -- (v4) node[midway, left=3pt, font=\tiny\bfseries, text=accentblue] {$p(v_4)=v_2$};
+    \draw[treeEdge] (v3) -- (v5) node[midway, right=4pt, font=\tiny\bfseries, text=accentblue] {$p(v_5)=v_3$};
+
+    \draw[treeEdge] (v5) -- (v6) node[midway, left=2pt, font=\tiny\bfseries, text=darkgreen] {$p(v_6)=v_5$};
+    \draw[treeEdge] (v5) -- (v7) node[midway, right=2pt, font=\tiny\bfseries, text=darkgreen] {$p(v_7)=v_5$};
+
+    % Contiguous children annotation (placed cleanly in open center)
+    \node[draw=accentblue!60, fill=softblue!60, rounded corners=3pt, font=\tiny\bfseries, text=accentblue, inner sep=3.5pt] 
+        at (4.8, -2.75) {$\text{children}(v_1) = [v_2, v_3]$ (Contiguous)};
+
+    % Theorem Bijection Summary Card on Right (generously padded, zero collision)
+    \node[draw=navy!30, fill=softblue!40, rounded corners=5pt, line width=0.9pt, anchor=north west, inner sep=7pt, text width=4.3cm] 
+        at (9.4, -0.6) {
+        \textbf{\scriptsize Theorem 1 (Parent Bijection):}\\
+        \vspace{1.5pt}
+        \fontsize{7.2}{8.5}\selectfont
+        Non-leaf parents $\mathcal{P}_{nl}(T) \longleftrightarrow \mathcal{M}(G)$:\\
+        \vspace{1.5pt}
+        $\bullet$ $v_1 \leftrightarrow C(v_1) = [v_1, v_3] = \{v_1, v_2, v_3\}$\\
+        $\bullet$ $v_2 \leftrightarrow C(v_2) = [v_2, v_4] = \{v_2, v_3, v_4\}$\\
+        $\bullet$ $v_3 \leftrightarrow C(v_3) = [v_3, v_5] = \{v_3, v_4, v_5\}$\\
+        $\bullet$ $v_5 \leftrightarrow C(v_5) = [v_5, v_7] = \{v_5, v_6, v_7\}$\\[2.5pt]
+        \textbf{\color{navy}Strictly $q \le n$ maximal cliques!}
+    };
+
+\end{tikzpicture}
+\end{document}

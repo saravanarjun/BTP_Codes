@@ -1,0 +1,33 @@
+================================================================================
+ DOMINATING SET INDEPENDENT VERIFICATION REPORT
+================================================================================
+
+Overview:
+  Total Vertices (|V|)          : 8
+  Distance Tree Height (h)      : 4
+  Constructed Dominating Set |D|: 2
+  Theoretical Bound             : 2
+  Bound Satisfied               : PASS
+  Independent Domination Check  : PASS
+  Brute-Force Optimal gamma(G)  : 2
+  Approximation Ratio (|D|/gamma): 1.000
+
+Independent Validation Checks:
+  1. All Vertices in D Exist in Graph: PASS
+  2. All Vertices in D are Unique    : PASS
+  3. Dominating Set is Non-Empty     : PASS
+  4. Complete Graph Domination       : PASS
+
+Vertex-by-Vertex Domination Witness Table:
+Vertex_ID   Level     In_D        Dominated_By   Interval
+--------------------------------------------------------------------------------
+1           1         NO          4              [1, 5]
+2           2         NO          4              [2, 6]
+3           2         NO          4              [3, 7]
+4           2         YES         Self (in D)    [4, 8]
+5           3         NO          4, 8           [7, 10]
+6           3         NO          4, 8           [8, 11]
+7           4         NO          8              [9, 12]
+8           4         YES         Self (in D)    [10, 13]
+
+Final Verdict: ALL CHECKS PASSED (VERIFIED)

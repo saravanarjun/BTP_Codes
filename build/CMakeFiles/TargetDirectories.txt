@@ -1,0 +1,5 @@
+C:/Users/sarav/OneDrive/Desktop/BTP_Codes/build/CMakeFiles/interval_graphs.dir
+C:/Users/sarav/OneDrive/Desktop/BTP_Codes/build/CMakeFiles/test_runner.dir
+C:/Users/sarav/OneDrive/Desktop/BTP_Codes/build/CMakeFiles/clique_benchmark.dir
+C:/Users/sarav/OneDrive/Desktop/BTP_Codes/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/sarav/OneDrive/Desktop/BTP_Codes/build/CMakeFiles/ZERO_CHECK.dir

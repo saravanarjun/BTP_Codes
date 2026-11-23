@@ -1,0 +1,118 @@
+algorithm,graph_family,n,status,core_ms,materialization_ms,total_median_ms
+"Algorithm A (Theorem-Based)",sparse,10,SUCCESS,0.0024,0.0012,0.0035
+"Algorithm B (Bron-Kerbosch)",sparse,10,SUCCESS,0.0191,0.0000,0.0191
+"Algorithm C (Standard Sweep-Line)",sparse,10,SUCCESS,0.0028,0.0010,0.0039
+"Algorithm A (Theorem-Based)",sparse,20,SUCCESS,0.0032,0.0019,0.0052
+"Algorithm B (Bron-Kerbosch)",sparse,20,SUCCESS,0.0470,0.0000,0.0470
+"Algorithm C (Standard Sweep-Line)",sparse,20,SUCCESS,0.0053,0.0018,0.0071
+"Algorithm A (Theorem-Based)",sparse,50,SUCCESS,0.0061,0.0042,0.0102
+"Algorithm B (Bron-Kerbosch)",sparse,50,SUCCESS,0.1955,0.0000,0.1955
+"Algorithm C (Standard Sweep-Line)",sparse,50,SUCCESS,0.0108,0.0049,0.0156
+"Algorithm A (Theorem-Based)",sparse,100,SUCCESS,0.0108,0.0096,0.0205
+"Algorithm B (Bron-Kerbosch)",sparse,100,SUCCESS,0.6515,0.0000,0.6515
+"Algorithm C (Standard Sweep-Line)",sparse,100,SUCCESS,0.0180,0.0099,0.0285
+"Algorithm A (Theorem-Based)",sparse,200,SUCCESS,0.0233,0.0157,0.0390
+"Algorithm B (Bron-Kerbosch)",sparse,200,SUCCESS,2.3187,0.0000,2.3187
+"Algorithm C (Standard Sweep-Line)",sparse,200,SUCCESS,0.0285,0.0181,0.0471
+"Algorithm A (Theorem-Based)",sparse,500,SUCCESS,0.0614,0.0488,0.1152
+"Algorithm B (Bron-Kerbosch)",sparse,500,SUCCESS,14.7425,0.0000,14.7425
+"Algorithm C (Standard Sweep-Line)",sparse,500,SUCCESS,0.0922,0.0514,0.1426
+"Algorithm A (Theorem-Based)",sparse,1000,SUCCESS,0.1067,0.0873,0.1923
+"Algorithm B (Bron-Kerbosch)",sparse,1000,SUCCESS,60.4365,0.0000,60.4365
+"Algorithm C (Standard Sweep-Line)",sparse,1000,SUCCESS,0.1904,0.0927,0.2857
+"Algorithm A (Theorem-Based)",sparse,2000,SUCCESS,0.2873,0.2016,0.4889
+"Algorithm B (Bron-Kerbosch)",sparse,2000,SUCCESS,289.0800,0.0000,289.0800
+"Algorithm C (Standard Sweep-Line)",sparse,2000,SUCCESS,0.3293,0.1655,0.4948
+"Algorithm A (Theorem-Based)",sparse,5000,SUCCESS,0.7236,0.4744,1.2313
+"Algorithm B (Bron-Kerbosch)",sparse,5000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse,5000,SUCCESS,1.0029,0.4716,1.4961
+"Algorithm A (Theorem-Based)",sparse,10000,SUCCESS,1.5521,0.9693,2.4665
+"Algorithm B (Bron-Kerbosch)",sparse,10000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse,10000,SUCCESS,2.2111,0.9632,3.1743
+"Algorithm A (Theorem-Based)",sparse,20000,SUCCESS,3.1653,2.0024,5.1677
+"Algorithm B (Bron-Kerbosch)",sparse,20000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse,20000,SUCCESS,4.0752,1.8266,5.9414
+"Algorithm A (Theorem-Based)",sparse,50000,SUCCESS,8.1675,5.0867,12.9353
+"Algorithm B (Bron-Kerbosch)",sparse,50000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse,50000,SUCCESS,9.2541,6.4002,16.1190
+"Algorithm A (Theorem-Based)",sparse,100000,SUCCESS,22.2734,11.6685,32.5384
+"Algorithm B (Bron-Kerbosch)",sparse,100000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",sparse,100000,SUCCESS,17.2185,9.3658,26.0552
+"Algorithm A (Theorem-Based)",medium,10,SUCCESS,0.0006,0.0003,0.0009
+"Algorithm B (Bron-Kerbosch)",medium,10,SUCCESS,0.0204,0.0000,0.0204
+"Algorithm C (Standard Sweep-Line)",medium,10,SUCCESS,0.0015,0.0003,0.0018
+"Algorithm A (Theorem-Based)",medium,20,SUCCESS,0.0023,0.0018,0.0042
+"Algorithm B (Bron-Kerbosch)",medium,20,SUCCESS,0.1381,0.0000,0.1381
+"Algorithm C (Standard Sweep-Line)",medium,20,SUCCESS,0.0037,0.0014,0.0051
+"Algorithm A (Theorem-Based)",medium,50,SUCCESS,0.0045,0.0051,0.0096
+"Algorithm B (Bron-Kerbosch)",medium,50,SUCCESS,1.1855,0.0000,1.1855
+"Algorithm C (Standard Sweep-Line)",medium,50,SUCCESS,0.0093,0.0055,0.0148
+"Algorithm A (Theorem-Based)",medium,100,SUCCESS,0.0085,0.0117,0.0202
+"Algorithm B (Bron-Kerbosch)",medium,100,SUCCESS,2.8102,0.0000,2.8102
+"Algorithm C (Standard Sweep-Line)",medium,100,SUCCESS,0.0159,0.0107,0.0266
+"Algorithm A (Theorem-Based)",medium,200,SUCCESS,0.0243,0.0266,0.0509
+"Algorithm B (Bron-Kerbosch)",medium,200,SUCCESS,7.0347,0.0000,7.0347
+"Algorithm C (Standard Sweep-Line)",medium,200,SUCCESS,0.0289,0.0230,0.0519
+"Algorithm A (Theorem-Based)",medium,500,SUCCESS,0.0711,0.0601,0.1289
+"Algorithm B (Bron-Kerbosch)",medium,500,SUCCESS,28.3429,0.0000,28.3429
+"Algorithm C (Standard Sweep-Line)",medium,500,SUCCESS,0.1011,0.0567,0.1583
+"Algorithm A (Theorem-Based)",medium,1000,SUCCESS,0.1231,0.1233,0.2483
+"Algorithm B (Bron-Kerbosch)",medium,1000,SUCCESS,86.5067,0.0000,86.5067
+"Algorithm C (Standard Sweep-Line)",medium,1000,SUCCESS,0.1926,0.1104,0.3177
+"Algorithm A (Theorem-Based)",medium,2000,SUCCESS,0.3019,0.2189,0.5274
+"Algorithm B (Bron-Kerbosch)",medium,2000,SUCCESS,342.0528,0.0000,342.0528
+"Algorithm C (Standard Sweep-Line)",medium,2000,SUCCESS,0.3965,0.3044,0.6912
+"Algorithm A (Theorem-Based)",medium,5000,SUCCESS,0.7007,0.6454,1.4200
+"Algorithm B (Bron-Kerbosch)",medium,5000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium,5000,SUCCESS,0.9447,0.5659,1.5081
+"Algorithm A (Theorem-Based)",medium,10000,SUCCESS,1.6954,1.0961,3.0543
+"Algorithm B (Bron-Kerbosch)",medium,10000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium,10000,SUCCESS,1.8748,1.1842,3.1327
+"Algorithm A (Theorem-Based)",medium,20000,SUCCESS,3.0063,2.2872,5.2935
+"Algorithm B (Bron-Kerbosch)",medium,20000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium,20000,SUCCESS,4.5030,2.6532,7.1661
+"Algorithm A (Theorem-Based)",medium,50000,SUCCESS,8.3331,6.5791,15.5832
+"Algorithm B (Bron-Kerbosch)",medium,50000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium,50000,SUCCESS,9.4751,6.5800,16.0551
+"Algorithm A (Theorem-Based)",medium,100000,SUCCESS,20.0426,13.8248,33.8532
+"Algorithm B (Bron-Kerbosch)",medium,100000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",medium,100000,SUCCESS,20.9531,12.7959,34.5175
+"Algorithm A (Theorem-Based)",dense,10,SUCCESS,0.0003,0.0002,0.0005
+"Algorithm B (Bron-Kerbosch)",dense,10,SUCCESS,0.0216,0.0000,0.0216
+"Algorithm C (Standard Sweep-Line)",dense,10,SUCCESS,0.0016,0.0003,0.0018
+"Algorithm A (Theorem-Based)",dense,20,SUCCESS,0.0005,0.0003,0.0008
+"Algorithm B (Bron-Kerbosch)",dense,20,SUCCESS,0.1105,0.0000,0.1105
+"Algorithm C (Standard Sweep-Line)",dense,20,SUCCESS,0.0028,0.0003,0.0031
+"Algorithm A (Theorem-Based)",dense,50,SUCCESS,0.0039,0.0045,0.0084
+"Algorithm B (Bron-Kerbosch)",dense,50,SUCCESS,1.8814,0.0000,1.8814
+"Algorithm C (Standard Sweep-Line)",dense,50,SUCCESS,0.0092,0.0045,0.0137
+"Algorithm A (Theorem-Based)",dense,100,SUCCESS,0.0082,0.0157,0.0241
+"Algorithm B (Bron-Kerbosch)",dense,100,SUCCESS,33.4105,0.0000,33.4105
+"Algorithm C (Standard Sweep-Line)",dense,100,SUCCESS,0.0156,0.0124,0.0280
+"Algorithm A (Theorem-Based)",dense,200,SUCCESS,0.0162,0.0343,0.0524
+"Algorithm B (Bron-Kerbosch)",dense,200,SUCCESS,77.4589,0.0000,77.4589
+"Algorithm C (Standard Sweep-Line)",dense,200,SUCCESS,0.0294,0.0298,0.0589
+"Algorithm A (Theorem-Based)",dense,500,SUCCESS,0.0480,0.0913,0.1296
+"Algorithm B (Bron-Kerbosch)",dense,500,SUCCESS,238.8111,0.0000,238.8111
+"Algorithm C (Standard Sweep-Line)",dense,500,SUCCESS,0.0671,0.0824,0.1527
+"Algorithm A (Theorem-Based)",dense,1000,SUCCESS,0.1452,0.1996,0.3545
+"Algorithm B (Bron-Kerbosch)",dense,1000,SUCCESS,457.5842,0.0000,457.5842
+"Algorithm C (Standard Sweep-Line)",dense,1000,SUCCESS,0.1288,0.1606,0.2909
+"Algorithm A (Theorem-Based)",dense,2000,SUCCESS,0.2777,0.3717,0.6641
+"Algorithm B (Bron-Kerbosch)",dense,2000,SUCCESS,1257.0920,0.0000,1257.0920
+"Algorithm C (Standard Sweep-Line)",dense,2000,SUCCESS,0.3700,0.3566,0.7344
+"Algorithm A (Theorem-Based)",dense,5000,SUCCESS,0.8322,1.0145,1.8505
+"Algorithm B (Bron-Kerbosch)",dense,5000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense,5000,SUCCESS,0.9339,0.8039,1.7549
+"Algorithm A (Theorem-Based)",dense,10000,SUCCESS,1.6174,2.0579,3.6753
+"Algorithm B (Bron-Kerbosch)",dense,10000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense,10000,SUCCESS,1.7865,1.7158,3.5607
+"Algorithm A (Theorem-Based)",dense,20000,SUCCESS,3.1346,6.1877,9.3223
+"Algorithm B (Bron-Kerbosch)",dense,20000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense,20000,SUCCESS,3.6252,5.0468,7.8202
+"Algorithm A (Theorem-Based)",dense,50000,SUCCESS,10.6061,12.2621,21.3388
+"Algorithm B (Bron-Kerbosch)",dense,50000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense,50000,SUCCESS,8.6167,9.7414,17.9093
+"Algorithm A (Theorem-Based)",dense,100000,SUCCESS,18.7043,24.1904,44.2152
+"Algorithm B (Bron-Kerbosch)",dense,100000,TIMEOUT,0.0000,0.0000,0.0000
+"Algorithm C (Standard Sweep-Line)",dense,100000,SUCCESS,16.3991,21.5847,37.9838
