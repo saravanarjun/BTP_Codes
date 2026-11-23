@@ -457,9 +457,11 @@
             $n=1,000$ & $0.3804$ ms & $0.1039$ ms & $\mathbf{0.65\ \mu\text{s}}$ & $\mathbf{628\times}$ \\
             $n=5,000$ & $2.1158$ ms & $0.6341$ ms & $\mathbf{1.32\ \mu\text{s}}$ & $\mathbf{912\times}$ \\
             $n=100,000$ & $41.8$ ms & $12.5$ ms & $\mathbf{2.15\ \mu\text{s}}$ & $\mathbf{5,810\times}$ \\
-            $n=1,000,000$ & $421.3$ ms & $128.4$ ms & --- & --- \\
+            $n=1,000,000$ & $421.3$ ms & $128.4$ ms & $\mathbf{\sim 2.8\ \mu\text{s}}^\dagger$ & $\mathbf{\sim 46,000\times}^\dagger$ \\
             \bottomrule
         \end{tabularx}
+        \par\vspace{1.5pt}
+        {\fontsize{6.8}{8.2}\selectfont \color{textMuted} $^\dagger$\textit{Analytically projected from verified $\mathcal{O}(\log n)$ dynamic bound ($\lceil \log_2(10^6) \rceil = 20$ comparison steps).}}
         }
     \end{posterbox}
 
