@@ -66,6 +66,7 @@
     arc=2pt,
     left=4.5pt, right=4.5pt, top=1.4pt, bottom=1.4pt,
     before skip=0.9pt, after skip=0.9pt,
+    fontupper=\fontsize{8.6}{10.8}\selectfont,
     #1
 }
 
@@ -77,6 +78,7 @@
     arc=2pt,
     left=4.5pt, right=4.5pt, top=1.4pt, bottom=1.4pt,
     before skip=1.0pt, after skip=1.0pt,
+    fontupper=\fontsize{8.6}{10.8}\selectfont,
     #1
 }
 
@@ -88,6 +90,7 @@
     arc=2pt,
     left=4.5pt, right=4.5pt, top=1.4pt, bottom=1.4pt,
     before skip=1.0pt, after skip=1.0pt,
+    fontupper=\fontsize{8.6}{10.8}\selectfont,
     #1
 }
 
@@ -331,43 +334,41 @@
     \begin{posterbox}{4. Dynamic Maximal Clique Maintenance}
 
         \begin{minipage}[t]{0.485\linewidth}
-            \textbf{\color{accentBlue}A. Incremental Maintenance}
+            {\fontsize{10.5}{12.5}\selectfont \textbf{\color{accentBlue}A. Incremental Maintenance}}\par\vspace{2pt}
+            {\fontsize{8.8}{11.4}\selectfont
             \begin{itemize}\setlength{\itemsep}{2.0pt}
-                \fontsize{8.8}{11.4}\selectfont
                 \item \textbf{Arbitrary Insertion:} New interval $x = [l_x, r_x]$ inserted at arbitrary topological position.
                 \item \textbf{Dual Representation:} Children maintained in ordered index ($\mathcal{O}(\log n)$ search) and doubly-linked list ($\mathcal{O}(1)$ splicing).
                 \item \textbf{Descriptor Invariant:} $C(p)$ extended $\iff x$ is new rightmost child ($c(p) \leftarrow x$); interior insertions spliced in $\mathcal{O}(1)$ without changing $C(p)$ ($\Delta \le 1$).
                 \item \textbf{Tradeoff Guarantee:} $\mathcal{O}(\log n)$ worst-case updates without rightmost assumption, at minor memory cost.
             \end{itemize}
+            }
         \end{minipage}
         \hfill
         \begin{minipage}[t]{0.485\linewidth}
-            \textbf{\color{accentRed}B. Decremental Maintenance}
+            {\fontsize{10.5}{12.5}\selectfont \textbf{\color{accentRed}B. Decremental Maintenance}}\par\vspace{2pt}
+            {\fontsize{8.8}{11.4}\selectfont
             \begin{itemize}\setlength{\itemsep}{2.0pt}
-                \fontsize{8.8}{11.4}\selectfont
-                \item \textbf{Vertex Deletion:} Deleting vertex $u$:
-                \begin{itemize}\setlength{\itemsep}{0.2pt}
-                    \item If $u$ is a leaf: update $p(u)$ boundary ($\le 1$ edit).
-                    \item If $u$ is an internal parent: its children are adopted by $v$, the \textbf{right sibling of the predecessor}.
-                \end{itemize}
-                \item \textbf{Right Sibling Adoption:} $p(w) \leftarrow v$ for all $w \in \text{children}(u)$.
-                \item \textbf{Affected Descriptors:} $C(u)$ invalidated; $C(v)$ right boundary extended.
-                \item \textbf{Edit Bound:} \textbf{At most 3 edits} (Theorem 4.4).
-                \item \textbf{Update Time:} $\mathcal{O}(\log n + |\text{children}(u)|)$, $\mathcal{O}(\log n)$ via block links.
+                \item \textbf{Leaf Deletion:} Right boundary contracts to prior child; descriptor $C(p(u))$ modified or removed ($\Delta \le 1$).
+                \item \textbf{Internal Parent Deletion:} Former children are adopted by $v$, the \textbf{right sibling of the predecessor} ($p(w) \leftarrow v$).
+                \item \textbf{Affected Descriptors:} $C(u)$ removed; $C(v)$ extended; parent $C(p(u))$ updated $\iff u = c(p(u))$.
+                \item \textbf{Strict Edit Bound:} \textbf{At most 3 descriptor edits} in worst case (Theorem~4.5, tight).
+                \item \textbf{Update Latency:} $\mathcal{O}(\log n + |\operatorname{children}(u)|)$ time ($\mathcal{O}(\log n)$ via block links).
             \end{itemize}
+            }
         \end{minipage}
 
         \vspace{2.5pt}
-        \centering
-        \includegraphics[width=0.98\linewidth, height=5.1cm, keepaspectratio]{poster/figures/fig_dynamic_adoption.pdf}
+        {\centering
+        \includegraphics[width=0.98\linewidth, height=4.6cm, keepaspectratio]{poster/figures/fig_dynamic_adoption.pdf}\par
         \vspace{1.5pt}
-        {\fontsize{7.8}{9.2}\selectfont \color{textMuted} \textbf{Figure 3:} Decremental vertex deletion and sibling child adoption in $T(G)$, bounding descriptor updates to $\le 3$.}
+        {\fontsize{7.8}{9.2}\selectfont \color{textMuted} \textbf{Figure 3:} Decremental vertex deletion and sibling child adoption in $T(G)$, bounding descriptor updates to $\le 3$.}\par
+        }
 
         \vspace{2pt}
         \begin{subbox}
             \textbf{Dynamic Invariant Guarantees:}
             \begin{itemize}\setlength{\itemsep}{1.2pt}
-                \fontsize{8.5}{10.6}\selectfont
                 \item \textbf{Contiguity Preservation:} The canonical parent assignment guarantees that children sets $\text{children}(p) = [c_1(p), c_k(p)]$ remain contiguous under all updates.
                 \item \textbf{Sub-Microsecond Latency:} Deterministic bounds enable sub-microsecond updates ($0.34 - 1.32\ \mu\text{s}$), outperforming static recomputation by up to $912\times$.
             \end{itemize}
