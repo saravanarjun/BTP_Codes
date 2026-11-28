@@ -27,6 +27,8 @@
 \definecolor{accentGold}{HTML}{D97706}
 \definecolor{textDark}{HTML}{0F172A}
 \definecolor{textMuted}{HTML}{475569}
+\definecolor{algDesc}{HTML}{047857}
+\newcommand{\algstep}[1]{\hspace{3pt}{\color{accentGreen}\ensuremath{\boldsymbol{\rightarrow}}}\hspace{3pt}{\color{algDesc}\textsl{#1}}}
 
 \setbeamercolor{background canvas}{bg=posterBg}
 \setbeamertemplate{navigation symbols}{}
@@ -173,26 +175,31 @@
     % Box 1: Preliminaries & Research Motivation
     \begin{posterbox}{1. Preliminaries \& Research Motivation}
         {\fontsize{9.0}{11.0}\selectfont
-        \textbf{Interval Graphs:} A graph $G = (V, E)$ is an \emph{interval graph} if each vertex $v \in V$ can be represented by a closed interval $I_v = [l_v, r_v] \subset \mathbb{R}$ such that $uv \in E \iff I_u \cap I_v \ne \emptyset$. In general interval graphs, intervals may contain one another ($I_v \subset I_u$), which breaks endpoint ordering and permits intricate, non-linear clique structures.
+        \textbf{Interval Graphs:} A graph $G = (V, E)$ is an \emph{interval graph} if each vertex $v \in V$ can be represented by a closed interval $I_v = [l_v, r_v] \subset \mathbb{R}$ such that $uv \in E \iff I_u \cap I_v \ne \emptyset$.
 
-        \textbf{Proper Interval Graphs (PIGs):} An interval graph is \emph{proper} if no interval properly contains another ($I_u \not\subset I_v$). Sorting vertices by left endpoints strictly orders right endpoints:
-        \begin{equation*}
-            l_u < l_v \iff r_u < r_v
-        \end{equation*}
-        This fundamental monotonicity restricts the number of maximal cliques to at most $n$ (compared to exponential in general graphs).
+        \textbf{Proper Interval Graphs (PIGs):} An interval graph is \emph{proper} if no interval properly contains another ($I_u \not\subset I_v$). Sorting vertices by left endpoints strictly orders right endpoints: \textbf{$l_u < l_v \iff r_u < r_v$}. This fundamental monotonicity restricts the number of maximal cliques to at most $n$ (compared to exponential in general graphs).
 
         \vspace{1.5pt}
         {\centering
-        \includegraphics[width=\linewidth, height=2.8cm, keepaspectratio]{poster/figures/fig_preliminaries.pdf}\par
-        \vspace{1pt}
-        {\fontsize{7.2}{8.5}\selectfont \color{textMuted} \textbf{Figure 0:} (a) Containment in general interval graphs; (b) Strict ordering in proper interval graphs; (c) Distance tree $T(G)$.}\par
+        \includegraphics[width=0.99\linewidth, height=2.65cm, keepaspectratio]{poster/figures/fig_intervals_distinction.pdf}\par
+        \vspace{0.8pt}
+        {\fontsize{7.4}{8.8}\selectfont \color{textMuted} \textbf{Figure 0a:} General interval graphs (containment allowed) vs Proper interval graphs (strict order $l_u < l_v \iff r_u < r_v$).}\par
         }
-        \vspace{2pt}
+        \vspace{1.8pt}
 
-        \raggedright
-        \textbf{Canonical Distance Tree $T(G)$:}
-        For vertices sorted by left endpoints $v_1, \dots, v_n$, $T(G)$ is the canonical BFS shortest-path tree rooted at $v_1$. For any $v \ne v_1$, its canonical parent is the earliest-starting reaching neighbor:
-        $p(v) = \arg\min_{u < v} \{ l_u \mid r_u \ge l_v \}$ (deterministic tie-breaking to lowest index).
+        \begin{minipage}[c]{0.70\linewidth}
+            \raggedright
+            \textbf{Canonical Distance Tree $T(G)$:}\\
+            For vertices ordered by left endpoints $v_1, \dots, v_n$, $T(G)$ is the canonical BFS shortest-path tree rooted at $v_1$. For any $v \ne v_1$, its canonical parent is the earliest-starting reaching neighbor:
+            $p(v) = \arg\min_{u < v} \{ l_u \mid r_u \ge l_v \}$ (deterministic tie-breaking to lowest index).
+        \end{minipage}
+        \hfill
+        \begin{minipage}[c]{0.28\linewidth}
+            \centering
+            \includegraphics[width=\linewidth, height=2.10cm, keepaspectratio]{poster/figures/fig_tree_mini.pdf}\par
+            \vspace{0.5pt}
+            {\fontsize{7.0}{8.2}\selectfont \color{textMuted} \textbf{Figure 0b:} $T(G)$.}
+        \end{minipage}
 
         \vspace{1.5pt}
         \begin{subbox}
@@ -356,11 +363,11 @@
             \end{itemize}
         \end{minipage}
 
-        \vspace{1.5pt}
+        \vspace{2.5pt}
         \centering
-        \includegraphics[width=0.96\linewidth, height=4.2cm, keepaspectratio]{poster/figures/fig_dynamic_adoption.pdf}
-        \vspace{1pt}
-        {\fontsize{7.5}{9}\selectfont \color{textMuted} \textbf{Figure 3:} Decremental vertex deletion and sibling child adoption in $T(G)$, bounding descriptor updates to $\le 3$.}
+        \includegraphics[width=0.98\linewidth, height=5.1cm, keepaspectratio]{poster/figures/fig_dynamic_adoption.pdf}
+        \vspace{1.5pt}
+        {\fontsize{7.8}{9.2}\selectfont \color{textMuted} \textbf{Figure 3:} Decremental vertex deletion and sibling child adoption in $T(G)$, bounding descriptor updates to $\le 3$.}
 
         \vspace{2pt}
         \begin{subbox}
@@ -398,16 +405,15 @@
             \begin{subbox}
                 \textbf{Algorithm 1: MIS Dynamic Programming on $T(G)$}\par\vspace{1.5pt}
                 {\fontsize{7.5}{9.4}\selectfont
-                \textbf{1:} $BEST[0] \leftarrow 0$; $DP[1][r] \leftarrow 1$; $BEST[1] \leftarrow 1$ $\;\to\;$ \textsl{Base case at root vertex $r$}\\
-                \textbf{2:} Construct $PREFIX[1]$ from $DP[1]$ $\;\to\;$ \textsl{Initialize root level prefix-max table}\\
-                \textbf{3:} \textbf{for} $i = 2$ \textbf{to} $h$ \textbf{do} $\;\to\;$ \textsl{Iterate distance levels top-down}\\
-                \textbf{4:} \quad \textbf{for each} $v \in L_i$ left-to-right \textbf{do} $\;\to\;$ \textsl{Process nodes in left-endpoint order}\\
-                \textbf{5:} \quad\quad $p \leftarrow parent(v); \; k \leftarrow pos(p)$ $\;\to\;$ \textsl{Locate canonical parent and rank in $L_{i-1}$}\\
-                \textbf{6:} \quad\quad $DP[i][v] \leftarrow 1 + \max\{BEST[i-2], PREFIX[i-1][k-1]\}$\\
-                \quad\quad\quad $\;\to\;$ \textsl{Optimal non-adjacent predecessor (Lemma 3.2 \& 3.6)}\\
-                \textbf{7:} \quad Construct $PREFIX[i]$ from $DP[i]$ $\;\to\;$ \textsl{Compute prefix-max in $\mathcal{O}(|L_i|)$ time}\\
-                \textbf{8:} \quad $BEST[i] \leftarrow \max\{BEST[i-1], \max_{v \in L_i} DP[i][v]\}$ $\;\to\;$ \textsl{Maintain running optimum}\\
-                \textbf{9:} \textbf{return} $BEST[h]$ $\;\to\;$ \textsl{Return exact $\alpha(G)$ in optimal $\mathcal{O}(n)$ time}
+                \textbf{1:} $BEST[0] \leftarrow 0$; $DP[1][r] \leftarrow 1$; $BEST[1] \leftarrow 1$ \algstep{Base case at root vertex $r$}\\
+                \textbf{2:} Construct $PREFIX[1]$ from $DP[1]$ \algstep{Initialize root level prefix-max table}\\
+                \textbf{3:} \textbf{for} $i = 2$ \textbf{to} $h$ \textbf{do} \algstep{Iterate distance levels top-down}\\
+                \textbf{4:} \quad \textbf{for each} $v \in L_i$ left-to-right \textbf{do} \algstep{Process nodes in left-endpoint order}\\
+                \textbf{5:} \quad\quad $p \leftarrow parent(v); \; k \leftarrow pos(p)$ \algstep{Locate canonical parent and rank in $L_{i-1}$}\\
+                \textbf{6:} \quad\quad $DP[i][v] \leftarrow 1 + \max\{BEST[i-2], PREFIX[i-1][k-1]\}$ \algstep{Optimal non-adjacent pred.\ (Lem.\ 3.2, 3.6)}\\
+                \textbf{7:} \quad Construct $PREFIX[i]$ from $DP[i]$ \algstep{Compute prefix-max in $\mathcal{O}(|L_i|)$ time}\\
+                \textbf{8:} \quad $BEST[i] \leftarrow \max\{BEST[i-1], \max_{v \in L_i} DP[i][v]\}$ \algstep{Maintain running optimum}\\
+                \textbf{9:} \textbf{return} $BEST[h]$ \algstep{Return exact $\alpha(G)$ in optimal $\mathcal{O}(n)$ time}
                 }
             \end{subbox}
             \vspace{1.5pt}
@@ -419,8 +425,8 @@
         \hfill
         \begin{minipage}[t]{0.38\linewidth}
             \centering
-            \includegraphics[width=\linewidth, height=3.6cm, keepaspectratio]{poster/figures/fig_mis_dp.pdf}\par
-            \vspace{1pt}
+            \includegraphics[width=\linewidth, height=4.0cm, keepaspectratio]{poster/figures/fig_mis_dp.pdf}\par
+            \vspace{1.5pt}
             {\centering {\fontsize{7.5}{9}\selectfont \color{textMuted} \textbf{Figure 4:} MIS DP transitions.}\par}
         \end{minipage}
 

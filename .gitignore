@@ -19,3 +19,5 @@ build/
 __pycache__/
 *.pyc
 poster/scratch/
+poster/crop_*.png
+poster/poster_thumb.png
