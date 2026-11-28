@@ -144,22 +144,21 @@ Algorithm~\ref{alg:incremental_maintenance} details the complete incremental pro
 \caption{\textsc{Dynamic-Vertex-Insert}$(G, T, \mathcal{D}, x)$}
 \label{alg:incremental_maintenance}
 \begin{algorithmic}[1]
-\Require Connected proper interval graph $G$, distance tree $T(G)$, descriptor map $\mathcal{D}$, inserted interval $x = [l_x, r_x]$.
-\Ensure Updated distance tree $T(G \cup \{x\})$ and descriptor map $\mathcal{D}'$.
-\State \textbf{assert} $\textsc{Is-Admissible}(G, x)$ \Comment{Verify properness via predecessor/successor in $\mathcal{O}(\log n)$}
-\State $p \leftarrow \textsc{Find-Canonical-Parent}(T, l_x)$ \Comment{Earliest $u$ with $r_u \ge l_x$ via binary search in $\mathcal{O}(\log n)$}
-\State $p(x) \leftarrow p$; \quad $\operatorname{depth}(x) \leftarrow \operatorname{depth}(p) + 1$
-\State Locate sibling predecessor $s \in \operatorname{children}(p)$ such that $l_s < l_x < l_{\operatorname{succ}(s)}$ via binary search
-\State $\textsc{List-Insert-After}(\operatorname{children}(p), s, x)$ \Comment{Splice $x$ into doubly-linked child list in $\mathcal{O}(1)$}
-\If{$p \in \operatorname{dom}(\mathcal{D})$} \Comment{$p$ was already an active parent}
-    \If{$l_x > l_{c(p)}$} \Comment{$x$ becomes the new rightmost child}
-        \State $c(p) \leftarrow x$; \quad $\mathcal{D}[p] \leftarrow x$ \Comment{Extend existing descriptor: $\Delta = 1$}
-    \EndIf
-\Else \Comment{$p$ was previously a leaf}
-    \State $c(p) \leftarrow x$; \quad $\mathcal{D}[p] \leftarrow x$ \Comment{Initialize new descriptor: $\Delta = 1$}
-\EndIf
-\State Insert $x$ into level set $L_{\operatorname{depth}(x)}$
-\State \Return $(T(G \cup \{x\}), \mathcal{D}')$
+\Require Connected proper interval graph $G$, canonical distance tree $T(G)$, descriptor map $\mathcal{D}$, and interval $x = [l_x, r_x]$.
+\Ensure Updated distance tree $T(G \cup \{x\})$ and updated descriptor map $\mathcal{D}$.
+\State $\textsc{Validate-Admissibility}(G, x)$ \Comment{Verify proper interval monotonicity}
+\State $p \leftarrow \textsc{Find-Canonical-Parent}(T, x)$ \Comment{Earliest $u$ with $r_u \ge l_x$ in $\mathcal{O}(\log n)$}
+\State $p(x) \leftarrow p; \quad \operatorname{depth}(x) \leftarrow \operatorname{depth}(p) + 1$
+\State $s \leftarrow \textsc{Preceding-Sibling}(p, x)$ \Comment{Predecessor in $\operatorname{children}(p)$ via search index}
+\State $\textsc{List-Insert-After}(\operatorname{children}(p), s, x)$ \Comment{Splice $x$ into child list in $\mathcal{O}(1)$ time}
+\If{$p \notin \operatorname{dom}(\mathcal{D})$} \Comment{Case 1: $p$ was a leaf; initialize $C(p)$ ($\Delta = 1$)}
+    \State $c(p) \leftarrow x; \quad \mathcal{D}[p] \leftarrow x$
+\ElsIf{$l_x > l_{c(p)}$} \Comment{Case 2: $x$ is new rightmost child; extend $C(p)$ ($\Delta = 1$)}
+    \State $c(p) \leftarrow x; \quad \mathcal{D}[p] \leftarrow x$
+\EndIf \Comment{Case 3: interior child leaves $C(p)$ unchanged ($\Delta = 0$)}
+\State $L_{\operatorname{depth}(x)} \leftarrow L_{\operatorname{depth}(x)} \cup \{x\}$ \Comment{Register $x$ in depth level list}
+\State $\textsc{Index-Insert}(x)$ \Comment{Insert $x$ into global search vector}
+\State \Return $(T, \mathcal{D})$
 \end{algorithmic}
 \end{algorithm}
 
