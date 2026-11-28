@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.11.9)  23 NOV 2026 17:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.11.9)  28 NOV 2026 19:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./poster/figures/fig_dynamic_adoption.tex
-(poster/figures/fig_dynamic_adoption.tex
+**./fig_dynamic_adoption.tex
+(fig_dynamic_adoption.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 
@@ -536,9 +536,7 @@ ions\pgflibrarydecorations.pathreplacing.code.tex))
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count320
-)
-(C:\Users\sarav\OneDrive\Desktop\BTP_Codes\poster\figures\fig_dynamic_adoption.
-aux)
+) (fig_dynamic_adoption.aux)
 \openout1 = `fig_dynamic_adoption.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -592,65 +590,26 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
 (C:\Users\sarav\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 121.
-
-
-LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 122.
-
-LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 122.
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 122.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.75> not available
-(Font)              size <5> substituted on input line 122.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <7.5> not available
-(Font)              size <7> substituted on input line 122.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.75> not available
-(Font)              size <5> substituted on input line 122.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 122.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.75> not available
-(Font)              size <5> substituted on input line 122.
-
 [1
 
 
 Non-PDF special ignored!
-<special> papersize=572.24362pt,238.30966pt
+<special> papersize=618.62138pt,153.88367pt
 {C:/Users/sarav/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(C:\Users\sarav\OneDrive\Desktop\BTP_Codes\poster\figures\fig_dynamic_adoption.
-aux)
+(fig_dynamic_adoption.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.25pt have occurred.
-
  ) 
 Here is how much of TeX's memory you used:
- 15366 strings out of 467871
- 324687 string characters out of 5418376
- 722467 words of memory out of 5000000
- 43966 multiletter control sequences out of 15000+600000
- 637488 words of font info for 79 fonts, out of 8000000 for 9000
+ 15323 strings out of 467871
+ 323769 string characters out of 5418376
+ 719554 words of memory out of 5000000
+ 43928 multiletter control sequences out of 15000+600000
+ 634069 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,8n,121p,439b,795s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,8n,121p,424b,766s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx5.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -665,16 +624,11 @@ arav/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:
 .pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmr5.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmr6.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmss10.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/sarav/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/sarav/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sarav/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
-Output written on C:\Users\sarav\OneDrive\Desktop\BTP_Codes\poster\figures\fig_
-dynamic_adoption.pdf (1 page, 190430 bytes).
+blic/amsfonts/cm/cmsy10.pfb><C:/Users/sarav/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmsy5.pfb>
+Output written on fig_dynamic_adoption.pdf (1 page, 143030 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
+ 79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

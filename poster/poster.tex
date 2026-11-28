@@ -271,19 +271,18 @@
     \begin{posterbox}{3. Maximal Clique Characterization \& Static Algorithm}
 
         \begin{highlightbox}
-            \textbf{Lemma 3.15 (Interval Representation of Maximal Cliques):}
-            Let $G$ be a proper interval graph and $T(G)$ its distance tree. Every maximal clique of $G$ can be represented by an interval of the form:
+            \textbf{Theorem 4.1 (Parent Bijection Theorem):}
+            Let $G$ be a connected proper interval graph and $T(G)$ its canonical distance tree. The set of maximal cliques $\mathcal{M}(G)$ is in \textbf{exact 1-to-1 bijection} with the non-leaf parents $\mathcal{P}_{nl}(T)$:
             \begin{equation*}
-                [\ell_1, \ell_2] = [\ell_p, \ell_c]
+                \mathcal{M}(G) = \{ C(p) = [p, c(p)] \mid p \in \mathcal{P}_{nl}(T) \},
             \end{equation*}
-            denoting all vertices whose left endpoints lie in $[\ell_p, \ell_c]$, where $\ell_p$ is the left endpoint of a parent node $p$ and $\ell_c$ is the left endpoint of its rightmost child $c(p)$.
+            where $c(p)$ is the rightmost child of $p$ in $T(G)$. Every clique is represented by contiguous index interval $[p, c(p)]$.
         \end{highlightbox}
 
         \textbf{Structural Bijection \& Compact Descriptors:}
         \begin{itemize}\setlength{\itemsep}{0.6pt}
             \scriptsize
-            \item \textbf{Theorem (Parent Bijection):} In a connected proper interval graph, there is a \textbf{strict bijection} between the set of non-leaf parents $\mathcal{P}_{nl}(T)$ and the set of maximal cliques $\mathcal{M}(G)$:
-            $\mathcal{M}(G) = \{ C(p) = [p, c(p)] \mid p \in \mathcal{P}_{nl}(T) \}$.
+            \item \textbf{Parent Correspondence:} Each non-leaf parent $p$ uniquely defines a maximal clique $[p, c(p)]$; no two parents generate the same clique ($q \le n-1$).
             \item \textbf{Descriptor Semantics:} $C(p) = [p, c(p)]$ stores leftmost node $p$ and rightmost child $c(p)$. Every vertex with index $v \in [p, c(p)]$ belongs to the clique!
             \item \textbf{Instant Recovery:} The explicit vertex list $\{v_p, \dots, v_c\}$ is reconstructed in optimal $\mathcal{O}(|C(p)|)$ time on demand.
             \item \textbf{Static Algorithm ($\mathcal{O}(n+m)$):} Traverses distance tree to identify all non-leaf parents and their rightmost children.
@@ -335,15 +334,10 @@
             \textbf{\color{accentBlue}A. Incremental Maintenance}
             \begin{itemize}\setlength{\itemsep}{2.0pt}
                 \fontsize{8.8}{11.4}\selectfont
-                \item \textbf{Leaf Insertion:} Newly inserted interval $v_{n+1}$ attaches at the right boundary.
-                \item \textbf{Parent Search:} Binary search locates $p(v_{n+1}) = \arg\min \{l_u \mid r_u \ge l_{v_{n+1}}\}$ in $\mathcal{O}(\log n)$ time.
-                \item \textbf{Descriptor Update:}
-                \begin{itemize}\setlength{\itemsep}{0.2pt}
-                    \item If $p$ was already a parent: update descriptor \textbf{only if} $v_{n+1}$ becomes the new rightmost child of $p$ (extend $C(p) \leftarrow [p, v_{n+1}]$); otherwise descriptor remains unchanged.
-                    \item If $p$ was a leaf: add new descriptor $C(p) \leftarrow [p, v_{n+1}]$.
-                \end{itemize}
-                \item \textbf{Edit Bound:} \textbf{At most 1 descriptor edit}.
-                \item \textbf{Update Time:} $\mathcal{O}(\log n)$.
+                \item \textbf{Arbitrary Insertion:} New interval $x = [l_x, r_x]$ inserted at arbitrary topological position.
+                \item \textbf{Dual Representation:} Children maintained in ordered index ($\mathcal{O}(\log n)$ search) and doubly-linked list ($\mathcal{O}(1)$ splicing).
+                \item \textbf{Descriptor Invariant:} $C(p)$ extended $\iff x$ is new rightmost child ($c(p) \leftarrow x$); interior insertions spliced in $\mathcal{O}(1)$ without changing $C(p)$ ($\Delta \le 1$).
+                \item \textbf{Tradeoff Guarantee:} $\mathcal{O}(\log n)$ worst-case updates without rightmost assumption, at minor memory cost.
             \end{itemize}
         \end{minipage}
         \hfill
@@ -358,8 +352,8 @@
                 \end{itemize}
                 \item \textbf{Right Sibling Adoption:} $p(w) \leftarrow v$ for all $w \in \text{children}(u)$.
                 \item \textbf{Affected Descriptors:} $C(u)$ invalidated; $C(v)$ right boundary extended.
-                \item \textbf{Edit Bound:} \textbf{At most 3 edits} (Theorem 3.16).
-                \item \textbf{Update Time:} $\mathcal{O}(n + |C(u)| + \log q)$.
+                \item \textbf{Edit Bound:} \textbf{At most 3 edits} (Theorem 4.4).
+                \item \textbf{Update Time:} $\mathcal{O}(\log n + |\text{children}(u)|)$, $\mathcal{O}(\log n)$ via block links.
             \end{itemize}
         \end{minipage}
 
@@ -387,7 +381,7 @@
             \fontsize{8.6}{11.0}\selectfont
             \item \textbf{Lemma 3.11 (MIS Bounds):} For distance tree $T(G)$ of height $h$: $\lfloor h/2 \rfloor \le \alpha(G) \le h - 1$.
             \item \textbf{Theorem 3.12 (2-Approximation for MIS):} Selecting the rightmost vertex of alternate levels yields a 2-approximation of $\alpha(G)$ in $\mathcal{O}(h)$ time.
-            \item \textbf{Theorem 3.17 (Minimum Dominating Set Bound):} $\gamma(G) \le \lceil (h-1)/2 \rceil$; for odd $h$, $\gamma(G) \le (h-1)/2$.
+            \item \textbf{Theorem 3.14 (Minimum Dominating Set Bound):} $\gamma(G) \le \lceil (h-1)/2 \rceil$; for odd $h$, $\gamma(G) \le (h-1)/2$.
         \end{itemize}
 
         \vspace{2pt}
@@ -527,9 +521,9 @@
             \textbf{\color{subHeaderNavy}Core Thesis Contributions:}
             \begin{itemize}\setlength{\itemsep}{5.0pt}
                 \fontsize{8.6}{11.0}\selectfont
-                \item \textbf{Structural Foundation:} Characterized proper interval graphs via canonical distance trees; established level cliques (Thm 3.7) and maximal clique bijection (Lemma 3.8, 3.15).
-                \item \textbf{Dynamic Algorithms:} Designed sub-microsecond incremental ($\mathcal{O}(\log n)$) and decremental ($\le 3$ edits) clique maintenance.
-                \item \textbf{Optimization \& Bounds:} Formulated linear $\mathcal{O}(n)$ exact DP for MIS and proved tight bounds for MIS and MDS.
+                \item \textbf{Structural Foundation:} Characterized proper interval graphs via canonical distance trees; established level cliques (Thm 3.7) and maximal clique bijection (Thm 4.1, Lem 3.8).
+                \item \textbf{Dynamic Algorithms:} Designed sub-microsecond incremental ($\mathcal{O}(\log n)$, dual rep.) and decremental ($\le 3$ edits, Thm 4.4) clique maintenance.
+                \item \textbf{Optimization \& Bounds:} Formulated linear $\mathcal{O}(n)$ exact DP for MIS (Thm 3.13) and proved tight bounds for MIS (Lem 3.11) and MDS (Thm 3.14).
             \end{itemize}
         \end{minipage}
         \hfill

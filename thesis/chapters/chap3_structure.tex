@@ -248,13 +248,6 @@ Let $S_{\text{even}} = \{ \operatorname{last}(L_{2k}) \mid 0 \le 2k \le h \}$ an
 
 While Theorem~\ref{thm:two-approx-mis} provides a fast 2-approximation, we now design an exact, optimal $\mathcal{O}(n)$ time and $\mathcal{O}(n)$ space dynamic programming algorithm for MIS.
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.88\linewidth]{figures/fig_mis_dp.pdf}
-    \caption[MIS Dynamic Programming State Transitions]{Dynamic programming state transitions for Maximum Independent Set on $T(G)$. The optimal independent set ending at $v \in L_i$ is formed by taking $v$ and querying the optimal non-adjacent predecessor in $\mathcal{O}(1)$ time via the level prefix-max table $PREFIX[i-1][k-1]$ and global level optimum $BEST[i-2]$.}
-    \label{fig:mis_dp}
-\end{figure}
-
 \subsubsection{DP State Formulation}
 For each vertex $v \in L_i$, define:
 \begin{itemize}
@@ -277,22 +270,23 @@ Therefore, the exact transition recurrence is:
     \label{eq:mis_recurrence}
 \end{equation}
 
-Algorithm~\ref{alg:mis_dp} presents the complete execution.
+Algorithm~\ref{alg:mis_dp} presents the complete execution following standard algorithmic conventions.
 
 \begin{algorithm}[htbp]
-\caption{Exact Linear-Time MIS Dynamic Programming on $T(G)$}
+\caption{\textsc{Exact-MIS-DP}$(G, T)$}
 \label{alg:mis_dp}
 \begin{algorithmic}[1]
-\Require Connected proper interval graph $G$ with canonical distance tree $T(G)$ of height $h$.
-\Ensure Exact Maximum Independent Set size $\alpha(G)$.
+\Require Connected proper interval graph $G = (V, E)$ with canonical distance tree $T(G)$ of height $h$.
+\Ensure Exact Maximum Independent Set cardinality $\alpha(G)$.
 \State $BEST[0] \leftarrow 0$; \quad $DP[1][v_1] \leftarrow 1$; \quad $BEST[1] \leftarrow 1$ \Comment{Base case at root $v_1$}
-\State Construct $PREFIX[1]$ from $DP[1]$
+\State $PREFIX[1][1] \leftarrow DP[1][v_1]$ \Comment{Initialize root level prefix-max}
 \For{$i = 2$ \textbf{to} $h$}
     \For{\textbf{each} $v \in L_i$ in left-to-right canonical order}
         \State $p \leftarrow p(v)$ \Comment{Locate canonical parent}
         \State $k \leftarrow \operatorname{pos}(p, L_{i-1})$ \Comment{Rank of $p$ in level $L_{i-1}$}
-        \State $\text{pred\_best} \leftarrow \max(BEST[i-2], \; PREFIX[i-1][k-1])$ \Comment{Optimal non-adjacent predecessor}
-        \State $DP[i][v] \leftarrow 1 + \text{pred\_best}$
+        \State $\textit{cand} \leftarrow PREFIX[i-1][k-1]$ \Comment{Best candidate in $L_{i-1}$ left of $p$}
+        \State $\textit{pred\_best} \leftarrow \max(BEST[i-2], \; \textit{cand})$ \Comment{Optimal non-adjacent predecessor}
+        \State $DP[i][v] \leftarrow 1 + \textit{pred\_best}$
     \EndFor
     \State Compute $PREFIX[i]$ by taking running prefix-max of $DP[i]$ across $L_i$
     \State $BEST[i] \leftarrow \max(BEST[i-1], \; PREFIX[i][|L_i|])$
@@ -334,7 +328,7 @@ Moreover, when $h$ is odd:
 \begin{proof}
 By Theorem~\ref{thm:depth-level-clique}, each level $L_k$ is a clique, so any single vertex in $L_k$ dominates all of $L_k$. By Lemma~\ref{lem:clique-children-right-siblings}, a vertex in $L_k$ also dominates all its children in $L_{k+1}$ and its parent in $L_{k-1}$. 
 
-Selecting one vertex from every alternate odd level $L_1, L_3, L_5, \dots$ dominates $L_0, L_1, L_2, \dots, L_h$. The number of selected vertices is $\lceil (h-1)/2 \rceil$. For odd $h$, the last level $L_h$ is directly dominated by the vertex chosen in $L_{h-1}$, yielding $(h-1)/2$.
+Selecting a single vertex from each alternate odd level $L_1, L_3, L_5, \dots$ dominates the full vertex set $L_0 \cup L_1 \cup \dots \cup L_h$. The number of selected vertices is $\lceil (h-1)/2 \rceil$. For odd $h$, the last level $L_h$ is directly dominated by the vertex chosen in $L_{h-1}$, yielding $(h-1)/2$.
 \end{proof}
 
 \section{Matching Bounds, Degree Bounds, and Graph Burning}

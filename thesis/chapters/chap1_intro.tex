@@ -84,6 +84,17 @@ This strict monotonicity imposes rigorous linear order on the graph topology:
 
 Exploiting this monotonicity is the central mathematical vehicle of this thesis.
 
+\section{Related Work and State-of-the-Art}
+\label{sec:intro_related_work}
+
+Dynamic representations of intersection graphs have received sustained theoretical and algorithmic attention over the past two decades. In their seminal work on dynamic interval graphs, Crespelle~\cite{crespelle2019fully} developed an $\mathcal{O}(n)$ time framework that simultaneously maintains a minimal interval model, the PQ-tree of maximal cliques~\cite{booth1976testing}, and the modular decomposition tree under arbitrary vertex and edge modifications. While Crespelle's result established the optimal worst-case bound for maintaining unconstrained modular representations, each vertex update requires $\mathcal{O}(n)$ time due to potential global restructuring of modular quotient graphs.
+
+For distance queries, He et al.~\cite{he2020distance} introduced succinct distance oracles for static interval and proper interval graphs using a novel ``tree-slabbing'' decomposition that bridges the classical divide between depth-first (preorder) and breadth-first (level-order) traversals in ordinal trees. Their structure represents a proper interval graph in $2n + o(n)$ bits and answers distance and adjacency queries in $\mathcal{O}(1)$ time. 
+
+Building upon these tree-based foundations, Chen, He, Munro, Peng, Wu, and Zhang~\cite{chen2024distance} designed the first dynamic distance oracles for interval graphs. For proper interval graphs, Chen et al.\ maintain an $\mathcal{O}(n)$-word top-tree data structure supporting distance queries, vertex insertions, and vertex deletions in $\mathcal{O}(\log n)$ worst-case time. For general interval graphs, they achieve $\mathcal{O}(\sqrt{n \log n})$ update and query time by decomposing the graph into balanced blocks of exposed intervals.
+
+Despite these significant advancements in distance oracles and graph recognition, the problem of \emph{dynamic maximal clique maintenance} on proper interval graphs has remained largely unaddressed. Prior approaches either require $\mathcal{O}(n)$ time per update to maintain full modular representations~\cite{crespelle2019fully}, or focus strictly on pairwise distance and shortest-path queries without explicitly tracking the evolving combinatorial structure of maximal cliques~\cite{chen2024distance,he2020distance}. The goal of this thesis is to close this gap by developing an exact, descriptor-based framework that captures all maximal cliques implicitly and guarantees strictly bounded modifications ($\Delta \le 3$) and sub-microsecond operational latency under dynamic updates.
+
 \section{Core Research Questions and Objectives}
 \label{sec:intro_objectives}
 
@@ -95,7 +106,7 @@ Despite the strong static structural properties of proper interval graphs, signi
 
 To answer this central question, this thesis pursues the following specific research objectives:
 \begin{enumerate}[label=\textbf{O\arabic*.}]
-    \item \textbf{Canonical Structural Framework:} Formulate a deterministic tree-based representation---the \emph{canonical distance tree} $T(G)$---that encodes neighborhood intersections and distance metrics on proper interval graphs.
+    \item \textbf{Canonical Tree Framework:} Formulate a deterministic representation---the \emph{canonical distance tree} $T(G)$---that encodes neighborhood intersections and distance metrics on proper interval graphs.
     \item \textbf{Maximal Clique Bijection:} Discover a constructive 1-to-1 bijection between the maximal cliques of $G$ and specific structural elements of $T(G)$, enabling a compact representation that avoids explicit list storage.
     \item \textbf{Provably Bounded Dynamic Maintenance:} Design incremental and decremental update algorithms, proving strict mathematical bounds on the number of descriptor modifications induced by any single topological update.
     \item \textbf{Combinatorial Parameter Optimization:} Derive tight bounds and linear-time algorithms for related NP-hard optimization problems, specifically Maximum Independent Set (MIS), Minimum Dominating Set (MDS), and Graph Burning.
