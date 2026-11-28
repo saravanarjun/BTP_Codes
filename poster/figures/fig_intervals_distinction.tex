@@ -41,16 +41,7 @@
     \draw[interval, draw=accentblue] (4.0, 1.2) -- (6.6, 1.2);
     \fill[accentblue] (4.0, 1.2) circle (2.2pt); \fill[accentblue] (6.6, 1.2) circle (2.2pt);
 
-    % Containment annotation badge
-    \draw[draw=darkred, fill=softred, rounded corners=3pt, line width=0.8pt] 
-        (0.4, 0.0) rectangle (6.8, 0.75);
-    \node[font=\tiny\bfseries, text=darkred, align=center] at (3.6, 0.375) {
-        Proper Containment: $I_v \subset I_u$ ($l_u < l_v$ but $r_u > r_v$)\\
-        Breaks endpoint order $\implies$ Unbounded maximal cliques!
-    };
-
-    % Divider
-    \draw[line width=0.8pt, draw=darkgray!25] (7.2, -0.1) -- (7.2, 3.5);
+    \draw[line width=0.8pt, draw=darkgray!25] (7.2, 0.6) -- (7.2, 3.5);
 
     % ========================================================
     % PANEL B: PROPER INTERVAL GRAPH (No Containment)
@@ -75,13 +66,7 @@
     \draw[interval, draw=darkgreen] (12.0, 0.9) -- (14.6, 0.9);
     \fill[darkgreen] (12.0, 0.9) circle (2.2pt); \fill[darkgreen] (14.6, 0.9) circle (2.2pt);
 
-    % Strict ordering badge
-    \draw[draw=darkgreen, fill=softgreen, rounded corners=3pt, line width=0.8pt] 
-        (7.8, 0.0) rectangle (14.6, 0.75);
-    \node[font=\tiny\bfseries, text=darkgreen, align=center] at (11.2, 0.375) {
-        $l_u < l_v \iff r_u < r_v$ (No Proper Containment)\\
-        Strict monotonic order $\implies$ At most $n$ maximal cliques!
-    };
+
 
 \end{tikzpicture}
 \end{document}
