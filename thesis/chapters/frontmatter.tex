@@ -1,0 +1,187 @@
+% ============================================================
+% TITLE PAGE
+% ============================================================
+
+\begin{titlepage}
+    \centering
+
+    \vspace*{0.5cm}
+
+    {\LARGE\textbf{Dynamic Graph Algorithms on Proper Interval Graphs:}}\\[0.4cm]
+    {\Large\textbf{Structural Characterizations, Maximal Clique Maintenance, and Algorithmic Bounds}}\\[1.2cm]
+
+    {\large
+    A Thesis\\
+    submitted in partial fulfillment of the requirements\\
+    for the award of the degree of
+    }\\[0.4cm]
+
+    {\Large\textbf{Bachelor of Technology}}\\
+    {\large in}\\
+    {\Large\textbf{Computer Science and Engineering}}\\[1.2cm]
+
+    {\large\textbf{by}}\\[0.3cm]
+
+    {\Large\textbf{K. Saravanarjun}}\\
+    {\large Roll Number: 23CS01028}\\[1.2cm]
+
+    {\large
+    Under the guidance of\\[0.3cm]
+    \textbf{Dr.\ Manas Jyoti Kashyop}
+    }\\[1.2cm]
+
+    \IfFileExists{iitbbs_logo.png}{%
+        \includegraphics[width=2.8cm]{iitbbs_logo.png}\\[0.8cm]
+    }{%
+        \vspace{2.8cm}
+    }
+
+    {\large
+    Department of Computer Science and Engineering\\
+    Indian Institute of Technology Bhubaneswar\\
+    Bhubaneswar -- 752050, Odisha, India
+    }\\[0.4cm]
+
+    {\large November 2026}
+
+\end{titlepage}
+
+
+% ============================================================
+% FRONT MATTER
+% ============================================================
+
+\pagenumbering{roman}
+
+% ------------------------------------------------------------
+% Certificate
+% ------------------------------------------------------------
+
+\chapter*{Certificate}
+\addcontentsline{toc}{chapter}{Certificate}
+
+This is to certify that the thesis entitled
+\textit{``Dynamic Graph Algorithms on Proper Interval Graphs: Structural Characterizations, Maximal Clique Maintenance, and Algorithmic Bounds''}, submitted by
+\textbf{K.\ Saravanarjun} (Roll Number: \textbf{23CS01028}) in partial fulfillment of the requirements
+for the award of the degree of \textbf{Bachelor of Technology in Computer Science and Engineering} at the
+\textbf{Indian Institute of Technology Bhubaneswar}, is an authentic record of the research work carried out
+by him under my supervision and guidance.
+
+To the best of my knowledge, the matter embodied in this thesis has not been submitted to any other University or Institute for the award of any degree or diploma.
+
+\vspace{2.5cm}
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+    \textbf{Date:} November 2026\\
+    \textbf{Place:} IIT Bhubaneswar
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+    \raggedleft
+    \textbf{Dr.\ Manas Jyoti Kashyop}\\
+    Assistant Professor\\
+    Department of Computer Science and Engineering\\
+    Indian Institute of Technology Bhubaneswar
+\end{minipage}
+
+\clearpage
+
+% ------------------------------------------------------------
+% Declaration
+% ------------------------------------------------------------
+
+\chapter*{Declaration}
+\addcontentsline{toc}{chapter}{Declaration}
+
+I hereby declare that the work presented in this thesis entitled
+\textit{``Dynamic Graph Algorithms on Proper Interval Graphs: Structural Characterizations, Maximal Clique Maintenance, and Algorithmic Bounds''}
+is original and has been carried out by me in the Department of Computer Science and Engineering,
+Indian Institute of Technology Bhubaneswar, under the supervision of \textbf{Dr.\ Manas Jyoti Kashyop}.
+
+I declare that this thesis has not been submitted, either in whole or in part, for the award of any other degree, diploma, or academic qualification at this or any other institution. Due acknowledgements have been made in the text to all literature, tools, and ideas that have been borrowed from external sources.
+
+\vspace{2.5cm}
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+    \textbf{Date:} November 2026\\
+    \textbf{Place:} IIT Bhubaneswar
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+    \raggedleft
+    \textbf{K.\ Saravanarjun}\\
+    Roll Number: 23CS01028\\
+    Department of Computer Science and Engineering\\
+    Indian Institute of Technology Bhubaneswar
+\end{minipage}
+
+\clearpage
+
+% ------------------------------------------------------------
+% Acknowledgements
+% ------------------------------------------------------------
+
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+I would like to express my deepest gratitude to my thesis supervisor, \textbf{Dr.\ Manas Jyoti Kashyop}, for his constant guidance, critical insights, and inspiring encouragement throughout the course of this research. His rigorous feedback, mathematical clarity, and enthusiasm for discrete algorithms were instrumental in shaping the theoretical and empirical foundations of this thesis.
+
+I extend my sincere thanks to the faculty members of the Department of Computer Science and Engineering at the Indian Institute of Technology Bhubaneswar for providing an intellectually stimulating environment and solid foundational education. I am also grateful to the department staff and computing facilities for supporting our extensive benchmarking experiments.
+
+Special thanks go to my peers, friends, and colleagues for numerous helpful discussions, peer code reviews, and moral support during the intensive phases of implementation, testing, and debugging.
+
+Finally, I express my heartfelt gratitude to my family for their unwavering love, patience, and encouragement throughout my academic journey.
+
+\vspace{1.5cm}
+
+\noindent
+\textbf{K.\ Saravanarjun}
+
+\clearpage
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Interval graphs constitute a celebrated class of intersection graphs with fundamental applications spanning compiler design, bioinformatics, resource scheduling, and temporal reasoning. A distinguished subclass, \emph{proper interval graphs} (graphs admitting an interval representation where no interval properly contains another), exhibits strict endpoint monotonicity: sorting vertices by their left endpoints simultaneously sorts them by their right endpoints ($l_u < l_v \iff r_u < r_v$). While the static algorithmic properties of proper interval graphs have been widely studied, their behavior in \emph{dynamic environments}---where vertices and intervals arrive or depart sequentially---remains largely unexplored.
+
+This thesis establishes a comprehensive theoretical, algorithmic, and empirical framework for dynamic graph algorithms on proper interval graphs, centered upon the \emph{canonical distance tree} $T(G)$. The distance tree is a deterministic breadth-first search shortest-path tree rooted at the leftmost interval $v_1$, uniquely determined by canonical parent pointers $p(v) = \arg\min_{u < v} \{ l_u \mid r_u \ge l_v \}$.
+
+We present four principal sets of contributions:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+    \item \textbf{Structural Characterizations and Clique Bijective Representation:}
+    We prove that every depth level $L_k$ of $T(G)$ induces a complete subgraph (clique) in $G$ (Theorem~3.7). Building upon parent-child and sibling intersection lemmas, we establish a constructive bijection between the maximal cliques of $G$ and the non-leaf parents of $T(G)$ (Lemma~3.15). Each maximal clique is shown to be an implicitly contiguous interval of vertices $[p, c(p)]$, where $c(p)$ is the rightmost child of $p$, reducing the storage of maximal cliques from $\mathcal{O}(n \cdot q)$ explicit vertices to $\mathcal{O}(q)$ compact endpoint pairs (a $90.2\%$ to $99.0\%$ memory compression).
+
+    \item \textbf{Optimal Dynamic Maximal Clique Maintenance:}
+    Exploiting the compact descriptor formulation, we develop fully dynamic algorithms for maximal clique maintenance under topological mutations. For incremental leaf insertions, we prove that descriptor updates are strictly conditional: an existing parent descriptor $C(p)$ is extended if and only if the inserted vertex becomes the new rightmost child of $p$, bounding descriptor modifications to at most $1$ ($\Delta \le 1$) in $\mathcal{O}(\log n)$ time. For decremental vertex deletions, we establish that children of a deleted internal parent are adopted by the \emph{right sibling of the predecessor}. We formally prove Theorem~3.16, showing that vertex deletion mutates at most $3$ descriptors in the worst case ($\Delta_{\text{affected}} \le 3$), and establish its strict tightness via an adversarial 7-vertex counterexample.
+
+    \item \textbf{Linear Dynamic Programming and Parameter Bounds:}
+    Leveraging the level clique properties of $T(G)$, we formulate an exact, optimal $\mathcal{O}(n)$ time and $\mathcal{O}(n)$ space dynamic programming algorithm for the Maximum Independent Set (MIS) problem using prefix-max accumulation, eliminating the overhead of interval trees. We further prove tight structural bounds for MIS ($\lfloor h/2 \rfloor \le \alpha(G) \le h-1$), Minimum Dominating Set ($\gamma(G) \le \lceil (h-1)/2 \rceil$), maximum matching, and graph burning ($b(G) \le \lceil \sqrt{n} \rceil$).
+
+    \item \textbf{Extensive Benchmarking and Amortized Break-Even Analysis:}
+    We evaluate our algorithms across a comprehensive benchmark suite of 77 configurations spanning 17 graph families, scaling up to $n = 1,000,000$ vertices. Our dynamic maintenance algorithms achieve update latencies of $0.34\ \mu\text{s} - 1.32\ \mu\text{s}$, providing speedup factors of $370\times$ to $912\times$ over full static recomputation. Through rigorous cross-validation against independent sweep-line and Bron--Kerbosch baselines across 165 dynamic mutation steps, we achieve $100\%$ algorithmic agreement. Finally, we formulate and empirically validate an amortized break-even model, demonstrating that the initial $\mathcal{O}(n+m)$ distance tree construction is fully amortized after exactly $K^* = 4$ update operations against the fastest sweep-line baseline.
+\end{enumerate}
+
+These findings demonstrate that canonical distance trees provide an optimal structural scaffold for both static optimization and instant, provably bounded dynamic graph maintenance on proper interval graphs.
+
+\clearpage
+
+% ============================================================
+% TABLE OF CONTENTS, LIST OF FIGURES, LIST OF TABLES
+% ============================================================
+
+\tableofcontents
+\clearpage
+
+\listoffigures
+\clearpage
+
+\listoftables
+\clearpage
+
+\pagenumbering{arabic}

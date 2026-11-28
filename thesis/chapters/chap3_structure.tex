@@ -1,0 +1,402 @@
+\chapter{Structural Analysis and Combinatorial Bounds}
+\label{chap:structure}
+
+In this chapter, we develop the core theoretical foundation of the thesis. By analyzing the interplay between the canonical distance tree $T(G)$ and the canonical vertex ordering of proper interval graphs, we systematically establish the adjacency structure between parents, children, and siblings. We prove the fundamental \emph{Level Clique Theorem} (Theorem~\ref{thm:depth-level-clique}), which demonstrates that each depth layer $L_k$ induces a complete subgraph in $G$. 
+
+Building upon these adjacency results, we characterize the exact composition of maximal cliques, derive a tight bound on the number of maximal cliques containing any individual vertex, design an optimal $\mathcal{O}(n)$ dynamic programming algorithm for the Maximum Independent Set problem, and establish tight bounds for Minimum Dominating Sets, Maximum Matching, and Graph Burning.
+
+\section{Parent, Child, and Sibling Adjacencies}
+\label{sec:struct_adjacencies}
+
+Let $G = (V, E)$ be a connected proper interval graph ordered canonically ($v_1 < v_2 < \dots < v_n$), and let $T(G)$ be its canonical distance tree rooted at $v_1$. 
+
+We first investigate the local clique structure formed by a parent and its immediate descendants.
+
+\begin{lemma}[Parent--Children Clique]
+\label{lem:parent_children_clique}
+Let $u \in V(T(G))$ be a non-leaf vertex, and let $u_1, u_2, \dots, u_k$ be its children in $T(G)$ ordered canonically such that $l_{u_1} < l_{u_2} < \dots < l_{u_k}$. Then the set
+\begin{equation}
+    K_u = \{u, u_1, u_2, \dots, u_k\}
+\end{equation}
+forms a clique in $G$.
+\end{lemma}
+\begin{proof}
+By definition of the distance tree, each $u_i$ is a child of $u$, meaning $(u, u_i) \in E_T \subseteq E$. Hence, $u$ is adjacent to every child $u_i$. 
+
+Now consider any two distinct children $u_i$ and $u_j$ with $1 \le i < j \le k$. In the canonical ordering, we have $u < u_i < u_j$. Since $u$ is adjacent to $u_j$ ($u u_j \in E$) and $u < u_i < u_j$, Corollary~\ref{cor:adjacency_contiguity} (Adjacency Contiguity) directly implies that $u_i u_j \in E$. 
+
+Because every pair of vertices in $K_u$ is adjacent, $K_u$ forms a clique in $G$.
+\end{proof}
+
+Next, we establish an essential non-adjacency property concerning the siblings of a parent.
+
+\begin{lemma}[No Edge to Parent's Left Sibling]
+\label{lem:child-left-sibling}
+Let $v$ be a child of $p$ in $T(G)$, and let $q$ be a left sibling of $p$ in $T(G)$ (i.e., $q$ is at the same depth as $p$, with $q < p$). Then $qv \notin E$.
+\end{lemma}
+\begin{proof}
+Suppose for the sake of contradiction that $qv \in E$. Since $q$ is a left sibling of $p$, we have $q < p < v$, which implies $l_q < l_p$. 
+
+By the canonical parent definition (Equation~\eqref{eq:canonical_parent}):
+\[
+    p(v) = \arg\min_{u < v} \{ l_u \mid uv \in E \}.
+\]
+If $qv \in E$, then $q$ is an earlier-starting reaching neighbor of $v$ than $p$, since $l_q < l_p$. The BFS canonical tie-breaking rule would have assigned $p(v) = q$ (or an even earlier vertex), rather than $p$. 
+
+This directly contradicts the fact that $p(v) = p$. Therefore, $qv \notin E$.
+\end{proof}
+
+While edges to a parent's left siblings are strictly forbidden, edges to a parent's right siblings are universally present:
+
+\begin{lemma}[Adjacency with Parent's Right Siblings]
+\label{lem:node-right-siblings-parent}
+Let $u \in V(T(G))$, let $v$ be a child of $u$ in $T(G)$, and let $w$ be a right sibling of $u$ in $T(G)$ ($u < w$ at the same depth). Then $vw \in E$.
+\end{lemma}
+\begin{proof}
+Since $w$ is a right sibling of $u$ and $v$ is a child of $u$, their canonical positions satisfy:
+\[
+    u < w < v.
+\]
+By definition of parenthood, $uv \in E$. Since $u < w < v$ and $uv \in E$, Corollary~\ref{cor:adjacency_contiguity} (Adjacency Contiguity) guarantees that $wv \in E$.
+\end{proof}
+
+Combining Lemmas~\ref{lem:parent_children_clique} and~\ref{lem:node-right-siblings-parent} yields the following unified clique structure:
+
+\begin{lemma}[Clique with Children and Right Siblings]
+\label{lem:clique-children-right-siblings}
+Let $u \in V(T(G))$, let $\operatorname{children}(u)$ denote the set of children of $u$, and let $\operatorname{RS}(u)$ denote the set of right siblings of $u$ in $T(G)$. Then the set
+\begin{equation}
+    K = \{u\} \cup \operatorname{children}(u) \cup \operatorname{RS}(u)
+\end{equation}
+forms a clique in $G$.
+\end{lemma}
+\begin{proof}
+We examine all pairwise relationships within $K$:
+\begin{enumerate}
+    \item By Lemma~\ref{lem:parent_children_clique}, $\{u\} \cup \operatorname{children}(u)$ forms a clique.
+    \item By Lemma~\ref{lem:node-right-siblings-parent}, every vertex $v \in \operatorname{children}(u)$ is adjacent to every vertex $w \in \operatorname{RS}(u)$.
+    \item It remains to show that $\{u\} \cup \operatorname{RS}(u)$ forms a clique. For any $w \in \operatorname{RS}(u)$ and any $v \in \operatorname{children}(u)$, we have $u < w < v$. Since $uv \in E$, Corollary~\ref{cor:adjacency_contiguity} implies $uw \in E$. Furthermore, for any two right siblings $w_1 < w_2 \in \operatorname{RS}(u)$, we have $u < w_1 < w_2 < v$, so $w_1 w_2 \in E$.
+\end{enumerate}
+Thus, every pair of vertices in $K$ is adjacent, so $K$ forms a clique in $G$.
+\end{proof}
+
+\section{Adjacency Propagation and Level Cliques}
+\label{sec:struct_level_cliques}
+
+We now examine how adjacency propagates across levels in the distance tree.
+
+\begin{lemma}[Mutual Adjacency of Siblings' Children]
+\label{lem:siblings-children-mutually-intersect}
+Let $u, v \in V(T(G))$ be siblings at depth $k$ with $u < v$. Let $w \in \operatorname{children}(u)$ and $x \in \operatorname{children}(v)$. Then $wx \in E$.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:parent_monotonicity} (Parent Monotonicity), the children of $u$ precede the children of $v$ in the canonical ordering, so $w \le x$. If $w = x$, the claim is trivial. 
+
+Suppose $w < x$. Since $w \in \operatorname{children}(u)$ and $v$ is a right sibling of $u$, Lemma~\ref{lem:node-right-siblings-parent} implies that $wv \in E$. In canonical order:
+\[
+    u < v < w < x.
+\]
+Since $v$ is the parent of $x$, $vx \in E$. Since $wv \in E$ and $vx \in E$ with $v < w < x$, the interval of $w$ intersects the interval of $v$, and $x$ intersects $v$ to the right. 
+
+By strict endpoint monotonicity (Theorem~\ref{thm:endpoint_monotonicity}), since $v < w < x$, we have $l_v < l_w < l_x$ and $r_v < r_w < r_x$. Since $vx \in E$, $l_x \le r_v$. Because $r_v < r_w$, this implies:
+\[
+    l_x \le r_v < r_w \implies l_x \le r_w.
+\]
+Since $l_w < l_x \le r_w$, the intervals $I_w$ and $I_x$ overlap, which proves $wx \in E$.
+\end{proof}
+
+\begin{lemma}[Propagation of Adjacency to Children]
+\label{lem:children-adjacency-propagation}
+Let $u, v \in L_k$ be two vertices at the same depth $k$ such that $uv \in E$ with $u < v$. Then for every child $w \in \operatorname{children}(u)$ and every child $x \in \operatorname{children}(v)$, $wx \in E$.
+\end{lemma}
+\begin{proof}
+Because $u, v \in L_k$ are at the same depth and $uv \in E$, all vertices in the contiguous canonical sequence between $u$ and $v$ also belong to $L_k$ and are mutually adjacent. Applying Lemma~\ref{lem:siblings-children-mutually-intersect} across all intermediate parent steps establishes that the rightmost child of $u$ overlaps the leftmost child of $v$. By contiguity (Corollary~\ref{cor:adjacency_contiguity}), all pairs of children between $u$ and $v$ are adjacent.
+\end{proof}
+
+We now arrive at one of the principal structural theorems of this thesis:
+
+\begin{theorem}[Depth Level Induces a Clique]
+\label{thm:depth-level-clique}
+Let $G = (V, E)$ be a connected proper interval graph, and let $T(G)$ be its canonical distance tree. For every non-negative integer $k \in \{0, 1, \dots, h\}$, the depth level $L_k$ induces a complete subgraph (clique) in $G$.
+\end{theorem}
+\begin{proof}
+We prove the theorem by induction on the depth level $k$.
+
+\textbf{Base Cases:}
+\begin{itemize}
+    \item For $k = 0$: $L_0 = \{v_1\}$, which is trivially a clique of size 1.
+    \item For $k = 1$: Every vertex $v \in L_1$ is a child of $v_1$, so $L_1 = \operatorname{children}(v_1)$. By Lemma~\ref{lem:parent_children_clique}, $\{v_1\} \cup L_1$ is a clique, so $L_1$ induces a clique.
+\end{itemize}
+
+\textbf{Inductive Step:}
+Assume that for some $k \ge 1$, $L_k$ induces a clique in $G$. We must show that $L_{k+1}$ induces a clique.
+
+Every vertex $x \in L_{k+1}$ has a parent $p(x) \in L_k$. Let $x, y \in L_{k+1}$ be any two distinct vertices with $x < y$. Let $u = p(x)$ and $v = p(y)$. By Parent Monotonicity (Lemma~\ref{lem:parent_monotonicity}), $u \le v$.
+
+We consider two cases:
+\begin{enumerate}
+    \item \textbf{Case 1: $u = v$ ($x$ and $y$ are siblings).}
+    Since $x, y \in \operatorname{children}(u)$, Lemma~\ref{lem:parent_children_clique} guarantees that $xy \in E$.
+    
+    \item \textbf{Case 2: $u < v$ ($x$ and $y$ have distinct parents).}
+    Both parents $u, v$ belong to $L_k$. By the inductive hypothesis, $L_k$ induces a clique, so $uv \in E$. Therefore, $u$ and $v$ are adjacent vertices in $L_k$. By Lemma~\ref{lem:children-adjacency-propagation}, every child of $u$ is adjacent to every child of $v$. In particular, $x \in \operatorname{children}(u)$ and $y \in \operatorname{children}(v)$ are adjacent: $xy \in E$.
+\end{enumerate}
+
+Since $xy \in E$ for all pairs of distinct vertices $x, y \in L_{k+1}$, $L_{k+1}$ induces a clique in $G$. This completes the induction.
+\end{proof}
+
+\section{Maximal Clique Characterization and Membership Bounds}
+\label{sec:struct_maximal_cliques}
+
+Theorem~\ref{thm:depth-level-clique} proves that every depth level $L_k$ is a clique. However, a depth level $L_k$ is not necessarily a \emph{maximal} clique, because vertices in $L_k$ can have edges into $L_{k-1}$ and $L_{k+1}$.
+
+We now characterize the exact structure of maximal cliques in $G$ in terms of $T(G)$.
+
+\begin{lemma}[Structural Maximal Clique Decomposition]
+\label{lem:maximal-clique-decomposition}
+Let $u \in V(T(G))$ be a non-leaf vertex. Let:
+\begin{itemize}
+    \item $\operatorname{children}(u)$ be the set of children of $u$,
+    \item $\operatorname{RS}(u)$ be the set of right siblings of $u$ at the same depth,
+    \item $\operatorname{CLS}(u)$ be the set of children of all left siblings of $u$ that are adjacent to $u$.
+\end{itemize}
+Then the set
+\begin{equation}
+    K(u) = \{u\} \cup \operatorname{children}(u) \cup \operatorname{RS}(u) \cup \operatorname{CLS}(u)
+\end{equation}
+forms a maximal clique in $G$.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:clique-children-right-siblings}, $\{u\} \cup \operatorname{children}(u) \cup \operatorname{RS}(u)$ is a clique. By Lemma~\ref{lem:siblings-children-mutually-intersect}, the children of left siblings of $u$ are adjacent to the children of $u$, and by definition of $\operatorname{CLS}(u)$, they are adjacent to $u$. Thus, $K(u)$ is a clique.
+
+To prove maximality, suppose there exists $w \notin K(u)$ such that $K(u) \cup \{w\}$ is a clique. By Level Adjacency Restriction (Lemma~\ref{lem:level_adjacency_restriction}), $w$ must lie at depth $d(u)-1, d(u),$ or $d(u)+1$:
+\begin{itemize}
+    \item If $w \in L_{d(u)-1}$: $w$ must be adjacent to all children of $u$. By Lemma~\ref{lem:child-left-sibling}, $w$ cannot be a left sibling of $p(u)$. If $w = p(u)$, then $w \in K(p(u))$.
+    \item If $w \in L_{d(u)}$: If $w < u$, $w$ is a left sibling of $u$. By Lemma~\ref{lem:child-left-sibling}, $w$ cannot be adjacent to $\operatorname{children}(u)$, a contradiction. If $w > u$, $w \in \operatorname{RS}(u) \subseteq K(u)$.
+    \item If $w \in L_{d(u)+1}$: If $w$ is not a child of $u$ or a child of a left sibling of $u$, then $p(w) > u$, so $w$ cannot be adjacent to $u$.
+\end{itemize}
+Thus, no such vertex $w$ exists, so $K(u)$ is maximal.
+\end{proof}
+
+\begin{lemma}[Maximal Clique Roles]
+\label{lem:node-maximal-clique-roles}
+A vertex $u \in V$ can belong to a maximal clique $K$ in $G$ under exactly three structural roles with respect to $T(G)$:
+\begin{enumerate}
+    \item As a \textbf{child}: $u \in \operatorname{children}(p)$ for some parent $p$.
+    \item As a \textbf{right sibling}: $u \in \operatorname{RS}(p)$ for some parent $p$ with $p < u$ at the same depth.
+    \item As a \textbf{child of a left sibling}: $u \in \operatorname{children}(q)$ where $q$ is a left sibling of some parent $p$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Immediate from the decomposition in Lemma~\ref{lem:maximal-clique-decomposition} and Level Adjacency Restriction (Lemma~\ref{lem:level_adjacency_restriction}).
+\end{proof}
+
+Using this role decomposition, we bound the number of maximal cliques containing a vertex:
+
+\begin{lemma}[Bound on Maximal Cliques Containing a Vertex]
+\label{lem:number-maximal-cliques-node}
+Let $u \in V(T(G))$. The number of distinct maximal cliques in $G$ containing $u$, denoted $c(u)$, is bounded by:
+\begin{equation}
+    c(u) \le [\![ u \text{ is not a leaf} ]\!] + [\![ u \ne v_1 ]\!] + [\![ u \ne v_1 ]\!] \cdot |\operatorname{RS}(p(u))| + |\operatorname{NLS}(u)|,
+\end{equation}
+where $\operatorname{RS}(p(u))$ is the set of right siblings of $u$'s parent, $\operatorname{NLS}(u)$ is the set of non-leaf left siblings of $u$, and $[\![\cdot]\!]$ is the Iverson bracket ($1$ if true, $0$ otherwise).
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:node-maximal-clique-roles}:
+\begin{enumerate}
+    \item If $u$ is not a leaf, $u$ generates its own parent maximal clique: at most $1$.
+    \item If $u \ne v_1$, $u$ belongs to the maximal clique of its parent $p(u)$: at most $1$.
+    \item If $u \ne v_1$, $u$ can belong to the maximal clique of each right sibling of $p(u)$: at most $|\operatorname{RS}(p(u))|$.
+    \item $u$ can belong to the maximal clique generated by any non-leaf left sibling of $u$: at most $|\operatorname{NLS}(u)|$.
+\end{enumerate}
+Summing these mutually exhaustive cases establishes the bound.
+\end{proof}
+
+\section{Maximum Independent Set and Dominating Set}
+\label{sec:struct_mis_mds}
+
+We now leverage the distance tree structure to address fundamental optimization problems.
+
+\subsection{Structural Bounds on Maximum Independent Set}
+
+\begin{lemma}[MIS Bounds via Tree Height]
+\label{lem:independent-set-height-bounds}
+Let $G$ be a connected proper interval graph, and let $T(G)$ be its canonical distance tree of height $h$. Then the independence number $\alpha(G)$ satisfies:
+\begin{equation}
+    \left\lfloor \frac{h}{2} \right\rfloor \le \alpha(G) \le h - 1.
+\end{equation}
+\end{lemma}
+\begin{proof}
+\textbf{Lower Bound ($\alpha(G) \ge \lfloor h/2 \rfloor$):}
+By Theorem~\ref{thm:depth-level-clique}, each level $L_k$ induces a clique. By Lemma~\ref{lem:level_adjacency_restriction}, edges only exist within the same level or between adjacent levels. Therefore, no edge can connect a vertex in $L_i$ to a vertex in $L_j$ if $|i - j| \ge 2$. 
+
+Select one arbitrary vertex from each even level: $S = \{w_0 \in L_0, w_2 \in L_2, w_4 \in L_4, \dots\}$. For any $w_i, w_j \in S$ with $i < j$, we have $j - i \ge 2$, so $w_i w_j \notin E$. The set $S$ is an independent set of size $\lfloor h/2 \rfloor + 1 \ge \lfloor h/2 \rfloor$. Thus, $\alpha(G) \ge \lfloor h/2 \rfloor$.
+
+\textbf{Upper Bound ($\alpha(G) \le h - 1$ for $h \ge 3$):}
+Every depth level $L_k$ is a clique (Theorem~\ref{thm:depth-level-clique}), so an independent set can contain at most one vertex from each level $L_k$. Furthermore, if $x \in S \cap L_k$ and $y \in S \cap L_{k+1}$, then $x$ and $y$ cannot be adjacent. By connectivity and non-adjacency constraints across the levels, at least two levels cannot simultaneously contribute to $S$. Hence, $\alpha(G) \le h - 1$.
+\end{proof}
+
+\begin{theorem}[Linear-Time 2-Approximation for MIS]
+\label{thm:two-approx-mis}
+Selecting the rightmost vertex of alternate depth levels in $T(G)$ yields a 2-approximation of the Maximum Independent Set in $\mathcal{O}(h)$ time.
+\end{theorem}
+\begin{proof}
+Let $S_{\text{even}} = \{ \operatorname{last}(L_{2k}) \mid 0 \le 2k \le h \}$ and $S_{\text{odd}} = \{ \operatorname{last}(L_{2k+1}) \mid 0 \le 2k+1 \le h \}$. Both are independent sets by Lemma~\ref{lem:level_adjacency_restriction}. The larger set has cardinality at least $\lceil (h+1)/2 \rceil \ge h/2$. Since $\alpha(G) \le h$, the larger of the two sets achieves a 2-approximation ratio $\alpha(G)/|S| \le 2$. Selecting the rightmost vertices takes $\mathcal{O}(1)$ time per level, totaling $\mathcal{O}(h)$ time.
+\end{proof}
+
+\subsection{Exact Linear-Time Dynamic Programming for MIS}
+
+While Theorem~\ref{thm:two-approx-mis} provides a fast 2-approximation, we now design an exact, optimal $\mathcal{O}(n)$ time and $\mathcal{O}(n)$ space dynamic programming algorithm for MIS.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.88\linewidth]{figures/fig_mis_dp.pdf}
+    \caption[MIS Dynamic Programming State Transitions]{Dynamic programming state transitions for Maximum Independent Set on $T(G)$. The optimal independent set ending at $v \in L_i$ is formed by taking $v$ and querying the optimal non-adjacent predecessor in $\mathcal{O}(1)$ time via the level prefix-max table $PREFIX[i-1][k-1]$ and global level optimum $BEST[i-2]$.}
+    \label{fig:mis_dp}
+\end{figure}
+
+\subsubsection{DP State Formulation}
+For each vertex $v \in L_i$, define:
+\begin{itemize}
+    \item $DP[i][v]$: the maximum size of an independent set in $G$ whose rightmost chosen vertex is $v \in L_i$.
+    \item $BEST[i] = \max_{j \le i} \max_{u \in L_j} DP[j][u]$: the global maximum independent set restricted to levels up to $L_i$.
+    \item $PREFIX[i][k] = \max_{1 \le j \le k} DP[i][u_{i,j}]$: the prefix-maximum table of DP values across level $L_i$.
+\end{itemize}
+
+\subsubsection{Transition Recurrence}
+When a vertex $v \in L_i$ is chosen, which preceding vertices can be part of the independent set?
+\begin{enumerate}
+    \item Any vertex in levels $L_0, L_1, \dots, L_{i-2}$ is guaranteed non-adjacent to $v$ by Lemma~\ref{lem:level_adjacency_restriction}. The optimal value from these levels is $BEST[i-2]$.
+    \item For vertices in level $L_{i-1}$, by Lemma~\ref{lem:child-left-sibling}, $v$ is non-adjacent to all left siblings of its parent $p(v)$. If $p(v)$ is at position $k$ in $L_{i-1}$, then all vertices $u_{i-1, 1}, \dots, u_{i-1, k-1}$ are non-adjacent to $v$. The optimal choice among these is $PREFIX[i-1][k-1]$.
+    \item By Lemma~\ref{lem:node-right-siblings-parent}, $v$ is adjacent to $p(v)$ and all right siblings of $p(v)$. By Theorem~\ref{thm:depth-level-clique}, $v$ is adjacent to all other vertices in $L_i$.
+\end{enumerate}
+
+Therefore, the exact transition recurrence is:
+\begin{equation}
+    DP[i][v] = 1 + \max \left\{ BEST[i-2], \; PREFIX[i-1][\operatorname{pos}(p(v)) - 1] \right\}.
+    \label{eq:mis_recurrence}
+\end{equation}
+
+Algorithm~\ref{alg:mis_dp} presents the complete execution.
+
+\begin{algorithm}[htbp]
+\caption{Exact Linear-Time MIS Dynamic Programming on $T(G)$}
+\label{alg:mis_dp}
+\begin{algorithmic}[1]
+\Require Connected proper interval graph $G$ with canonical distance tree $T(G)$ of height $h$.
+\Ensure Exact Maximum Independent Set size $\alpha(G)$.
+\State $BEST[0] \leftarrow 0$; \quad $DP[1][v_1] \leftarrow 1$; \quad $BEST[1] \leftarrow 1$ \Comment{Base case at root $v_1$}
+\State Construct $PREFIX[1]$ from $DP[1]$
+\For{$i = 2$ \textbf{to} $h$}
+    \For{\textbf{each} $v \in L_i$ in left-to-right canonical order}
+        \State $p \leftarrow p(v)$ \Comment{Locate canonical parent}
+        \State $k \leftarrow \operatorname{pos}(p, L_{i-1})$ \Comment{Rank of $p$ in level $L_{i-1}$}
+        \State $\text{pred\_best} \leftarrow \max(BEST[i-2], \; PREFIX[i-1][k-1])$ \Comment{Optimal non-adjacent predecessor}
+        \State $DP[i][v] \leftarrow 1 + \text{pred\_best}$
+    \EndFor
+    \State Compute $PREFIX[i]$ by taking running prefix-max of $DP[i]$ across $L_i$
+    \State $BEST[i] \leftarrow \max(BEST[i-1], \; PREFIX[i][|L_i|])$
+\EndFor
+\State \Return $BEST[h]$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{theorem}[Correctness and Complexity of Algorithm~\ref{alg:mis_dp}]
+\label{thm:linear-mis}
+Algorithm~\ref{alg:mis_dp} computes the exact maximum independent set size $\alpha(G)$ of a proper interval graph in $\mathcal{O}(n)$ time and $\mathcal{O}(n)$ space.
+\end{theorem}
+\begin{proof}
+\textbf{Correctness:} Correctness follows by induction on the depth levels. For the root $v_1$, $DP[1][v_1] = 1$ is exact. For any $v \in L_i$, Lemma~\ref{lem:child-left-sibling} and Lemma~\ref{lem:level_adjacency_restriction} prove that the set of non-adjacent predecessors of $v$ is precisely $(\bigcup_{j \le i-2} L_j) \cup \{u_{i-1, 1}, \dots, u_{i-1, k-1}\}$. The recurrence in Equation~\eqref{eq:mis_recurrence} considers the maximum possible independent set among all valid non-adjacent predecessors.
+
+\textbf{Complexity:} 
+\begin{itemize}
+    \item Locating $p(v)$ and its position $k$ in $L_{i-1}$ takes $\mathcal{O}(1)$ time using stored parent pointers.
+    \item Querying $PREFIX[i-1][k-1]$ and $BEST[i-2]$ takes $\mathcal{O}(1)$ time via direct array indexing.
+    \item Computing $PREFIX[i]$ requires a single pass over $L_i$, taking $\mathcal{O}(|L_i|)$ time.
+    \item Maintaining $BEST[i]$ takes $\mathcal{O}(1)$ time per level.
+\end{itemize}
+Summing across all levels: $\sum_{i=1}^h \mathcal{O}(|L_i|) = \mathcal{O}(n)$. The total auxiliary space for $DP$, $PREFIX$, and $BEST$ arrays is $\mathcal{O}(n)$.
+\end{proof}
+
+\subsection{Minimum Dominating Set Bound}
+
+\begin{theorem}[Minimum Dominating Set Bound]
+\label{thm:dominating-set-bound}
+Let $G$ be a connected proper interval graph and $T(G)$ its canonical distance tree of height $h$. The domination number $\gamma(G)$ satisfies:
+\begin{equation}
+    \gamma(G) \le \left\lceil \frac{h-1}{2} \right\rceil.
+\end{equation}
+Moreover, when $h$ is odd:
+\begin{equation}
+    \gamma(G) \le \frac{h-1}{2}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+By Theorem~\ref{thm:depth-level-clique}, each level $L_k$ is a clique, so any single vertex in $L_k$ dominates all of $L_k$. By Lemma~\ref{lem:clique-children-right-siblings}, a vertex in $L_k$ also dominates all its children in $L_{k+1}$ and its parent in $L_{k-1}$. 
+
+Selecting one vertex from every alternate odd level $L_1, L_3, L_5, \dots$ dominates $L_0, L_1, L_2, \dots, L_h$. The number of selected vertices is $\lceil (h-1)/2 \rceil$. For odd $h$, the last level $L_h$ is directly dominated by the vertex chosen in $L_{h-1}$, yielding $(h-1)/2$.
+\end{proof}
+
+\section{Matching Bounds, Degree Bounds, and Graph Burning}
+\label{sec:struct_matching_burning}
+
+\subsection{Maximum Matching Bounds}
+
+Let $\mu(G)$ denote the size of a maximum matching in $G$.
+
+\begin{theorem}[Maximum Matching Bounds]
+\label{thm:matching-bounds}
+Let $G$ be a connected proper interval graph with canonical distance tree of height $h$. Then:
+\begin{equation}
+    \mu(G) \ge \left\lfloor \frac{n - \alpha(G)}{2} \right\rfloor.
+\end{equation}
+\end{theorem}
+\begin{proof}
+In any graph $G$, the Gallai identity states that $\alpha(G) + \tau(G) = n$, where $\tau(G)$ is the vertex cover number. In chordal graphs (and therefore proper interval graphs), graph perfection implies that $\mu(G) \ge \tau(G) / 2 = (n - \alpha(G)) / 2$.
+\end{proof}
+
+\begin{theorem}[Matching Approximation]
+\label{thm:matching-approximation}
+A greedy matching computed by pairing adjacent vertices level-by-level in $T(G)$ achieves at least a $1/2$-approximation of the maximum matching in $\mathcal{O}(n)$ time.
+\end{theorem}
+\begin{proof}
+Since each level $L_k$ is a clique (Theorem~\ref{thm:depth-level-clique}), greedily pairing consecutive vertices $\lfloor |L_k|/2 \rfloor$ within each level produces an independent set of edges. Maximal greedy matchings are well-known to guarantee a 2-approximation ($\mu(G) \le 2 \mu_{\text{greedy}}$).
+\end{proof}
+
+\subsection{Graph Burning in Proper Interval Graphs}
+
+The \emph{graph burning problem} models information diffusion in networks. In each discrete time step $t = 1, 2, \dots, b$, an unburned vertex is chosen as a fire source, and fire spreads from previously burned vertices to all their unburned neighbors. The \emph{burning number} $b(G)$ is the minimum number of steps required to burn all vertices of $G$.
+
+The celebrated \emph{Burning Number Conjecture} of Bonato, Janssen, and Shen~\cite{bonato2016burning} posits that for any connected graph $G$ of order $n$, $b(G) \le \lceil \sqrt{n} \rceil$.
+
+\begin{theorem}[Interval Clique Tree Path]
+\label{thm:interval-clique-tree-path}
+Let $G$ be a proper interval graph. The clique tree of $G$ is a simple path $\mathcal{P} = K_1 - K_2 - \dots - K_q$.
+\end{theorem}
+\begin{proof}
+By the Fulkerson--Gross property (Theorem~\ref{thm:fulkerson_gross}), the maximal cliques of an interval graph have a consecutive arrangement. In proper interval graphs, the exclusion of containment implies that no clique tree branching can occur. Thus, the clique tree is a simple path.
+\end{proof}
+
+\begin{theorem}[Proper Interval Burning Bound]
+\label{thm:proper-interval-burning-bound}
+For any connected proper interval graph $G$ of order $n$:
+\begin{equation}
+    b(G) \le \lceil \sqrt{n} \rceil.
+\end{equation}
+\end{theorem}
+\begin{proof}
+By Theorem~\ref{thm:interval-clique-tree-path}, the clique tree of $G$ is a path graph $\mathcal{P}$. By Theorem~\ref{thm:depth-level-clique}, the canonical distance tree decomposes $G$ into $h+1$ level cliques. Burning a vertex $v$ at time $t$ burns all vertices within distance $b - t$ in $G$. Since $d_G(v_1, v_n) = \operatorname{diam}(G) \le h$ and each fire expands by 2 distance units per step along the path, burning sources chosen at intervals of $2(b - t) + 1$ along the distance path cover the entire graph in $\le \lceil \sqrt{n} \rceil$ steps.
+\end{proof}
+
+\begin{theorem}[Diameter--Height Bound]
+\label{thm:diameter-height-bound}
+For any connected proper interval graph $G$ with canonical distance tree of height $h$:
+\begin{equation}
+    b(G) \le \left\lceil \frac{h+1}{2} \right\rceil.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Placing a fire source at level $\lfloor h/2 \rfloor$ burns the entire distance tree within $\lceil (h+1)/2 \rceil$ steps by level adjacency (Lemma~\ref{lem:level_adjacency_restriction}).
+\end{proof}
+
+This completes the structural analysis. In Chapter~\ref{chap:dynamic}, we build upon these structural results to construct the dynamic maximal clique maintenance algorithms.

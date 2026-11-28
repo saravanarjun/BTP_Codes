@@ -1,0 +1,41 @@
+\begin{thebibliography}{1}
+
+\bibitem{bonato2016burning}
+Anthony Bonato, Jeannette Janssen, and Elham Shen.
+\newblock The burning number of a graph: Theory and algorithms.
+\newblock {\em Graphs and Combinatorics}, 32(3):849--862, 2016.
+
+\bibitem{booth1976testing}
+Kellogg~S. Booth and George~S. Lueker.
+\newblock Testing for the consecutive ones property, interval graphs, and graph
+  planarity using {PQ}-tree algorithms.
+\newblock {\em Journal of Computer and System Sciences}, 13(3):335--379, 1976.
+
+\bibitem{bron1973algorithm}
+Coen Bron and Joep Kerbosch.
+\newblock Algorithm 457: finding all cliques of an undirected graph.
+\newblock {\em Communications of the ACM}, 16(9):575--577, 1973.
+
+\bibitem{fulkerson1965incidence}
+Delbert~R. Fulkerson and Oliver~A. Gross.
+\newblock Incidence matrices and interval graphs.
+\newblock {\em Pacific Journal of Mathematics}, 15(3):835--855, 1965.
+
+\bibitem{poletto1999linear}
+Massimiliano Poletto and Vivek Sarkar.
+\newblock Linear scan register allocation.
+\newblock {\em ACM Transactions on Programming Languages and Systems (TOPLAS)},
+  21(5):895--913, 1999.
+
+\bibitem{roberts1969indifference}
+Fred~S. Roberts.
+\newblock Indifference graphs.
+\newblock {\em Proof Techniques in Graph Theory}, pages 139--146, 1969.
+
+\bibitem{tomita2006worst}
+Etsuji Tomita, Akira Tanaka, and Haruhisa Takahashi.
+\newblock The worst-case time complexity for generating all maximal cliques and
+  computational experiments.
+\newblock {\em Theoretical Computer Science}, 363(1):28--42, 2006.
+
+\end{thebibliography}

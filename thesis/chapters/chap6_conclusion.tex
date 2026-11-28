@@ -1,0 +1,70 @@
+\chapter{Conclusion, Practical Applications, and Future Directions}
+\label{chap:conclusion}
+
+This chapter concludes the thesis by summarizing our primary theoretical and empirical findings, detailing concrete architectural avenues for practical deployment, explicitly disclosing operational boundaries, and presenting promising directions for future research.
+
+\section{Summary of Major Findings and Contributions}
+\label{sec:conclusion_summary}
+
+In this thesis, we introduced a unified theoretical, algorithmic, and empirical framework for dynamic graph maintenance on proper interval graphs, centered upon the \emph{canonical distance tree} $T(G)$. 
+
+The primary findings and contributions established across this work include:
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item \textbf{Level Clique Structure (Theorem~\ref{thm:depth-level-clique}):} We proved that every depth level $L_k$ of the canonical distance tree induces a complete subgraph (clique) in $G$. This fundamental theorem proves that distance trees naturally decompose proper interval graphs into an ordered sequence of contiguous cliques.
+    
+    \item \textbf{Parent Bijection Theorem (Lemma~\ref{lem:maximal-clique-interval-representation}):} We proved that the maximal cliques of any connected proper interval graph are in exact 1-to-1 bijection with the non-leaf parents of $T(G)$. Each maximal clique is represented compactly as an implicit interval descriptor $C(p) = [p, c(p)]$, reducing the storage requirements of maximal cliques from $\mathcal{O}(n \cdot q)$ explicit vertices to $\mathcal{O}(q)$ integer pairs, achieving an empirical memory compression of $90.2\%$ to $99.0\%$.
+    
+    \item \textbf{Conditional Incremental Maintenance ($\Delta \le 1$):} We formulated the exact conditional rule for online leaf insertions: an existing parent descriptor $C(p)$ is updated if and only if the inserted vertex becomes the new rightmost child of $p$. We proved that each insertion induces at most $1$ descriptor modification in $\mathcal{O}(\log n)$ time.
+    
+    \item \textbf{Decremental Maintenance with Sibling Child Adoption ($\Delta \le 3$, Theorem~\ref{thm:decremental-update}):} We established that upon deleting an internal parent $u$, its children are adopted by the \emph{right sibling of the predecessor}. We proved that deletion mutates at most $3$ descriptors in the worst case, and we demonstrated that this bound is strictly tight using an adversarial 7-vertex counterexample.
+    
+    \item \textbf{Optimal $\mathcal{O}(n)$ Dynamic Programming for MIS (Theorem~\ref{thm:linear-mis}):} Exploiting the level clique properties of $T(G)$ alongside a prefix-max accumulation table ($PREFIX[i][k]$), we formulated an exact linear-time $\mathcal{O}(n)$ algorithm for Maximum Independent Set that eliminates search tree overhead and evaluates predecessor queries in $\mathcal{O}(1)$ time per node.
+    
+    \item \textbf{Comprehensive Benchmarking and Break-Even Proof ($K^* = 4$):} Evaluated across 77 configurations and 17 graph families scaling to $n = 1,000,000$, our dynamic maintenance algorithms achieve update latencies of $0.34\ \mu\text{s} - 1.32\ \mu\text{s}$, delivering speedup factors of $370\times$ to $912\times$ over full static recomputation. We proved and validated that the initial distance tree construction is fully amortized after only $K^* = 4$ update operations against the fastest sweep-line baseline.
+\end{enumerate}
+
+\section{Practical System Applications}
+\label{sec:conclusion_applications}
+
+The theoretical guarantees and microsecond latencies achieved by our framework make it directly applicable to several modern software systems:
+
+\subsection{Dynamic Register Allocation in JIT Compilers}
+In Just-In-Time (JIT) compilation frameworks (such as LLVM's ORC JIT, the Java HotSpot compiler, and the Google V8 V8 engine), code generation occurs in real time while applications run. Within straight-line code and SSA basic blocks, variable live ranges form interval graphs. Traditional register allocators (e.g., Poletto and Sarkar's linear scan~\cite{poletto1999linear}) re-scan all live ranges whenever compiler optimization passes (such as loop unrolling, dead-code elimination, or instruction scheduling) mutate code blocks.
+
+By maintaining variable live ranges using our canonical distance tree and compact descriptor framework:
+\begin{itemize}
+    \item As new instructions and temporary variables are emitted, incremental leaf insertion updates maximal cliques (the register pressure) in $\le 1.32\ \mu\text{s}$.
+    \item When redundant variables are eliminated, decremental deletion re-balances the register pressure in $\le 3.20\ \mu\text{s}$.
+    \item Register spills can be predicted and prevented dynamically, avoiding compiler stalls and significantly improving JIT responsiveness.
+\end{itemize}
+
+\subsection{Online Schedulers and Admission Control}
+In hard real-time operating systems and cloud microservices, incoming requests reserve uniform processing quanta. The conflict graph is a proper interval graph. Our dynamic maintenance algorithms allow an online scheduler to maintain the peak resource contention (the clique number $\omega(G)$) with sub-microsecond latency, enabling instantaneous admission control decisions (accepting or deferring tasks) without batch recomputation.
+
+\section{Disclosed Limitations and Operational Boundaries}
+\label{sec:conclusion_limitations}
+
+To maintain rigorous academic honesty, we explicitly disclose the operational boundaries and assumptions of our framework:
+\begin{enumerate}
+    \item \textbf{Properness Requirement:} Our theorems depend fundamentally on strict endpoint monotonicity ($l_u < l_v \iff r_u < r_v$). If the input contains arbitrary nested intervals ($I_v \subset I_u$), monotonicity breaks, the level clique theorem (Theorem~\ref{thm:depth-level-clique}) no longer holds universally, and descriptors can no longer be represented as single contiguous index intervals.
+    \item \textbf{Right-Boundary Incremental Insertions:} The incremental algorithm (Algorithm~\ref{alg:incremental_maintenance}) assumes that new vertices arrive at the right boundary of the graph ($l_{v_{n+1}} > l_{v_n}$). Arbitrary interior insertions require re-indexing subsequent vertices, which takes $\mathcal{O}(n)$ time unless an order-statistic tree is employed.
+    \item \textbf{Admissible Non-Root Deletions:} In the decremental setting, deleting a vertex that disconnects the graph into multiple disjoint components requires maintaining independent distance trees for each connected component.
+\end{enumerate}
+
+\section{Future Research Directions}
+\label{sec:conclusion_future}
+
+The results established in this thesis open several promising directions for future research:
+
+\subsection{Generalization to Broader Geometric Graph Classes}
+A natural theoretical extension is to investigate whether canonical distance trees can be generalized to broader intersection graph families:
+\begin{itemize}
+    \item \textbf{Circular-Arc Graphs:} Proper circular-arc graphs generalize proper interval graphs to closed intervals on a circle. Because a circle wraps around, distance trees develop cyclic level dependencies. Extending the parent bijection theorem to circular-arc descriptors represents an intriguing open problem.
+    \item \textbf{Permutation and Trapezoid Graphs:} Investigating whether monotonic coordinate bounds in trapezoid and permutation graphs admit compact clique descriptors with sub-linear dynamic update bounds.
+\end{itemize}
+
+\subsection{Maximum Weighted Cliques in Vertex-Weighted Graphs}
+In many systems applications, vertices carry non-uniform weights (e.g., variable access frequencies or task priorities). In a vertex-weighted proper interval graph, the goal is to find a maximal clique maximizing $\sum_{v \in K} w(v)$. Because our descriptor representation guarantees that each maximal clique is an interval $[p, c(p)]$, combining our descriptor table with a prefix-sum array or range maximum query (RMQ) data structure could enable dynamic maintenance of maximum weighted cliques in $\mathcal{O}(\log n)$ time.
+
+\subsection{Fully Dynamic Distance Trees under Arbitrary Mutations}
+Developing a fully dynamic distance tree maintenance engine that supports arbitrary edge insertions and deletions across the interior of the graph without requiring total tree re-building remains an exciting theoretical frontier.

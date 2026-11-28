@@ -1,0 +1,139 @@
+\chapter{Introduction and Research Motivation}
+\label{chap:intro}
+
+Graph theory provides an indispensable mathematical language for modeling discrete interactions, dependencies, and topological relationships across modern computer science. A graph $G = (V, E)$ represents a finite set of entities $V$ along with symmetric pairwise relations $E$. While arbitrary graphs can exhibit arbitrary topological irregularity---rendering fundamental problems such as Maximum Clique, Maximum Independent Set, and Graph Coloring $\mathcal{NP}$-hard---many natural systems inherently possess geometric, temporal, or spatial constraints. Modeling these constraints directly yields special graph classes whose underlying structure permits highly efficient, polynomial-time algorithmic solutions.
+
+Among geometric graph families, \emph{intersection graphs} occupy a central position. An intersection graph is formed by assigning a geometric set to each vertex such that an edge exists if and only if the corresponding sets have a non-empty intersection. When the geometric sets are restricted to closed, one-dimensional intervals on the real line, the resulting class is the celebrated family of \emph{interval graphs}.
+
+\section{Intersection Graphs and Geometric Graph Classes}
+\label{sec:intro_intersection_graphs}
+
+Formally, given a family of non-empty sets $\mathcal{S} = \{S_v \mid v \in V\}$, the intersection graph induced by $\mathcal{S}$ is $G = (V, E)$ where
+\begin{equation}
+    uv \in E \iff S_u \cap S_v \ne \emptyset.
+\end{equation}
+When each $S_v$ is a continuous line segment $[l_v, r_v] \subset \mathbb{R}$, $G$ is an \emph{interval graph}. Interval graphs arise naturally in continuous-time modeling, scheduling, genomic sequencing, and compiler optimization. 
+
+A critical subclass of interval graphs is the family of \emph{proper interval graphs} (also known as unit interval graphs or indifference graphs). An interval graph is proper if it admits an interval representation in which no interval properly contains another:
+\begin{equation}
+    \forall u, v \in V, \quad I_u \not\subset I_v \quad \text{and} \quad I_v \not\subset I_u.
+\end{equation}
+Proper interval graphs correspond to systems where all entities possess comparable temporal spans, lifespans, or measurement tolerances. In 1969, Roberts~\cite{roberts1969indifference} established that the class of proper interval graphs is identical to the class of unit interval graphs (graphs representable by intervals of uniform unit length) and characterized them as claw-free interval graphs ($K_{1,3}$-free).
+
+\section{The Paradigm of Dynamic Graph Algorithms}
+\label{sec:intro_dynamic_paradigm}
+
+Classical algorithmic graph theory operates almost exclusively in the \emph{static} paradigm: an entire graph $G$ is provided as a static input, processed by an algorithm, and the desired combinatorial structure (e.g., maximal cliques, independent sets, shortest paths) is returned. 
+
+However, modern computing systems rarely deal with static topologies. Real-world graphs are inherently \emph{dynamic}, undergoing a continuous stream of online mutations:
+\begin{itemize}
+    \item \textbf{Incremental mutations:} New vertices or intervals enter the system sequentially (e.g., streaming tasks, newly allocated variables in a compiler, dynamic network connections).
+    \item \textbf{Decremental mutations:} Vertices or intervals expire, terminate, or are deallocated (e.g., task completion, variable deallocation, node failure).
+    \item \textbf{Mixed streaming workloads:} Interleaved insertions and deletions occurring under stringent latency constraints.
+\end{itemize}
+
+In dynamic environments, re-running a static algorithm from scratch after every single mutation is computationally prohibitive. For a graph of order $n$, even a fast linear-time static algorithm ($\mathcal{O}(n + m)$) requires millions of CPU cycles per update when $n \ge 10^5$. 
+
+\emph{Dynamic graph algorithms} address this fundamental challenge by maintaining an auxiliary data structure that reflects the current state of the graph. When an update occurs, the dynamic algorithm updates the auxiliary data structure and the desired output in time proportional to the magnitude of the \emph{topological delta} ($\Delta$), ideally achieving $\mathcal{O}(\log n)$ or $\mathcal{O}(1)$ update latency.
+
+\section{Practical Motivation and Real-World Applications}
+\label{sec:intro_applications}
+
+The motivation for studying dynamic maximal clique and independent set maintenance on proper interval graphs is driven by several concrete, high-performance applications in systems and computer science:
+
+\subsection{Just-In-Time (JIT) Compilers and Dynamic Register Allocation}
+In modern optimizing compilers---such as LLVM, the Java HotSpot Virtual Machine, and the Google V8 JavaScript engine---variable liveness analysis maps variable lifespans within straight-line code and single static assignment (SSA) basic blocks to temporal intervals $[l_v, r_v]$. Two variables interfere (and thus cannot share the same physical processor register) if and only if their live intervals overlap. 
+
+Consequently, the register interference graph of a basic block is an interval graph. In JIT compilers, code optimization, inline caching, and trace generation occur dynamically at runtime while code is executing. As instructions are reordered, inlined, or deleted, the live ranges mutate incrementally. 
+
+Finding the chromatic number and maximal cliques of this interference graph determines the minimum number of hardware registers required without causing costly memory spills. Full static recomputation during JIT optimization introduces severe latency pauses (JIT compilation stalls). Sub-microsecond dynamic clique maintenance enables continuous, real-time register allocation directly inside dynamic compilation pipelines.
+
+\subsection{Temporal Constraint Networks and Resource Scheduling}
+In hard real-time systems and operating system schedulers, tasks are characterized by execution intervals $[s_i, e_i]$. When tasks have standard quantum durations, the conflict graph is a proper interval graph. Maximal cliques represent points of maximum concurrency and resource contention (such as simultaneous access to functional units, memory channels, or network bandwidth). Maintaining maximal cliques dynamically allows an operating system to perform online admission control and instantaneous deadlock detection as tasks are queued and dispatched.
+
+\subsection{Bioinformatics and Genomic Read Assembly}
+In computational genomics, high-throughput sequencing produces millions of short sequence reads aligned against a reference genome. Reads generated by uniform-length short-read technologies (such as Illumina sequencing) correspond precisely to unit intervals along the one-dimensional genomic coordinate axis. Maximal cliques identify regions of high read coverage, sequence variants, and structural variations. As reads stream from sequencing flow cells, maintaining maximal cliques dynamically enables online variant detection without waiting for multi-gigabyte sequencing files to completely process.
+
+\section{Structural Bottlenecks in General Interval Graphs vs.\ Monotonicity in Proper Interval Graphs}
+\label{sec:intro_bottlenecks}
+
+Why is a specialized dynamic framework necessary for \emph{proper} interval graphs rather than general interval graphs?
+
+In \textbf{general interval graphs}, intervals may properly contain one another ($I_v \subset I_u$). This containment permits intricate, non-linear nesting relationships. Crucially:
+\begin{enumerate}
+    \item Containment breaks the correspondence between the left endpoints and right endpoints: a vertex that starts earlier may finish much later than a vertex that starts later ($l_u < l_v$ but $r_u > r_v$).
+    \item A general interval graph can exhibit complex, cascading changes under vertex insertion or deletion, where a single deletion can break a large containing interval into disconnected components or dramatically alter the clique intersections of all nested sub-intervals.
+\end{enumerate}
+
+In sharp contrast, \textbf{proper interval graphs} enforce strict exclusion of proper containment:
+\begin{equation}
+    I_u \not\subset I_v \quad \forall u \ne v.
+\end{equation}
+This geometric restriction induces a profound combinatorial property known as \emph{strict endpoint monotonicity}:
+\begin{equation}
+    l_u < l_v \iff r_u < r_v.
+\end{equation}
+When vertices are sorted in ascending order of their left endpoints, they are simultaneously and strictly sorted in ascending order of their right endpoints. 
+
+This strict monotonicity imposes rigorous linear order on the graph topology:
+\begin{itemize}
+    \item The total number of maximal cliques in a proper interval graph of order $n$ is strictly bounded by $n$ (whereas an arbitrary graph can contain up to $3^{n/3}$ maximal cliques).
+    \item Every maximal clique forms a \emph{contiguous interval} of vertices in the canonical left-endpoint ordering.
+    \item Breadth-First Search (BFS) starting from the leftmost vertex produces a canonical tree whose levels and parent pointers capture the global shortest-path metric deterministically.
+\end{itemize}
+
+Exploiting this monotonicity is the central mathematical vehicle of this thesis.
+
+\section{Core Research Questions and Objectives}
+\label{sec:intro_objectives}
+
+Despite the strong static structural properties of proper interval graphs, significant open questions remain regarding their dynamic maintenance:
+\begin{quote}
+    \itshape
+    ``How can the structural properties of proper interval graphs be exploited to characterize maximal cliques and efficiently compute and maintain them under dynamic graph updates?''
+\end{quote}
+
+To answer this central question, this thesis pursues the following specific research objectives:
+\begin{enumerate}[label=\textbf{O\arabic*.}]
+    \item \textbf{Canonical Structural Framework:} Formulate a deterministic tree-based representation---the \emph{canonical distance tree} $T(G)$---that encodes neighborhood intersections and distance metrics on proper interval graphs.
+    \item \textbf{Maximal Clique Bijection:} Discover a constructive 1-to-1 bijection between the maximal cliques of $G$ and specific structural elements of $T(G)$, enabling a compact representation that avoids explicit list storage.
+    \item \textbf{Provably Bounded Dynamic Maintenance:} Design incremental and decremental update algorithms, proving strict mathematical bounds on the number of descriptor modifications induced by any single topological update.
+    \item \textbf{Combinatorial Parameter Optimization:} Derive tight bounds and linear-time algorithms for related NP-hard optimization problems, specifically Maximum Independent Set (MIS), Minimum Dominating Set (MDS), and Graph Burning.
+    \item \textbf{Rigorous Empirical Benchmarking:} Implement the proposed algorithms in modern C++ and benchmark them against established baselines (Tomita-pivoted Bron--Kerbosch and Helly Interval Sweep-Line) across extensive synthetic, dense, sparse, and adversarial graph models scaling up to $10^6$ vertices.
+\end{enumerate}
+
+\section{Summary of Principal Thesis Contributions}
+\label{sec:intro_contributions}
+
+The principal contributions of this thesis are summarized as follows:
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item \textbf{Level Clique Theorem (Theorem~3.7):} We prove that every depth level $L_k$ of the canonical distance tree $T(G)$ induces a complete subgraph (clique) in $G$. This establishes that the distance tree decomposes the graph into an ordered sequence of contiguous cliques.
+    
+    \item \textbf{Parent Bijection Theorem (Lemma~3.15):} We establish that in any connected proper interval graph, the maximal cliques are in exact 1-to-1 bijection with the \emph{non-leaf parents} of $T(G)$. Each maximal clique is uniquely identified by a compact descriptor $C(p) = [p, c(p)]$, where $c(p)$ is the rightmost child of $p$. This compresses the memory footprint of maximal cliques by $90.2\%$ to $99.0\%$ over explicit representation.
+    
+    \item \textbf{Conditional Incremental Maintenance ($\Delta \le 1$):} We establish the exact conditional rule for incremental vertex insertion: a parent descriptor $C(p)$ is updated if and only if the inserted vertex becomes the new rightmost child of $p$. We prove that an insertion induces at most $1$ descriptor modification in $\mathcal{O}(\log n)$ time.
+    
+    \item \textbf{Decremental Sibling Adoption and Bounded Invariant ($\Delta \le 3$, Theorem~3.16):} We prove that when an internal parent $u$ is deleted, its former children are adopted by the \emph{right sibling of the predecessor}. We formally prove that deletion mutates at most $3$ descriptors in the worst case, and we construct an adversarial 7-vertex proper interval graph demonstrating that the bound of $3$ is mathematically tight.
+    
+    \item \textbf{Optimal $\mathcal{O}(n)$ Dynamic Programming for MIS (Theorem~3.13):} By combining distance tree levels with a prefix-max accumulation table ($PREFIX[i][k]$), we design an exact linear-time $\mathcal{O}(n)$ algorithm for Maximum Independent Set that bypasses interval search trees and achieves $\mathcal{O}(1)$ query time per node.
+    
+    \item \textbf{Empirical Speedups and Amortized Break-Even Analysis ($K^* = 4$):} Across 77 benchmark configurations and 17 graph families scaling to $n=1,000,000$, our dynamic maintenance algorithms achieve update latencies of $0.34\ \mu\text{s} - 1.32\ \mu\text{s}$ ($370\times$ to $912\times$ faster than from-scratch recomputation). We formulate and validate an amortized break-even model proving that initial tree construction amortizes after exactly $K^* = 4$ update operations against the fastest sweep-line baseline.
+\end{enumerate}
+
+\section{Thesis Organization}
+\label{sec:intro_organization}
+
+The remainder of this thesis is structured as follows:
+
+\begin{itemize}
+    \item \textbf{Chapter~\ref{chap:prelim} (Preliminaries and Distance Trees on Proper Interval Graphs):} Formalizes graph-theoretic definitions, interval representations, strict endpoint monotonicity, classical chordality properties, and the formal definition and properties of the canonical distance tree $T(G)$.
+    
+    \item \textbf{Chapter~\ref{chap:structure} (Structural Analysis and Combinatorial Bounds):} Establishes the parent-child and sibling adjacency lemmas, proves Theorem~3.7 (Depth Level Cliques), characterizes maximal clique roles and vertex containment bounds, formulates the exact linear DP for Maximum Independent Set, and derives bounds for dominating sets and graph burning.
+    
+    \item \textbf{Chapter~\ref{chap:dynamic} (Dynamic Maximal Clique Maintenance Algorithms):} Formulates the compact descriptor representation and proves the Parent Bijection Theorem (Lemma~3.15). Presents complete algorithmic mechanics and invariant proofs for incremental leaf insertion ($\Delta \le 1$) and decremental deletion with sibling child adoption ($\Delta \le 3$, Theorem~3.16).
+    
+    \item \textbf{Chapter~\ref{chap:experiments} (Experimental Evaluation, Benchmarks, and Empirical Analysis):} Describes the benchmarking methodology across 77 configurations, evaluates static scalability and memory compression, analyzes microsecond dynamic update latencies and speedup curves, presents mixed-workload evaluations, and validates the amortized break-even model.
+    
+    \item \textbf{Chapter~\ref{chap:conclusion} (Conclusion, Practical Applications, and Future Directions):} Summarizes the core thesis findings, details practical integration into compiler register allocation engines (LLVM/V8), discusses operational boundaries, and outlines promising future research directions.
+\end{itemize}

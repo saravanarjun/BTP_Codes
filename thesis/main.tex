@@ -1,0 +1,109 @@
+\documentclass[12pt,a4paper]{report}
+
+% ------------------------------------------------------------
+% Geometry and Margins
+% ------------------------------------------------------------
+\usepackage[a4paper,
+            left=1.25in,
+            right=1.0in,
+            top=1.0in,
+            bottom=1.0in]{geometry}
+
+% ------------------------------------------------------------
+% Typography and Spacing
+% ------------------------------------------------------------
+\usepackage{setspace}
+\usepackage{times}
+\usepackage{microtype}
+\onehalfspacing
+
+% ------------------------------------------------------------
+% Mathematical Packages
+% ------------------------------------------------------------
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+
+% ------------------------------------------------------------
+% Graphics, Tables, and Formatting
+% ------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{url}
+
+% ------------------------------------------------------------
+% Algorithmic Packages
+% ------------------------------------------------------------
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% ------------------------------------------------------------
+% TikZ and Vector Graphics
+% ------------------------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds,calc}
+
+% ------------------------------------------------------------
+% Hyperlinks and Cross-Referencing
+% ------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=green!50!black,
+    urlcolor=blue!80!black,
+    pdftitle={Dynamic Graph Algorithms on Proper Interval Graphs: Structural Characterizations, Maximal Clique Maintenance, and Algorithmic Bounds},
+    pdfauthor={K. Saravanarjun}
+}
+\usepackage{cleveref}
+
+% ------------------------------------------------------------
+% Theorem Environments
+% ------------------------------------------------------------
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{observation}[theorem]{Observation}
+
+% ------------------------------------------------------------
+% Document Body
+% ------------------------------------------------------------
+\begin{document}
+
+% Front Matter (Title Page, Certificate, Declaration, Acknowledgements, Abstract, TOC, LOF, LOT)
+\input{chapters/frontmatter.tex}
+
+% Chapter 1: Introduction and Research Motivation
+\input{chapters/chap1_intro.tex}
+
+% Chapter 2: Preliminaries and Distance Trees on Proper Interval Graphs
+\input{chapters/chap2_prelim.tex}
+
+% Chapter 3: Structural Analysis and Combinatorial Bounds
+\input{chapters/chap3_structure.tex}
+
+% Chapter 4: Dynamic Maximal Clique Maintenance Algorithms
+\input{chapters/chap4_dynamic.tex}
+
+% Chapter 5: Experimental Evaluation, Benchmarks, and Empirical Analysis
+\input{chapters/chap5_experiments.tex}
+
+% Chapter 6: Conclusion, Practical Applications, and Future Directions
+\input{chapters/chap6_conclusion.tex}
+
+% ------------------------------------------------------------
+% Bibliography
+% ------------------------------------------------------------
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
