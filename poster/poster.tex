@@ -170,25 +170,35 @@
 % =========================================================================
 \begin{column}{0.322\textwidth}
 
-    % Box 1: Motivation & Problem Statement
-    \begin{posterbox}{1. Motivation \& Problem Statement}
-        {\fontsize{9.2}{11.2}\selectfont
-        \textbf{Proper Interval Graphs (PIGs):} A graph is a proper interval graph if it admits an interval representation in which no interval properly contains another ($l_u < l_v \iff r_u < r_v$).
+    % Box 1: Preliminaries & Research Motivation
+    \begin{posterbox}{1. Preliminaries \& Research Motivation}
+        {\fontsize{9.0}{11.0}\selectfont
+        \textbf{Interval Graphs:} A graph $G = (V, E)$ is an \emph{interval graph} if each vertex $v \in V$ can be represented by a closed interval $I_v = [l_v, r_v] \subset \mathbb{R}$ such that $uv \in E \iff I_u \cap I_v \ne \emptyset$. In general interval graphs, intervals may contain one another ($I_v \subset I_u$), which breaks endpoint ordering and permits intricate, non-linear clique structures.
 
-        \textbf{Compiler Design Application --- Register Allocation:}
-        \begin{itemize}\setlength{\itemsep}{1.0pt}
-            \item In optimizing compilers, \textbf{interference graphs} model conflicts between simultaneously live variables. Maximal clique structures reveal minimum register pressure and allocation constraints.
-            \item \textbf{Class Restriction:} While general interference graphs can be arbitrary, our algorithms provide sub-microsecond clique maintenance whenever the interference graph \textbf{belongs to the proper interval graph class} (e.g., straight-line code, uniform register lifespans).
-        \end{itemize}
+        \textbf{Proper Interval Graphs (PIGs):} An interval graph is \emph{proper} if no interval properly contains another ($I_u \not\subset I_v$). Sorting vertices by left endpoints strictly orders right endpoints:
+        \begin{equation*}
+            l_u < l_v \iff r_u < r_v
+        \end{equation*}
+        This fundamental monotonicity restricts the number of maximal cliques to at most $n$ (compared to exponential in general graphs).
 
+        \vspace{1.5pt}
+        {\centering
+        \includegraphics[width=\linewidth, height=2.8cm, keepaspectratio]{poster/figures/fig_preliminaries.pdf}\par
+        \vspace{1pt}
+        {\fontsize{7.2}{8.5}\selectfont \color{textMuted} \textbf{Figure 0:} (a) Containment in general interval graphs; (b) Strict ordering in proper interval graphs; (c) Distance tree $T(G)$.}\par
+        }
+        \vspace{2pt}
+
+        \raggedright
+        \textbf{Canonical Distance Tree $T(G)$:}
+        For vertices sorted by left endpoints $v_1, \dots, v_n$, $T(G)$ is the canonical BFS shortest-path tree rooted at $v_1$. For any $v \ne v_1$, its canonical parent is the earliest-starting reaching neighbor:
+        $p(v) = \arg\min_{u < v} \{ l_u \mid r_u \ge l_v \}$ (deterministic tie-breaking to lowest index).
+
+        \vspace{1.5pt}
         \begin{subbox}
-            \textbf{Core Research Problem:}
+            \textbf{Core Research Motivation:}
             \textit{``How can the structural properties of proper interval graphs be exploited to characterize maximal cliques and efficiently compute and maintain them under dynamic graph updates?''}
         \end{subbox}
-
-        \textbf{Distance-Tree Framework:}
-        For vertices sorted by left endpoints $v_1, \dots, v_n$, $T(G)$ is the BFS shortest-path tree rooted at $v_1$. For any $v \ne v_1$, its canonical parent is the earliest-starting reaching neighbor:
-        $p(v) = \arg\min_{u < v} \{ l_u \mid r_u \ge l_v \}$ (deterministic tie-breaking to lowest index).
         }
     \end{posterbox}
 
@@ -243,11 +253,11 @@
             $[[\text{$u$ not leaf}]] + [[\text{$u$ not root}]] + [[\text{$u$ not root}]] \cdot (\#\text{right siblings of } p(u)) + (\#\text{non-leaf left siblings of } u)$.
         \end{lemmabox}
 
-        \vspace{1pt}
+        \vspace{0.8pt}
         \centering
-        \includegraphics[width=\linewidth, height=3.8cm, keepaspectratio]{poster/figures/fig_distance_tree.pdf}\par
-        \vspace{1pt}
-        {\fontsize{8}{10}\selectfont \color{textMuted} \textbf{Figure 1:} Proper intervals mapped to canonical distance tree $T(G)$, illustrating level cliques, child adjacency, and parent bijection.}\par
+        \includegraphics[width=0.94\linewidth, height=2.4cm, keepaspectratio]{poster/figures/fig_distance_tree.pdf}
+        \vspace{0.5pt}
+        {\fontsize{7.5}{9}\selectfont \color{textMuted} \textbf{Figure 1:} Proper intervals mapped to canonical distance tree $T(G)$, illustrating level cliques and child adjacency.}
     \end{posterbox}
 
     % Box 3: Maximal Clique Characterization & Static Algorithm
@@ -255,7 +265,11 @@
 
         \begin{highlightbox}
             \textbf{Lemma 3.15 (Interval Representation of Maximal Cliques):}
-            Let $G$ be a proper interval graph and $T(G)$ its distance tree. Every maximal clique of $G$ can be represented by an interval of the form $[\ell_1, \ell_2] = [\ell_p, \ell_c]$, denoting all vertices whose left endpoints lie in $[\ell_p, \ell_c]$, where $\ell_p$ is the left endpoint of a parent node $p$ and $\ell_c$ is the left endpoint of its rightmost child $c(p)$.
+            Let $G$ be a proper interval graph and $T(G)$ its distance tree. Every maximal clique of $G$ can be represented by an interval of the form:
+            \begin{equation*}
+                [\ell_1, \ell_2] = [\ell_p, \ell_c]
+            \end{equation*}
+            denoting all vertices whose left endpoints lie in $[\ell_p, \ell_c]$, where $\ell_p$ is the left endpoint of a parent node $p$ and $\ell_c$ is the left endpoint of its rightmost child $c(p)$.
         \end{highlightbox}
 
         \textbf{Structural Bijection \& Compact Descriptors:}
@@ -317,8 +331,7 @@
                 \item \textbf{Leaf Insertion:} Newly inserted interval $v_{n+1}$ attaches at the right boundary.
                 \item \textbf{Parent Search:} Binary search locates $p(v_{n+1}) = \arg\min \{l_u \mid r_u \ge l_{v_{n+1}}\}$ in $\mathcal{O}(\log n)$ time.
                 \item \textbf{Descriptor Update:}
-                \begin{itemize}\setlength{\itemsep}{0.6pt}
-                    \fontsize{8.2}{10.2}\selectfont
+                \begin{itemize}\setlength{\itemsep}{0.2pt}
                     \item If $p$ was already a parent: update descriptor \textbf{only if} $v_{n+1}$ becomes the new rightmost child of $p$ (extend $C(p) \leftarrow [p, v_{n+1}]$); otherwise descriptor remains unchanged.
                     \item If $p$ was a leaf: add new descriptor $C(p) \leftarrow [p, v_{n+1}]$.
                 \end{itemize}
@@ -332,8 +345,7 @@
             \begin{itemize}\setlength{\itemsep}{2.0pt}
                 \fontsize{8.8}{11.4}\selectfont
                 \item \textbf{Vertex Deletion:} Deleting vertex $u$:
-                \begin{itemize}\setlength{\itemsep}{0.6pt}
-                    \fontsize{8.2}{10.2}\selectfont
+                \begin{itemize}\setlength{\itemsep}{0.2pt}
                     \item If $u$ is a leaf: update $p(u)$ boundary ($\le 1$ edit).
                     \item If $u$ is an internal parent: its children are adopted by $v$, the \textbf{right sibling of the predecessor}.
                 \end{itemize}
@@ -344,11 +356,11 @@
             \end{itemize}
         \end{minipage}
 
-        \vspace{2.5pt}
+        \vspace{1.5pt}
         \centering
-        \includegraphics[width=0.96\linewidth, height=6.6cm, keepaspectratio]{poster/figures/fig_dynamic_adoption.pdf}\par
+        \includegraphics[width=0.96\linewidth, height=4.2cm, keepaspectratio]{poster/figures/fig_dynamic_adoption.pdf}
         \vspace{1pt}
-        {\fontsize{7.5}{9}\selectfont \color{textMuted} \textbf{Figure 3:} Decremental vertex deletion and sibling child adoption in $T(G)$, bounding descriptor updates to $\le 3$.}\par
+        {\fontsize{7.5}{9}\selectfont \color{textMuted} \textbf{Figure 3:} Decremental vertex deletion and sibling child adoption in $T(G)$, bounding descriptor updates to $\le 3$.}
 
         \vspace{2pt}
         \begin{subbox}
@@ -361,7 +373,6 @@
         \end{subbox}
     \end{posterbox}
 
-    \vspace{6pt}
     % Box 5: Maximum Independent Set & MDS
     \begin{posterbox}{5. Maximum Independent Set \& Dominating Set}
         \textbf{Structural Bounds on Distance Trees:}
@@ -373,33 +384,44 @@
         \end{itemize}
 
         \vspace{2pt}
-        \begin{minipage}[t]{0.55\linewidth}
+        \begin{subbox}
+            \textbf{DP State Definition (Maximum Independent Set):}\\[1.5pt]
+            {\fontsize{8.0}{9.8}\selectfont
+            $\bullet$ \textbf{State:} $DP[i][v] = $ size of maximum independent set ending at vertex $v \in L_i$.\\
+            $\bullet$ \textbf{Level Global Best:} $BEST[i] = \max_{j \le i} \max_{u \in L_j} DP[j][u]$ (optimal MIS up to depth level $L_i$).\\
+            $\bullet$ \textbf{Prefix Accumulator:} $PREFIX[i][k] = \max_{j \le k} DP[i][u_j]$ (prefix-max of level $L_i$ to query in $\mathcal{O}(1)$).
+            }
+        \end{subbox}
+
+        \vspace{2pt}
+        \begin{minipage}[t]{0.60\linewidth}
             \begin{subbox}
-                \textbf{Algorithm 1: MIS Dynamic Programming}\par\vspace{2pt}
-                {\fontsize{7.8}{9.8}\selectfont
-                \textbf{1:} $BEST[0] \leftarrow 0$; $DP[1][r] \leftarrow 1$; $BEST[1] \leftarrow 1$\\
-                \textbf{2:} Construct $PREFIX[1]$ from $DP[1]$\\
-                \textbf{3:} \textbf{for} $i = 2$ to $h$ \textbf{do}\\
-                \textbf{4:} \quad \textbf{for each} $v \in L_i$ left-to-right \textbf{do}\\
-                \textbf{5:} \quad\quad $p \leftarrow parent(v); \; k \leftarrow pos(p)$\\
+                \textbf{Algorithm 1: MIS Dynamic Programming on $T(G)$}\par\vspace{1.5pt}
+                {\fontsize{7.5}{9.4}\selectfont
+                \textbf{1:} $BEST[0] \leftarrow 0$; $DP[1][r] \leftarrow 1$; $BEST[1] \leftarrow 1$ $\;\to\;$ \textsl{Base case at root vertex $r$}\\
+                \textbf{2:} Construct $PREFIX[1]$ from $DP[1]$ $\;\to\;$ \textsl{Initialize root level prefix-max table}\\
+                \textbf{3:} \textbf{for} $i = 2$ \textbf{to} $h$ \textbf{do} $\;\to\;$ \textsl{Iterate distance levels top-down}\\
+                \textbf{4:} \quad \textbf{for each} $v \in L_i$ left-to-right \textbf{do} $\;\to\;$ \textsl{Process nodes in left-endpoint order}\\
+                \textbf{5:} \quad\quad $p \leftarrow parent(v); \; k \leftarrow pos(p)$ $\;\to\;$ \textsl{Locate canonical parent and rank in $L_{i-1}$}\\
                 \textbf{6:} \quad\quad $DP[i][v] \leftarrow 1 + \max\{BEST[i-2], PREFIX[i-1][k-1]\}$\\
-                \textbf{7:} \quad Construct $PREFIX[i]$ from $DP[i]$\\
-                \textbf{8:} \quad $BEST[i] \leftarrow \max\{BEST[i-1], \max_{v \in L_i} DP[i][v]\}$\\
-                \textbf{9:} \textbf{return} $BEST[h]$
-                }\par
+                \quad\quad\quad $\;\to\;$ \textsl{Optimal non-adjacent predecessor (Lemma 3.2 \& 3.6)}\\
+                \textbf{7:} \quad Construct $PREFIX[i]$ from $DP[i]$ $\;\to\;$ \textsl{Compute prefix-max in $\mathcal{O}(|L_i|)$ time}\\
+                \textbf{8:} \quad $BEST[i] \leftarrow \max\{BEST[i-1], \max_{v \in L_i} DP[i][v]\}$ $\;\to\;$ \textsl{Maintain running optimum}\\
+                \textbf{9:} \textbf{return} $BEST[h]$ $\;\to\;$ \textsl{Return exact $\alpha(G)$ in optimal $\mathcal{O}(n)$ time}
+                }
             \end{subbox}
-            \vspace{2pt}
-            {\fontsize{8}{9.6}\selectfont
-            $\bullet$ \textbf{Exact Complexity:} $\mathcal{O}(n)$ time, $\mathcal{O}(n)$ space.\quad
-            $\bullet$ \textbf{Prefix Accumulator:} Avoids interval trees.
+            \vspace{1.5pt}
+            {\fontsize{7.8}{9.6}\selectfont
+            $\bullet$ \textbf{Exact Linear Complexity:} $\mathcal{O}(n)$ time, $\mathcal{O}(n)$ space; optimal without heavy search trees.\\
+            $\bullet$ \textbf{Prefix Accumulation:} Eliminates interval trees, achieving instant $\mathcal{O}(1)$ predecessor queries.
             }
         \end{minipage}
         \hfill
-        \begin{minipage}[t]{0.43\linewidth}
+        \begin{minipage}[t]{0.38\linewidth}
             \centering
-            \includegraphics[width=\linewidth, height=4.8cm, keepaspectratio]{poster/figures/fig_mis_dp.pdf}\par
+            \includegraphics[width=\linewidth, height=3.6cm, keepaspectratio]{poster/figures/fig_mis_dp.pdf}\par
             \vspace{1pt}
-            {\fontsize{7.5}{9}\selectfont \color{textMuted} \textbf{Figure 4:} MIS DP transitions.}\par
+            {\centering {\fontsize{7.5}{9}\selectfont \color{textMuted} \textbf{Figure 4:} MIS DP transitions.}\par}
         \end{minipage}
 
         \vspace{2pt}
@@ -435,19 +457,20 @@
         \vspace{1.5pt}
         \begin{minipage}[t]{0.485\linewidth}
             \centering
-            \includegraphics[width=\linewidth, height=4.4cm, keepaspectratio]{poster/figures/plot_static_scalability.pdf}
+            \includegraphics[width=\linewidth, height=6.2cm, keepaspectratio]{poster/figures/plot_static_scalability.pdf}
         \end{minipage}
         \hfill
         \begin{minipage}[t]{0.485\linewidth}
             \centering
-            \includegraphics[width=\linewidth, height=4.4cm, keepaspectratio]{poster/figures/plot_dynamic_speedup.pdf}
+            \includegraphics[width=\linewidth, height=6.2cm, keepaspectratio]{poster/figures/plot_dynamic_speedup.pdf}
         \end{minipage}
 
         \vspace{1pt}
         {\fontsize{7.5}{9}\selectfont \color{textMuted} \textbf{Figure 5:} (Left) Static scaling up to $n=10^6$ showing $\mathcal{O}(n+m)$ vs exponential Bron-Kerbosch. (Right) Dynamic update latency ($0.34 - 1.32\ \mu\text{s}$) and speedup factor over full recomputation.}
 
-        \vspace{2pt}
-        {\fontsize{8}{9.5}\selectfont
+        \vspace{2.5pt}
+        {\fontsize{8.2}{10.0}\selectfont
+        \renewcommand{\arraystretch}{1.18}
         \begin{tabularx}{\linewidth}{@{}lrrrr@{}}
             \toprule
             \textbf{Graph Size ($n$)} & \textbf{Algorithm A (Tree)} & \textbf{Sweep-Line (Alg C)} & \textbf{Dynamic Update} & \textbf{Speedup} \\
@@ -459,43 +482,45 @@
             $n=1,000,000$ & $421.3$ ms & $128.4$ ms & $\mathbf{0.55\ \mu\text{s}}$ & $\mathbf{234,000\times}$ \\
             \bottomrule
         \end{tabularx}
-        \par\vspace{1.5pt}
-        {\fontsize{6.8}{8.2}\selectfont \color{textMuted} Measured on $10^6$-vertex proper interval graph ($0.55\ \mu\text{s}$ mean latency across 100 sequential updates).}
+        \par\vspace{2pt}
+        {\fontsize{7.0}{8.5}\selectfont \color{textMuted} Measured on $10^6$-vertex proper interval graph ($0.55\ \mu\text{s}$ mean latency across 100 sequential updates).}
         }
     \end{posterbox}
 
+    \vspace{30pt}
     % Box 7: Break-Even Analysis
     \begin{posterbox}{7. Amortized Break-Even Analysis}
-        \begin{minipage}[t]{0.56\linewidth}
+        \begin{minipage}[c]{0.58\linewidth}
             \centering
-            \includegraphics[width=\linewidth, height=8.8cm, keepaspectratio]{poster/figures/plot_break_even.pdf}\par
+            \includegraphics[width=\linewidth, height=12.0cm, keepaspectratio]{poster/figures/plot_break_even.pdf}
             \vspace{2pt}
-            {\fontsize{8.5}{10.5}\selectfont \color{textMuted} \textbf{Figure 6:} Amortized crossover showing dynamic distance tree becoming faster than recomputation at $K^* = 4$.}\par
+            {\fontsize{8}{10}\selectfont \color{textMuted} \textbf{Figure 6:} Amortized crossover showing dynamic distance tree becoming faster than recomputation at $K^* = 4$.}
         \end{minipage}
         \hfill
-        \begin{minipage}[t]{0.42\linewidth}
+        \begin{minipage}[c]{0.405\linewidth}
             \begin{highlightbox}
-                \textbf{Amortized Break-Even Model:}\par\vspace{2pt}
+                \textbf{Amortized Break-Even Model:}
                 \begin{equation*}
                     K^* = \left\lceil \frac{T_{\text{build}}(A)}{T_{\text{recomp}}(C) - T_{\text{dyn}}(A)} \right\rceil = 4
                 \end{equation*}
                 Across all benchmarked graph sizes ($n \in \{50, 1000, 5000\}$), the initial distance tree construction is amortized after only \textbf{$K^* = 4$ update operations}!
             \end{highlightbox}
-            \vspace{3pt}
-            \begin{itemize}\setlength{\itemsep}{3.5pt}
-                \fontsize{8.8}{11.4}\selectfont
-                \item \textbf{Batch Updates:} In interactive systems with streaming graph updates, dynamic maintenance outperforms the fastest sweep-line recomputation after just 4 mutations.
-                \item \textbf{Scale Invariance:} The ratio $T_{\text{build}} / T_{\text{recomp}}$ remains virtually constant ($\approx 3.3 - 3.8$), guaranteeing predictable amortized performance across all graph scales.
-            \end{itemize}
+            \vspace{6pt}
+            {\fontsize{9.0}{11.8}\selectfont
+            $\bullet$ \textbf{Batch Updates:} In interactive systems with streaming graph updates, dynamic maintenance outperforms the fastest sweep-line recomputation after just 4 mutations.\\[6pt]
+            $\bullet$ \textbf{Scale Invariance:} The ratio $T_{\text{build}} / T_{\text{recomp}}$ remains virtually constant ($\approx 3.3 - 3.8$), guaranteeing predictable amortized performance across all graph scales.
+            }
         \end{minipage}
     \end{posterbox}
 
+    \vspace{33pt}
     % Box 8: Research Summary & Future Directions
     \begin{posterbox}{8. Key Contributions \& Future Directions}
+        \vspace{2pt}
         \begin{minipage}[t]{0.485\linewidth}
             \textbf{\color{subHeaderNavy}Core Thesis Contributions:}
-            \begin{itemize}\setlength{\itemsep}{0.8pt}
-                \scriptsize
+            \begin{itemize}\setlength{\itemsep}{5.0pt}
+                \fontsize{8.6}{11.0}\selectfont
                 \item \textbf{Structural Foundation:} Characterized proper interval graphs via canonical distance trees; established level cliques (Thm 3.7) and maximal clique bijection (Lemma 3.8, 3.15).
                 \item \textbf{Dynamic Algorithms:} Designed sub-microsecond incremental ($\mathcal{O}(\log n)$) and decremental ($\le 3$ edits) clique maintenance.
                 \item \textbf{Optimization \& Bounds:} Formulated linear $\mathcal{O}(n)$ exact DP for MIS and proved tight bounds for MIS and MDS.
@@ -504,13 +529,14 @@
         \hfill
         \begin{minipage}[t]{0.485\linewidth}
             \textbf{\color{subHeaderNavy}Future Directions \& Applications:}
-            \begin{itemize}\setlength{\itemsep}{0.8pt}
-                \scriptsize
+            \begin{itemize}\setlength{\itemsep}{5.0pt}
+                \fontsize{8.6}{11.0}\selectfont
                 \item \textbf{Compiler Integration:} Dynamic register allocation in JIT compilers (LLVM/V8) for straight-line and streaming SSA blocks.
                 \item \textbf{Broader Classes:} Generalization of distance-tree invariants to circular-arc, permutation, and tolerance graphs.
                 \item \textbf{Weighted Cliques:} Extension of descriptor intervals to maximum weighted cliques in vertex-weighted proper interval graphs.
             \end{itemize}
         \end{minipage}
+        \vspace{2pt}
     \end{posterbox}
 
 \end{column}

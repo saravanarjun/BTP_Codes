@@ -11,8 +11,9 @@ checks = [
     'K. Saravanarjun',
     'Dr. Manas Jyothi Kashyop',
     'Indian Institute of Technology Bhubaneswar',
-    '1. Motivation & Problem Statement',
-    'Register Allocation',
+    '1. Preliminaries & Research Motivation',
+    'Interval Graphs',
+    'Proper Interval Graphs',
     '2. Core Structural Findings',
     'Lemma 3.1',
     'Lemma 3.2',
@@ -40,13 +41,14 @@ checks = [
     'K* = 4'
 ]
 
+norm_text = ' '.join(text.split())
 all_passed = True
 for c in checks:
     matched = False
     if c == 'K* = 4':
         matched = any(k in text for k in ['K* = 4', 'K * = 4', 'K∗= 4'])
     else:
-        matched = c in text
+        matched = c in text or c in norm_text
     status = 'PASS' if matched else 'FAIL'
     if not matched:
         all_passed = False

@@ -1,0 +1,21 @@
+# Build artifacts
+build/
+*.exe
+*.o
+*.obj
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Python cache & temporary inspection files
+__pycache__/
+*.pyc
+poster/scratch/

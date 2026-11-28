@@ -16,7 +16,7 @@
 
 \begin{document}
 \begin{tikzpicture}[
-    scale=1.05,
+    scale=1.0,
     >=Stealth,
     font=\sffamily,
     treeNode/.style={circle, draw=navy, fill=white, line width=1.5pt, minimum size=0.92cm, inner sep=0pt, font=\bfseries\small},
@@ -35,20 +35,20 @@
     \node[anchor=west, font=\bfseries\normalsize, text=navy] at (0.2, 3.8) {\textbf{(a) Before: Target Deletion of Parent $u \in T(G)$}};
 
     % Level k nodes (Parent Level)
-    \node[predNode] (p_bef) at (1.0, 2.2) {$p_{\text{pred}}$};
+    \node[predNode] (p_bef) at (1.2, 2.2) {$p_{\text{pred}}$};
     \node[above=2pt of p_bef, font=\tiny\bfseries, text=darkgray] {Predecessor};
 
-    \node[delNodeBef] (u_bef) at (3.2, 2.2) {$u$};
+    \node[delNodeBef] (u_bef) at (4.2, 2.2) {$u$};
     \node[above=2pt of u_bef, font=\tiny\bfseries, text=darkred] {Target to Delete};
 
-    \node[treeNode] (v_bef) at (5.4, 2.2) {$v$};
+    \node[treeNode] (v_bef) at (7.2, 2.2) {$v$};
     \node[above=2pt of v_bef, font=\tiny\bfseries, text=navy] {Right Sibling};
 
     % Level k+1 nodes (Children Level)
-    \node[treeNode] (c0_bef) at (1.0, 0.4) {$c_0$};
-    \node[treeNode] (w1_bef) at (2.6, 0.4) {$w_1$};
-    \node[treeNode] (w2_bef) at (3.8, 0.4) {$w_2$};
-    \node[treeNode] (cv_bef) at (5.4, 0.4) {$c_v$};
+    \node[treeNode] (c0_bef) at (1.2, 0.4) {$c_0$};
+    \node[treeNode] (w1_bef) at (3.6, 0.4) {$w_1$};
+    \node[treeNode] (w2_bef) at (4.8, 0.4) {$w_2$};
+    \node[treeNode] (cv_bef) at (7.2, 0.4) {$c_v$};
 
     % Tree Edges Before
     \draw[treeEdge] (p_bef) -- (c0_bef);
@@ -56,65 +56,65 @@
     \draw[delEdge] (u_bef) -- (w2_bef);
     \draw[treeEdge] (v_bef) -- (cv_bef);
 
-    % Descriptors Before
-    \node[draw=darkgray!40, fill=white, rounded corners=3pt, inner sep=3.5pt, font=\tiny] at (1.0, -0.6) {
+    % Descriptors Before (Generously spaced, zero overlap)
+    \node[draw=darkgray!40, fill=white, rounded corners=3pt, inner sep=3.5pt, font=\tiny] at (1.2, -0.65) {
         $C(p_{\text{pred}}) = [p_{\text{pred}}, c_0]$
     };
-    \node[draw=darkred!60, fill=softred, rounded corners=3pt, inner sep=3.5pt, font=\tiny\bfseries, text=darkred] at (3.2, -0.6) {
+    \node[draw=darkred!60, fill=softred, rounded corners=3pt, inner sep=3.5pt, font=\tiny\bfseries, text=darkred] at (4.2, -0.65) {
         $C(u) = [u, w_2]$ (\textbf{Active})
     };
-    \node[draw=navy!40, fill=white, rounded corners=3pt, inner sep=3.5pt, font=\tiny] at (5.4, -0.6) {
+    \node[draw=navy!40, fill=white, rounded corners=3pt, inner sep=3.5pt, font=\tiny] at (7.2, -0.65) {
         $C(v) = [v, c_v]$
     };
 
     % Central Transition Arrow
-    \draw[->, line width=2.4pt, draw=accentblue!70] (6.5, 1.4) -- (7.8, 1.4) 
+    \draw[->, line width=2.4pt, draw=accentblue!70] (8.3, 1.4) -- (10.1, 1.4) 
         node[midway, above=2pt, font=\bfseries\scriptsize, text=navy] {Delete $u$};
 
     % ========================================================
     % RIGHT PANEL: AFTER DELETION & ADOPTION
     % ========================================================
-    \node[anchor=west, font=\bfseries\normalsize, text=navy] at (8.4, 3.8) {\textbf{(b) After: Right Sibling of Predecessor $v$ Adopts Children}};
+    \node[anchor=west, font=\bfseries\normalsize, text=navy] at (10.6, 3.8) {\textbf{(b) After: Right Sibling of Predecessor $v$ Adopts Children}};
 
     % Level k nodes (After)
-    \node[predNode] (p_aft) at (9.2, 2.2) {$p_{\text{pred}}$};
+    \node[predNode] (p_aft) at (11.6, 2.2) {$p_{\text{pred}}$};
     \node[above=2pt of p_aft, font=\tiny\bfseries, text=darkgray] {Predecessor};
 
-    \node[delNodeAft] (u_aft) at (11.4, 2.2) {$\times$};
+    \node[delNodeAft] (u_aft) at (14.6, 2.2) {$\times$};
     \node[above=2pt of u_aft, font=\tiny\bfseries, text=darkred] {Deleted};
 
-    \node[adoptNode] (v_aft) at (13.6, 2.2) {$v$};
+    \node[adoptNode] (v_aft) at (17.6, 2.2) {$v$};
     \node[above=2pt of v_aft, font=\tiny\bfseries, text=darkgreen] {Adopting Sibling};
 
     % Level k+1 nodes (After)
-    \node[treeNode] (c0_aft) at (9.2, 0.4) {$c_0$};
-    \node[treeNode] (w1_aft) at (10.8, 0.4) {$w_1$};
-    \node[treeNode] (w2_aft) at (12.0, 0.4) {$w_2$};
-    \node[treeNode] (cv_aft) at (13.6, 0.4) {$c_v$};
+    \node[treeNode] (c0_aft) at (11.6, 0.4) {$c_0$};
+    \node[treeNode] (w1_aft) at (14.0, 0.4) {$w_1$};
+    \node[treeNode] (w2_aft) at (15.2, 0.4) {$w_2$};
+    \node[treeNode] (cv_aft) at (17.6, 0.4) {$c_v$};
 
     % Tree Edges After
     \draw[treeEdge] (p_aft) -- (c0_aft);
     \draw[treeEdge] (v_aft) -- (cv_aft);
     \draw[newEdge] (v_aft) to[bend left=16] (w1_aft);
-    \draw[newEdge] (v_aft) to[bend left=22] (w2_aft);
-    \node[font=\tiny\bfseries, text=darkgreen, fill=softgreen!80, rounded corners=2pt, inner sep=1.5pt] at (12.4, 1.25) {Adopted};
+    \draw[newEdge] (v_aft) to[bend left=20] (w2_aft);
+    \node[font=\tiny\bfseries, text=darkgreen, fill=softgreen!80, rounded corners=2pt, inner sep=2pt] at (16.0, 1.25) {Adopted};
 
-    % Descriptors After
-    \node[draw=darkgray!40, fill=white, rounded corners=3pt, inner sep=3.5pt, font=\tiny] at (9.2, -0.6) {
+    % Descriptors After (Generously spaced, zero overlap)
+    \node[draw=darkgray!40, fill=white, rounded corners=3pt, inner sep=3.5pt, font=\tiny] at (11.6, -0.65) {
         $C(p_{\text{pred}}) = [p_{\text{pred}}, c_0]$
     };
-    \node[draw=darkred, fill=softred, rounded corners=3pt, inner sep=3.5pt, font=\tiny\bfseries, text=darkred] at (11.4, -0.6) {
+    \node[draw=darkred, fill=softred, rounded corners=3pt, inner sep=3.5pt, font=\tiny\bfseries, text=darkred] at (14.6, -0.65) {
         \textbf{Removed:} $C(u) \leftarrow \emptyset$
     };
-    \node[draw=darkgreen, fill=softgreen, rounded corners=3pt, inner sep=3.5pt, font=\tiny\bfseries, text=darkgreen] at (13.6, -0.6) {
+    \node[draw=darkgreen, fill=softgreen, rounded corners=3pt, inner sep=3.5pt, font=\tiny\bfseries, text=darkgreen] at (17.6, -0.65) {
         \textbf{Extended:} $C(v) \leftarrow [v, c_v]$
     };
 
     % ========================================================
     % BOTTOM SUMMARY BANNER (Clean, Professional, No Audit Text)
     % ========================================================
-    \node[draw=accentblue!40, fill=softblue!40, rounded corners=5pt, line width=0.9pt, anchor=north, inner sep=6pt, text width=14.4cm] 
-        at (7.4, -1.25) {
+    \node[draw=accentblue!40, fill=softblue!40, rounded corners=5pt, line width=0.9pt, anchor=north, inner sep=6pt, text width=17.6cm] 
+        at (9.4, -1.25) {
         \centering
         \textbf{\small Theorem 3.16 (Dynamic Deletion Restructuring):}
         Deleting an admissible vertex induces at most \textbf{3 descriptor modifications} in the worst case:\\[2pt]
